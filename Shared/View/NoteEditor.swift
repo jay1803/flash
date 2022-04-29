@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NoteEditor: View {
     @EnvironmentObject var viewModel: NoteListViewModel
+    private let initHeight: CGFloat = 40
     
     @State private var inputText: String = ""
     @State private var height: CGFloat = 40
@@ -23,7 +24,7 @@ struct NoteEditor: View {
                 .onChange(of: self.inputText, perform: { value in
                     withAnimation(.easeInOut(duration: 0.1), {
                         if lineNumberOf(text: value) > 0 {
-                            height = CGFloat(40 + 25 * lineNumberOf(text: value))
+                            height = initHeight + CGFloat(25 * lineNumberOf(text: value))
                         }
                     })
                 })
@@ -31,6 +32,7 @@ struct NoteEditor: View {
             Button(action: {
                 viewModel.create(content: inputText)
                 inputText = ""
+                height = initHeight
             }) {
                 Image(systemName: "arrow.up.circle.fill")
                     .resizable()
