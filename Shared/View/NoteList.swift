@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct NoteList: View {
-    @ObservedObject var viewModel: NoteListViewModel = NoteListViewModel()
+    @EnvironmentObject var viewModel: NoteListViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.notes) { note in
-                Text(note.content)
+        VStack {
+            List {
+                ForEach(viewModel.notes) { note in
+                    Text(note.content)
+                }
             }
+            .listStyle(.inset)
+            .navigationTitle("Notes")
+            
+            NoteEditor()
         }
-        .listStyle(.inset)
-        .navigationTitle("Notes")
-        .navigationBarItems(trailing: Button("Add", action: {
-            print("Add button pressed...")
-        }))
     }
 }
 

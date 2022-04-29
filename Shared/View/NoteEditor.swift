@@ -8,30 +8,40 @@
 import SwiftUI
 
 struct NoteEditor: View {
+    @EnvironmentObject var viewModel: NoteListViewModel
+    
     @State private var inputText: String = ""
+    @State private var height: CGFloat = 40
+    
     var body: some View {
         HStack {
-            TextField("Note content...", text: $inputText)
-                .frame(height: 50)
-                .padding(.leading)
-                .padding(.trailing)
-                .cornerRadius(10)
-                .border(Color(UIColor.separator))
+            TextEditor(text: $inputText)
+                .frame(height: height)
+                .lineSpacing(5)
+                .keyboardType(.default)
+                .padding(.horizontal, 10)
                 
             Button(action: {
-                print("Send button pressed...")
+                viewModel.create(content: inputText)
+                inputText = ""
             }) {
-                Label("Send", systemImage: "paperplane.fill")
+                Image(systemName: "arrow.up.circle.fill")
+                    .resizable()
+                    .frame(width: 36, height: 36)
+                    .padding(.trailing, 2)
+                    .foregroundColor(.green)
             }
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 5)
+        .overlay(
+        RoundedRectangle(cornerRadius: 20)
+            .stroke(.gray, lineWidth: 1))
+        .padding()
     }
 }
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
         NoteEditor()
-            .scaledToFit()
+            .environmentObject(NoteListViewModel())
     }
 }

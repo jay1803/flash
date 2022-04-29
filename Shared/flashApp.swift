@@ -9,7 +9,9 @@ import SwiftUI
 
 @main
 struct flashApp: App {
+    
     @StateObject var viewModel: NoteListViewModel = NoteListViewModel()
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
