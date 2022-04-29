@@ -20,6 +20,13 @@ struct NoteEditor: View {
                 .lineSpacing(5)
                 .keyboardType(.default)
                 .padding(.horizontal, 10)
+                .onChange(of: self.inputText, perform: { value in
+                    withAnimation(.easeInOut(duration: 0.1), {
+                        if lineNumberOf(text: value) > 0 {
+                            height = CGFloat(40 + 25 * lineNumberOf(text: value))
+                        }
+                    })
+                })
                 
             Button(action: {
                 viewModel.create(content: inputText)
@@ -36,6 +43,12 @@ struct NoteEditor: View {
         RoundedRectangle(cornerRadius: 20)
             .stroke(.gray, lineWidth: 1))
         .padding()
+        .frame(height: height)
+    }
+    
+    func lineNumberOf(text: String) -> Int {
+        let tok = text.components(separatedBy: "\n")
+        return tok.count - 1
     }
 }
 
