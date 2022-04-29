@@ -7,10 +7,11 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 struct Note: Codable, Identifiable {
     let id: String
-    let content: String?
+    let content: String
     let createdAt: Date
     let updatedAt: Date
     

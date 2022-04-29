@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct NoteList: View {
+    @ObservedObject var viewModel: NoteListViewModel = NoteListViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(viewModel.notes) { note in
+                Text(note.content)
+            }
+        }
+        .listStyle(.inset)
+        .navigationTitle("Notes")
+        .navigationBarItems(trailing: Button("Add", action: {
+            print("Add button pressed...")
+        }))
     }
 }
 
