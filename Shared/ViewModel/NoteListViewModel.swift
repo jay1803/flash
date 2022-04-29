@@ -19,4 +19,24 @@ final class NoteListViewModel: ObservableObject {
             Note(content: "This is third note")
         ]
     }
+    
+    func create(content: String) {
+        // create a note
+        let note = Note(content: content)
+        self.notes.append(note)
+    }
+    
+    func update(id: String, content: String) {
+        // update a note
+    }
+    
+    func delete(id: String) {
+        if let index = self.notes.firstIndex(where: { $0.id == id }) {
+            self.notes.remove(at: index)
+        }
+    }
+    
+    func comment(for id: String, with content: String) {
+        self.create(content: content)
+    }
 }

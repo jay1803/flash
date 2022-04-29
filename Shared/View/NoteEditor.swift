@@ -31,7 +31,7 @@ struct NoteEditor: View {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        NoteEditor()9
+        NoteEditor()
             .scaledToFit()
     }
 }
