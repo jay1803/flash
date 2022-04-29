@@ -15,12 +15,14 @@ struct NoteEditor: View {
     @State private var height: CGFloat = 40
     
     var body: some View {
-        HStack {
+        ZStack(alignment: .bottomTrailing) {
             TextEditor(text: $inputText)
                 .frame(height: height)
                 .lineSpacing(5)
                 .keyboardType(.default)
                 .padding(.horizontal, 10)
+                .background(.white)
+                .cornerRadius(20)
                 .onChange(of: self.inputText, perform: { value in
                     withAnimation(.easeInOut(duration: 0.1), {
                         if lineNumberOf(text: value) > 0 {
@@ -38,14 +40,17 @@ struct NoteEditor: View {
                     .resizable()
                     .frame(width: 36, height: 36)
                     .padding(.trailing, 2)
+                    .padding(.bottom, 2)
                     .foregroundColor(.green)
             }
         }
         .overlay(
-        RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: 20)
             .stroke(.gray, lineWidth: 1))
         .padding()
-        .frame(height: height)
+        .frame(height: height + CGFloat(10))
+        .background(Color(white: 0.8845))
+
     }
     
     func lineNumberOf(text: String) -> Int {
