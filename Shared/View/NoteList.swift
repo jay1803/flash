@@ -8,26 +8,26 @@
 import SwiftUI
 import RealmSwift
 
-struct NoteList: View {  
+struct NoteList: View {
     @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
     
     var body: some View {
+        
         ZStack(alignment: .bottomLeading) {
+            
             if notesFetched.isEmpty {
-                Spacer()
                 Text("Start to add some notes here...")
                     .font(.caption)
                     .foregroundColor(.gray)
             } else {
                 List {
                     ForEach(notesFetched) { note in
-                        Text(note.content)
+                        NoteRow(note: note)
                     }
                 }
                 .listStyle(.inset)
                 .padding(.bottom, 48)
             }
-//            Spacer()
             
             NoteEditor()
         }
