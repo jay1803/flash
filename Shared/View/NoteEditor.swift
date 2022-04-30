@@ -11,56 +11,73 @@ import RealmSwift
 struct NoteEditor: View {
     @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
     
-    private let initHeight: CGFloat = 36
+    private let initHeight: CGFloat = 38
     
     @State private var inputText: String = ""
-    @State private var height: CGFloat = 36
+    @State private var height: CGFloat = CGFloat()
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            TextEditor(text: $inputText)
-                .frame(height: height)
-                .lineSpacing(5)
-                .keyboardType(.default)
-                .padding(.horizontal, 10)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
-                .cornerRadius(20)
-                .onChange(of: self.inputText, perform: { value in
-                    withAnimation(.easeInOut(duration: 0.1), {
-                        if lineNumberOf(text: value) > 0 {
-                            height = initHeight + CGFloat(25 * lineNumberOf(text: value))
-                        }
-                    })
+        ZStack(alignment: .leading) {
+            
+            Text(inputText.isEmpty ? " " : inputText)
+                .lineLimit(10)
+                .padding(.leading, 15)
+                .padding(.trailing, 42)
+                .foregroundColor(.clear)
+                .background(GeometryReader {
+                    Color.clear.preference(key: ViewHeightKey.self,
+                                           value: $0.frame(in: .local).size.height)
                 })
+                .fixedSize(horizontal: false, vertical: true)
+
+            ZStack(alignment: .bottomTrailing) {
                 
-                
-            Button(action: {
-                let note = Note(content: inputText)
-                $notesFetched.append(note)
-//                viewModel.create(content: inputText)
-                inputText = ""
-                height = initHeight
-            }) {
-                Image(systemName: "arrow.up.circle.fill")
-                    .resizable()
-                    .frame(width: 32, height: 32)
-                    .padding(.trailing, 2)
-                    .padding(.bottom, 2)
-                    .foregroundColor(.green)
+                TextEditor(text: $inputText)
+                    .frame(height: height)
+                    .frame(minHeight: initHeight)
+                    .padding(.leading, 10)
+                    .padding(.trailing, 36)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
+                    .cornerRadius(initHeight / 2)
+                    
+                Button(action: {
+                    let note = Note(content: inputText)
+                    $notesFetched.append(note)
+                    inputText = ""
+                    height = initHeight
+                }) {
+                    Image(systemName: "arrow.up.circle.fill")
+                        .resizable()
+                        .frame(width: initHeight - CGFloat(4), height: initHeight - CGFloat(4))
+                        .padding(.trailing, 2)
+                        .padding(.bottom, 2)
+                        .foregroundColor(.green)
+                }
             }
         }
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
-            .stroke(.gray, lineWidth: 1))
-        .padding()
+            RoundedRectangle(cornerRadius: initHeight / 2)
+            .stroke(Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
+        .padding(.horizontal, 16)
+        .padding(.vertical, 4)
         .frame(height: height + CGFloat(10))
-        .background(Color(white: 0.8845))
-
+        .frame(minHeight: initHeight + CGFloat(10))
+        .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
+        .onPreferenceChange(ViewHeightKey.self) { height = $0 }
     }
-    
-    func lineNumberOf(text: String) -> Int {
-        let tok = text.components(separatedBy: "\n")
-        return tok.count - 1
+}
+
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+}
+
+struct ViewHeightKey: PreferenceKey {
+    static var defaultValue: CGFloat { 18 }
+    static func reduce(value: inout Value, nextValue: () -> Value) {
+        value = value + nextValue()
     }
 }
 

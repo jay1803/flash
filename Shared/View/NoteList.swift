@@ -12,8 +12,9 @@ struct NoteList: View {
     @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
     
     var body: some View {
-        VStack {
+        ZStack(alignment: .bottomLeading) {
             if notesFetched.isEmpty {
+                Spacer()
                 Text("Start to add some notes here...")
                     .font(.caption)
                     .foregroundColor(.gray)
@@ -24,12 +25,17 @@ struct NoteList: View {
                     }
                 }
                 .listStyle(.inset)
-                .navigationTitle("Notes")
-                
+                .padding(.bottom, 48)
             }
-            Spacer()
+//            Spacer()
+            
             NoteEditor()
         }
+        .navigationTitle("Notes")
+        .onTapGesture {
+            hideKeyboard()
+        }
+
     }
 }
 
