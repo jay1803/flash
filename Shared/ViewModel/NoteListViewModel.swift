@@ -30,12 +30,6 @@ final class NoteListViewModel: ObservableObject {
         // update a note
     }
     
-    func delete(id: String) {
-        if let index = self.notes.firstIndex(where: { $0.id == id }) {
-            self.notes.remove(at: index)
-        }
-    }
-    
     func comment(for id: String, with content: String) {
         self.create(content: content)
     }

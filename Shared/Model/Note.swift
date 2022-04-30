@@ -7,18 +7,16 @@
 
 import Foundation
 import Combine
-import SwiftUI
+import RealmSwift
 
-struct Note: Codable, Identifiable {
-    let id: String
-    let content: String
-    let createdAt: Date
-    let updatedAt: Date
+final class Note: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var content: String
+    @Persisted var createdAt: Date = Date()
+    @Persisted var updatedAt: Date = Date()
     
-    init(id: String = UUID().uuidString, content: String) {
-        self.id = id
+    convenience init(id: String = UUID().uuidString, content: String) {
+        self.init()
         self.content = content
-        self.createdAt = Date()
-        self.updatedAt = self.createdAt
     }
 }

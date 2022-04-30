@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NoteEditor: View {
-    @EnvironmentObject var viewModel: NoteListViewModel
+    @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
+    
     private let initHeight: CGFloat = 36
     
     @State private var inputText: String = ""
@@ -33,7 +35,9 @@ struct NoteEditor: View {
                 
                 
             Button(action: {
-                viewModel.create(content: inputText)
+                let note = Note(content: inputText)
+                $notesFetched.append(note)
+//                viewModel.create(content: inputText)
                 inputText = ""
                 height = initHeight
             }) {
