@@ -11,7 +11,7 @@ import RealmSwift
 struct NoteEditor: View {
     @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
     
-    private let initHeight: CGFloat = 36
+    private let initHeight: CGFloat = 38
     
     @State private var inputText: String = ""
     @State private var height: CGFloat = CGFloat()
@@ -21,7 +21,6 @@ struct NoteEditor: View {
             
             Text(inputText.isEmpty ? " " : inputText)
                 .lineLimit(10)
-                .font(.body)
                 .padding(.leading, 15)
                 .padding(.trailing, 42)
                 .foregroundColor(.clear)
@@ -30,7 +29,7 @@ struct NoteEditor: View {
                                            value: $0.frame(in: .local).size.height)
                 })
                 .fixedSize(horizontal: false, vertical: true)
-            
+
             ZStack(alignment: .bottomTrailing) {
                 
                 TextEditor(text: $inputText)
@@ -49,7 +48,7 @@ struct NoteEditor: View {
                 }) {
                     Image(systemName: "arrow.up.circle.fill")
                         .resizable()
-                        .frame(width: 32, height: 32)
+                        .frame(width: initHeight - CGFloat(4), height: initHeight - CGFloat(4))
                         .padding(.trailing, 2)
                         .padding(.bottom, 2)
                         .foregroundColor(.green)

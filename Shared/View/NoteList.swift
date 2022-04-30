@@ -25,15 +25,15 @@ struct NoteList: View {
                     }
                 }
                 .listStyle(.inset)
-                .navigationTitle("Notes")
-                .onTapGesture {
-                    hideKeyboard()
-                }
-                
             }
             Spacer()
             NoteEditor()
         }
+        .navigationTitle("Notes")
+        .onTapGesture {
+            hideKeyboard()
+        }
+
     }
 }
 
