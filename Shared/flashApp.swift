@@ -6,17 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct flashApp: App {
-    
-    @StateObject var viewModel: NoteListViewModel = NoteListViewModel()
-    
+struct flashApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 NoteList()
-                    .environmentObject(viewModel)
+                    .environment(\.realmConfiguration, Realm.Configuration())
             }
         }
     }

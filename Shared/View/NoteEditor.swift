@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NoteEditor: View {
-    @EnvironmentObject var viewModel: NoteListViewModel
-    private let initHeight: CGFloat = 40
+    @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
+    
+    private let initHeight: CGFloat = 36
     
     @State private var inputText: String = ""
-    @State private var height: CGFloat = 40
+    @State private var height: CGFloat = 36
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -21,7 +23,7 @@ struct NoteEditor: View {
                 .lineSpacing(5)
                 .keyboardType(.default)
                 .padding(.horizontal, 10)
-                .background(.white)
+                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
                 .cornerRadius(20)
                 .onChange(of: self.inputText, perform: { value in
                     withAnimation(.easeInOut(duration: 0.1), {
@@ -31,14 +33,17 @@ struct NoteEditor: View {
                     })
                 })
                 
+                
             Button(action: {
-                viewModel.create(content: inputText)
+                let note = Note(content: inputText)
+                $notesFetched.append(note)
+//                viewModel.create(content: inputText)
                 inputText = ""
                 height = initHeight
             }) {
                 Image(systemName: "arrow.up.circle.fill")
                     .resizable()
-                    .frame(width: 36, height: 36)
+                    .frame(width: 32, height: 32)
                     .padding(.trailing, 2)
                     .padding(.bottom, 2)
                     .foregroundColor(.green)
