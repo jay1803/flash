@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct NoteEditor: View {
-    @ObservedResults(Note.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var notesFetched
+    @ObservedRealmObject var group: Group
     
     private let initHeight: CGFloat = 38
     
@@ -42,7 +42,7 @@ struct NoteEditor: View {
                     
                 Button(action: {
                     let note = Note(content: inputText)
-                    $notesFetched.append(note)
+                    $group.items.append(note)
                     inputText = ""
                     height = initHeight
                 }) {
@@ -67,13 +67,6 @@ struct NoteEditor: View {
     }
 }
 
-extension View {
-    func hideKeyboard() {
-        let resign = #selector(UIResponder.resignFirstResponder)
-        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
-    }
-}
-
 struct ViewHeightKey: PreferenceKey {
     static var defaultValue: CGFloat { 18 }
     static func reduce(value: inout Value, nextValue: () -> Value) {
@@ -83,7 +76,6 @@ struct ViewHeightKey: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        NoteEditor()
-            .environmentObject(NoteListViewModel())
+        NoteEditor(group: Group())
     }
 }

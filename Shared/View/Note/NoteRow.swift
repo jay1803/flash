@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct NoteRow: View {
-    var note: Note
+    @ObservedRealmObject var note: Note
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,16 +19,15 @@ struct NoteRow: View {
                 .padding(.bottom, 4)
             
             Text(note.content)
+                .lineLimit(10)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
 
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            NoteRow(note: Note(content: "note 1"))
-            NoteRow(note: Note(content: "note 2"))
-        }
-        .previewLayout(.sizeThatFits)
+        NoteRow(note: Note(content: "First notes"))
+        NoteRow(note: Note(content: "Second notes"))
     }
 }
