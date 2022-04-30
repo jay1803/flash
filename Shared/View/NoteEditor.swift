@@ -51,16 +51,23 @@ struct NoteEditor: View {
         }
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-            .stroke(.gray, lineWidth: 1))
+            .stroke(Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
         .padding()
         .frame(height: height + CGFloat(10))
-        .background(Color(white: 0.8845))
+        .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
 
     }
     
     func lineNumberOf(text: String) -> Int {
         let tok = text.components(separatedBy: "\n")
         return tok.count - 1
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }
 

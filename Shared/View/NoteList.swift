@@ -14,6 +14,7 @@ struct NoteList: View {
     var body: some View {
         VStack {
             if notesFetched.isEmpty {
+                Spacer()
                 Text("Start to add some notes here...")
                     .font(.caption)
                     .foregroundColor(.gray)
@@ -25,6 +26,9 @@ struct NoteList: View {
                 }
                 .listStyle(.inset)
                 .navigationTitle("Notes")
+                .onTapGesture {
+                    hideKeyboard()
+                }
                 
             }
             Spacer()
