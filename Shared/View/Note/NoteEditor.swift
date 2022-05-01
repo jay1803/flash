@@ -64,6 +64,9 @@ struct NoteEditor: View {
         .frame(minHeight: initHeight + CGFloat(10))
         .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
         .onPreferenceChange(ViewHeightKey.self) { height = $0 }
+        .simultaneousGesture(DragGesture().onChanged({ _ in
+            hideKeyboard()
+        }))
     }
 }
 
