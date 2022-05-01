@@ -15,6 +15,7 @@ struct NoteEditor: View {
     
     @State private var inputText: String = ""
     @State private var height: CGFloat = CGFloat()
+    @State private var showingAlert = false
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -41,8 +42,13 @@ struct NoteEditor: View {
                     .cornerRadius(initHeight / 2)
                     
                 Button(action: {
-                    let note = Note(content: inputText)
-                    $group.items.append(note)
+                    let content = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
+                    if content.isEmpty {
+                        showingAlert.toggle()
+                    } else {
+                        let note = Note(content: content)
+                        $group.items.append(note)
+                    }
                     inputText = ""
                     height = initHeight
                 }) {
@@ -52,6 +58,9 @@ struct NoteEditor: View {
                         .padding(.trailing, 2)
                         .padding(.bottom, 2)
                         .foregroundColor(.green)
+                }
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Content cannot be empty"), message: Text("Try to add some text to the content"), dismissButton: .default(Text("OK")))
                 }
             }
         }
