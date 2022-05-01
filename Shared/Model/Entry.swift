@@ -9,13 +9,13 @@ import Foundation
 import Combine
 import RealmSwift
 
-final class Note: Object, ObjectKeyIdentifiable {
+final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var content: String
     @Persisted var createdAt: Date = Date()
     @Persisted var updatedAt: Date = Date()
     
-    @Persisted(originProperty: "items") var notes: LinkingObjects<Group>
+    @Persisted(originProperty: "items") var notes: LinkingObjects<EntryList>
     
     convenience init(id: String = UUID().uuidString, content: String) {
         self.init()
@@ -23,7 +23,7 @@ final class Note: Object, ObjectKeyIdentifiable {
     }
 }
 
-final class Group: Object, ObjectKeyIdentifiable {
+final class EntryList: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var items = RealmSwift.List<Note>()
+    @Persisted var items = RealmSwift.List<Entry>()
 }

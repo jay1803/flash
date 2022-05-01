@@ -8,8 +8,8 @@
 import SwiftUI
 import RealmSwift
 
-struct NoteEditor: View {
-    @ObservedRealmObject var group: Group
+struct EntryEditorView: View {
+    @ObservedRealmObject var entryList: EntryList
     
     private let initHeight: CGFloat = 38
     
@@ -46,8 +46,8 @@ struct NoteEditor: View {
                     if content.isEmpty {
                         showingAlert.toggle()
                     } else {
-                        let note = Note(content: content)
-                        $group.items.append(note)
+                        let entry = Entry(content: content)
+                        $entryList.items.append(entry)
                     }
                     inputText = ""
                     height = initHeight
@@ -88,6 +88,6 @@ struct ViewHeightKey: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        NoteEditor(group: Group())
+        EntryEditorView(entryList: EntryList())
     }
 }
