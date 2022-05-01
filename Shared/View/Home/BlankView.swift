@@ -8,8 +8,8 @@
 import SwiftUI
 import RealmSwift
 
-struct Blank: View {
-    @ObservedRealmObject var group: Group
+struct EmptyView: View {
+    @ObservedRealmObject var entryList: EntryList
     
     var body: some View {
         VStack {
@@ -18,7 +18,7 @@ struct Blank: View {
                 .font(.caption)
                 .foregroundColor(.gray)
             Spacer()
-            NoteEditor(group: group)
+            EntryEditorView(entryList: entryList)
         }
         .navigationTitle("Notes")
         .onTapGesture {
@@ -27,8 +27,8 @@ struct Blank: View {
     }
 }
 
-struct Blank_Previews: PreviewProvider {
+struct EmptyView_Previews: PreviewProvider {
     static var previews: some View {
-        Blank(group: Group())
+        EmptyView(entryList: EntryList())
     }
 }

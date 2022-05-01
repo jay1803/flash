@@ -13,7 +13,7 @@ struct flashApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Home()
+                HomeView()
                     .environment(\.realmConfiguration, Realm.Configuration())
             }
         }

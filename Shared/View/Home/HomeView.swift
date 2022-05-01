@@ -8,19 +8,19 @@
 import SwiftUI
 import RealmSwift
 
-struct Home: View {
-    @ObservedResults(Group.self) var groups
+struct HomeView: View {
+    @ObservedResults(EntryList.self) var entryLists
     
     var body: some View {
-        if let group = groups.first {
-            if group.items.first != nil {
-                NoteList(group: group)
+        if let entryList = entryLists.first {
+            if entryList.items.first != nil {
+                EntryListView(entryList: entryList)
             } else {
-                Blank(group: group)
+                EmptyView(entryList: entryList)
             }
         } else {
             ProgressView().onAppear {
-                $groups.append(Group())
+                $entryLists.append(EntryList())
             }
         }
     }
@@ -35,6 +35,6 @@ extension View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        HomeView()
     }
 }
