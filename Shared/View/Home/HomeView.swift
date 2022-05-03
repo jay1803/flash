@@ -13,11 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         if let entryList = entryLists.first {
-            if entryList.items.first != nil {
-                EntryListView(entryList: entryList)
-            } else {
-                EmptyView(entryList: entryList)
-            }
+            EntryListView(entryList: entryList)
         } else {
             ProgressView().onAppear {
                 $entryLists.append(EntryList())

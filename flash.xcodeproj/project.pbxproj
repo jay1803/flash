@@ -20,8 +20,8 @@
 		50022153281D72B7009D9A4E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
 		50022156281D8C7D009D9A4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* HomeView.swift */; };
 		50022157281D8C7D009D9A4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* HomeView.swift */; };
-		50022159281D8CD0009D9A4E /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* BlankView.swift */; };
-		5002215A281D8CD0009D9A4E /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* BlankView.swift */; };
+		50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntryView.swift */; };
+		5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntryView.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -57,7 +57,7 @@
 		5002214D281D7145009D9A4E /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		50022151281D72B7009D9A4E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		50022155281D8C7D009D9A4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		50022158281D8CD0009D9A4E /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
+		50022158281D8CD0009D9A4E /* EmptyEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntryView.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +176,7 @@
 				50022141281BAE38009D9A4E /* EntryListView.swift */,
 				5002214D281D7145009D9A4E /* EntryRowView.swift */,
 				5002214A281C0220009D9A4E /* EntryEditorView.swift */,
+				50022158281D8CD0009D9A4E /* EmptyEntryView.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -184,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				50022155281D8C7D009D9A4E /* HomeView.swift */,
-				50022158281D8CD0009D9A4E /* BlankView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -498,7 +498,7 @@
 			files = (
 				5002214E281D7145009D9A4E /* EntryRowView.swift in Sources */,
 				50AC43F5281BACEA0033E148 /* flashApp.swift in Sources */,
-				50022159281D8CD0009D9A4E /* BlankView.swift in Sources */,
+				50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
 				50022142281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				5002214B281C0220009D9A4E /* EntryEditorView.swift in Sources */,
@@ -513,7 +513,7 @@
 			files = (
 				5002214F281D7145009D9A4E /* EntryRowView.swift in Sources */,
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
-				5002215A281D8CD0009D9A4E /* BlankView.swift in Sources */,
+				5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
 				50022143281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
 				5002214C281C0220009D9A4E /* EntryEditorView.swift in Sources */,
