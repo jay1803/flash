@@ -1,14 +1,15 @@
 //
-//  NoteEditor.swift
+//  ThreadEditorView.swift
 //  flash
 //
-//  Created by Max Zhang on 2022/4/29.
+//  Created by Max Zhang on 2022/5/3.
 //
 
 import SwiftUI
 import RealmSwift
 
-struct EntryEditorView: View {
+struct ThreadEditorView: View {
+    @ObservedRealmObject var entry: Entry
     @ObservedRealmObject var entryList: EntryList
     
     private let initHeight: CGFloat = 38
@@ -47,8 +48,10 @@ struct EntryEditorView: View {
                     if content.isEmpty {
                         showingAlert.toggle()
                     } else {
-                        let entry = Entry(content: content)
-                        $entryList.items.append(entry)
+                        let newEntry = Entry(content: content)
+                        $entry.replies.append(newEntry)
+                        let latestEntry = entry.replies.last
+                        $entryList.items.append(latestEntry!)
                     }
                     inputText = ""
                     height = initHeight
@@ -79,15 +82,8 @@ struct EntryEditorView: View {
     }
 }
 
-struct textViewHeight: PreferenceKey {
-    static var defaultValue: CGFloat { 0 }
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = value + nextValue()
-    }
-}
-
-struct NoteEditor_Previews: PreviewProvider {
+struct ThreadEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditorView(entryList: EntryList())
+        ThreadEditorView(entry: Entry(content: "this is a preview entry"), entryList: EntryList())
     }
 }

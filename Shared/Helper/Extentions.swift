@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 func toString(from date: Date) -> String {
     let dateFormatter = DateFormatter()

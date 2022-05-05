@@ -10,12 +10,11 @@ import Combine
 import RealmSwift
 
 final class Entry: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted(primaryKey: true) var id: UUID
     @Persisted var content: String
     @Persisted var createdAt: Date = Date()
     @Persisted var updatedAt: Date = Date()
-    
-    @Persisted(originProperty: "items") var notes: LinkingObjects<EntryList>
+    @Persisted var replies: List<Entry>
     
     convenience init(id: String = UUID().uuidString, content: String) {
         self.init()
@@ -24,6 +23,6 @@ final class Entry: Object, ObjectKeyIdentifiable {
 }
 
 final class EntryList: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted(primaryKey: true) var _id: UUID
     @Persisted var items = RealmSwift.List<Entry>()
 }

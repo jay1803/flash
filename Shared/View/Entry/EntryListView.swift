@@ -10,25 +10,44 @@ import RealmSwift
 
 struct EntryListView: View {
     @ObservedRealmObject var entryList: EntryList
-    
-    // 如何隐藏键盘？
+    @State private var isShowingDeleteAlert: Bool = false
+    @State private var deleteItemIndexSet: IndexSet?
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            List {
-                ForEach(entryList.items) { entry in
-                    EntryRowView(entry: entry)
+            if entryList.items.first != nil {
+                List {
+                    ForEach(entryList.items) { entry in
+                        EntryRowView(entry: entry, entryList: entryList)
+                            .actionSheet(isPresented: $isShowingDeleteAlert) {
+                                ActionSheet(title: Text("Permanently delete this note?"),
+                                            message: Text("You can't undo this action."),
+                                            buttons: [
+                                                .destructive(Text("Delete"), action: {
+                                                    $entryList.items.remove(atOffsets: deleteItemIndexSet!)
+                                                }),
+                                                .cancel(Text("Cancel"), action: {
+                                                    self.isShowingDeleteAlert = false
+                                                })
+                                ])
+                            }
+                    }
+                    .onDelete(perform: deleteConfirmation)
                 }
-                .onDelete(perform: $entryList.items.remove)
+                .navigationTitle("Notes")
+                .navigationBarItems(leading: EditButton())
+                .listStyle(.inset)
+                .padding(.bottom, 48)
+            } else {
+                EmptyEntryView()
             }
-            .navigationTitle("Notes")
-            .navigationBarItems(leading: EditButton())
-            .listStyle(.inset)
-            .animation(.easeInOut, value: entryList)
-            .padding(.bottom, 48)
-            
             EntryEditorView(entryList: entryList)
         }
+    }
+    
+    func deleteConfirmation(at indexSet: IndexSet) {
+        self.deleteItemIndexSet = indexSet
+        self.isShowingDeleteAlert = true
     }
 }
 
