@@ -1,15 +1,15 @@
 //
-//  NoteEditor.swift
+//  ThreadEditorView.swift
 //  flash
 //
-//  Created by Max Zhang on 2022/4/29.
+//  Created by Max Zhang on 2022/5/3.
 //
 
 import SwiftUI
 import RealmSwift
 
-struct EntryEditorView: View {
-    @ObservedRealmObject var entryList: EntryList
+struct ThreadEditorView: View {
+    @ObservedRealmObject var entry: Entry
     
     private let initHeight: CGFloat = 38
     
@@ -18,28 +18,23 @@ struct EntryEditorView: View {
     @State private var showingAlert = false
     
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack(alignment: .leading) {
+            
             Text(inputText.isEmpty ? " " : inputText)
-                .frame(width: UIScreen.main.bounds.width - 78, alignment: .leading)
                 .lineLimit(10)
                 .padding(.leading, 15)
                 .padding(.trailing, 42)
-                .padding(.vertical, 8)
                 .foregroundColor(.clear)
                 .fixedSize(horizontal: false, vertical: true)
-                .cornerRadius(initHeight / 2)
-                .background(GeometryReader { geometry in
-                    Color.clear.preference(key: textViewHeight.self,
-                                    value: geometry.frame(in: .local).size.height)
-                })
-            
+
             ZStack(alignment: .bottomTrailing) {
+                
                 TextEditor(text: $inputText)
                     .frame(height: height)
                     .frame(minHeight: initHeight)
                     .padding(.leading, 10)
                     .padding(.trailing, 36)
-                    .background(Color.white)
+                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
                     .cornerRadius(initHeight / 2)
                     
                 Button(action: {
@@ -48,7 +43,7 @@ struct EntryEditorView: View {
                         showingAlert.toggle()
                     } else {
                         let entry = Entry(content: content)
-                        $entryList.items.append(entry)
+                        $entry.replies.append(entry)
                     }
                     inputText = ""
                     height = initHeight
@@ -71,23 +66,16 @@ struct EntryEditorView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 4)
         .frame(height: height + CGFloat(10))
+        .frame(minHeight: initHeight + CGFloat(10))
         .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
-        .onPreferenceChange(textViewHeight.self) { height = $0 }
-            .simultaneousGesture(DragGesture().onChanged({ _ in
-                hideKeyboard()
-            }))
+        .simultaneousGesture(DragGesture().onChanged({ _ in
+            hideKeyboard()
+        }))
     }
 }
 
-struct textViewHeight: PreferenceKey {
-    static var defaultValue: CGFloat { 0 }
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = value + nextValue()
-    }
-}
-
-struct NoteEditor_Previews: PreviewProvider {
+struct ThreadEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditorView(entryList: EntryList())
+        ThreadEditorView(entry: Entry(content: "this is a preview entry"))
     }
 }
