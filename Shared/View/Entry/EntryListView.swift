@@ -18,7 +18,7 @@ struct EntryListView: View {
             if entryList.items.first != nil {
                 List {
                     ForEach(entryList.items) { entry in
-                        EntryRowView(entry: entry)
+                        EntryRowView(entry: entry, entryList: entryList)
                             .actionSheet(isPresented: $isShowingDeleteAlert) {
                                 ActionSheet(title: Text("Permanently delete this note?"),
                                             message: Text("You can't undo this action."),

@@ -10,6 +10,7 @@ import RealmSwift
 
 struct ThreadEditorView: View {
     @ObservedRealmObject var entry: Entry
+    @ObservedRealmObject var entryList: EntryList
     
     private let initHeight: CGFloat = 38
     
@@ -18,23 +19,28 @@ struct ThreadEditorView: View {
     @State private var showingAlert = false
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            
+        ZStack(alignment: .bottom) {
             Text(inputText.isEmpty ? " " : inputText)
+                .frame(width: UIScreen.main.bounds.width - 78, alignment: .leading)
                 .lineLimit(10)
                 .padding(.leading, 15)
                 .padding(.trailing, 42)
+                .padding(.vertical, 8)
                 .foregroundColor(.clear)
                 .fixedSize(horizontal: false, vertical: true)
-
+                .cornerRadius(initHeight / 2)
+                .background(GeometryReader { geometry in
+                    Color.clear.preference(key: textViewHeight.self,
+                                    value: geometry.frame(in: .local).size.height)
+                })
+            
             ZStack(alignment: .bottomTrailing) {
-                
                 TextEditor(text: $inputText)
                     .frame(height: height)
                     .frame(minHeight: initHeight)
                     .padding(.leading, 10)
                     .padding(.trailing, 36)
-                    .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.white/*@END_MENU_TOKEN@*/)
+                    .background(Color.white)
                     .cornerRadius(initHeight / 2)
                     
                 Button(action: {
@@ -42,8 +48,10 @@ struct ThreadEditorView: View {
                     if content.isEmpty {
                         showingAlert.toggle()
                     } else {
-                        let entry = Entry(content: content)
-                        $entry.replies.append(entry)
+                        let newEntry = Entry(content: content)
+                        $entry.replies.append(newEntry)
+                        let latestEntry = entry.replies.last
+                        $entryList.items.append(latestEntry!)
                     }
                     inputText = ""
                     height = initHeight
@@ -66,16 +74,16 @@ struct ThreadEditorView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 4)
         .frame(height: height + CGFloat(10))
-        .frame(minHeight: initHeight + CGFloat(10))
         .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
-        .simultaneousGesture(DragGesture().onChanged({ _ in
-            hideKeyboard()
-        }))
+        .onPreferenceChange(textViewHeight.self) { height = $0 }
+            .simultaneousGesture(DragGesture().onChanged({ _ in
+                hideKeyboard()
+            }))
     }
 }
 
 struct ThreadEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        ThreadEditorView(entry: Entry(content: "this is a preview entry"))
+        ThreadEditorView(entry: Entry(content: "this is a preview entry"), entryList: EntryList())
     }
 }

@@ -10,10 +10,11 @@ import RealmSwift
 
 struct EntryRowView: View {
     @ObservedRealmObject var entry: Entry
+    @ObservedRealmObject var entryList: EntryList
     
     var body: some View {
         NavigationLink {
-            EntryDetailView(entry: entry)
+            EntryDetailView(entry: entry, entryList: entryList)
         } label: {
             VStack(alignment: .leading) {
                 Text(toString(from: entry.createdAt))
@@ -31,7 +32,7 @@ struct EntryRowView: View {
 
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
-        EntryRowView(entry: Entry(content: "First notes"))
-        EntryRowView(entry: Entry(content: "Second notes"))
+        EntryRowView(entry: Entry(content: "First notes"), entryList: EntryList())
+        EntryRowView(entry: Entry(content: "Second notes"), entryList: EntryList())
     }
 }
