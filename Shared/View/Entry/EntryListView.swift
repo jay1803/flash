@@ -10,14 +10,15 @@ import RealmSwift
 
 struct EntryListView: View {
     @ObservedRealmObject var entryList: EntryList
+    @ObservedObject var viewModel: EntryListViewModel
     @State private var isShowingDeleteAlert: Bool = false
     @State private var deleteItemIndexSet: IndexSet?
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            if entryList.items.first != nil {
+            if viewModel.entries!.first != nil {
                 List {
-                    ForEach(entryList.items) { entry in
+                    ForEach(viewModel.entries!) { entry in
                         EntryRowView(entry: entry, entryList: entryList)
                             .actionSheet(isPresented: $isShowingDeleteAlert) {
                                 ActionSheet(title: Text("Permanently delete this note?"),
@@ -36,12 +37,13 @@ struct EntryListView: View {
                 }
                 .navigationTitle("Notes")
                 .navigationBarItems(leading: EditButton())
+                .animation(.easeInOut, value: viewModel.entries)
                 .listStyle(.inset)
                 .padding(.bottom, 48)
             } else {
                 EmptyEntryView()
             }
-            EntryEditorView(entryList: entryList)
+            EntryEditorView()
         }
     }
     
@@ -53,6 +55,6 @@ struct EntryListView: View {
 
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
-        EntryListView(entryList: EntryList())
+        EntryListView(entryList: EntryList(), viewModel: EntryListViewModel())
     }
 }

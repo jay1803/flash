@@ -36,6 +36,8 @@
 		50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43CD281BACE90033E148 /* flashApp.swift */; };
 		50AC43F9281BACEA0033E148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AC43CF281BACEA0033E148 /* Assets.xcassets */; };
 		50AC43FA281BACEA0033E148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AC43CF281BACEA0033E148 /* Assets.xcassets */; };
+		50D9C35628241C3200AC4E89 /* EntryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */; };
+		50D9C35728241C3200AC4E89 /* EntryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,7 @@
 		50AC43ED281BACEA0033E148 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryListViewModel.swift; path = Shared/View/Thread/EntryListViewModel.swift; sourceTree = SOURCE_ROOT; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +164,7 @@
 		5002213F281BAE0B009D9A4E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -521,6 +525,7 @@
 				50AC43F5281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
 				5002216F2821290F009D9A4E /* ThreadListView.swift in Sources */,
+				50D9C35628241C3200AC4E89 /* EntryListViewModel.swift in Sources */,
 				50022142281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				5002214B281C0220009D9A4E /* EntryEditorView.swift in Sources */,
@@ -539,6 +544,7 @@
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
 				5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
 				500221702821290F009D9A4E /* ThreadListView.swift in Sources */,
+				50D9C35728241C3200AC4E89 /* EntryListViewModel.swift in Sources */,
 				50022143281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
 				5002214C281C0220009D9A4E /* EntryEditorView.swift in Sources */,

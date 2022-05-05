@@ -14,11 +14,27 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var content: String
     @Persisted var createdAt: Date = Date()
     @Persisted var updatedAt: Date = Date()
+    @Persisted var replyTo: Entry?
     @Persisted var replies: List<Entry>
     
-    convenience init(id: String = UUID().uuidString, content: String) {
+    convenience init(id: String = UUID().uuidString, content: String, replyTo: Entry? = nil) {
         self.init()
         self.content = content
+        self.replyTo = replyTo
+    }
+}
+
+extension Entry {
+    func all(in realm: Realm = try! Realm()) -> Results<Entry> {
+        return realm.objects(Entry.self).sorted(byKeyPath: "createdAt", ascending: false)
+    }
+    
+    func add(in realm: Realm = try! Realm()) -> Entry {
+        let entry = Entry(content: content, replyTo: replyTo)
+        try! realm.write {
+            realm.add(self)
+        }
+        return entry
     }
 }
 

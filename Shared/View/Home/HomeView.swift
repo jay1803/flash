@@ -10,15 +10,10 @@ import RealmSwift
 
 struct HomeView: View {
     @ObservedResults(EntryList.self) var entryLists
+    @ObservedObject var viewModel = EntryListViewModel()
     
     var body: some View {
-        if let entryList = entryLists.first {
-            EntryListView(entryList: entryList)
-        } else {
-            ProgressView().onAppear {
-                $entryLists.append(EntryList())
-            }
-        }
+        EntryListView(entryList: entryLists.first!, viewModel: viewModel)
     }
 }
 
