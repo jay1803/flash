@@ -14,6 +14,9 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var content: String
     @Persisted var createdAt: Date = Date()
     @Persisted var updatedAt: Date = Date()
+    @Persisted var isDeleted: Bool = false
+    @Persisted var isFavorated: Bool = false
+    @Persisted var isArchived: Bool = false
     @Persisted var replyTo: Entry?
     @Persisted var replies: List<Entry>
     
@@ -36,9 +39,10 @@ extension Entry {
         }
         return entry
     }
-}
-
-final class EntryList: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var _id: UUID
-    @Persisted var items = RealmSwift.List<Entry>()
+    
+    func delete(in realm: Realm = try! Realm()) {
+        try! realm.write {
+            realm.delete(self)
+        }
+    }
 }
