@@ -76,8 +76,8 @@
 		50AC43ED281BACEA0033E148 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
-		50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryListViewModel.swift; path = Shared/View/Thread/EntryListViewModel.swift; sourceTree = SOURCE_ROOT; };
-		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/View/Thread/RealmManager.swift; sourceTree = SOURCE_ROOT; };
+		50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntryListViewModel.swift; path = Shared/ViewModel/EntryListViewModel.swift; sourceTree = SOURCE_ROOT; };
+		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,22 +157,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		5002213F281BAE0B009D9A4E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		50022140281BAE12009D9A4E /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				50D9C3582826328300AC4E89 /* RealmManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
 		50022150281D729E009D9A4E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,10 +201,10 @@
 		50AC43CC281BACE90033E148 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				50D9C35C2826397C00AC4E89 /* ViewModel */,
+				50D9C35B2826396C00AC4E89 /* Manager */,
 				5002213D281BADFE009D9A4E /* Model */,
 				5002213E281BAE06009D9A4E /* View */,
-				5002213F281BAE0B009D9A4E /* ViewModel */,
-				50022140281BAE12009D9A4E /* Manager */,
 				50022150281D729E009D9A4E /* Helper */,
 				50AC43CD281BACE90033E148 /* flashApp.swift */,
 				50AC43CF281BACEA0033E148 /* Assets.xcassets */,
@@ -263,6 +247,22 @@
 				50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		50D9C35B2826396C00AC4E89 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				50D9C3582826328300AC4E89 /* RealmManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		50D9C35C2826397C00AC4E89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				50D9C35528241C3200AC4E89 /* EntryListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
