@@ -15,8 +15,12 @@ struct EntryDetailView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(alignment: .leading) {
+                if let replyToEntry = entry.replyTo {
+                    ReplyToEntryView(replyTo: replyToEntry)
+                }
                 EntryContentView(entry: entry)
-                .padding()
+                    .padding()
+                
                 if let repies = entry.replies {
                     List {
                         Section(header: Text("Replies")) {
@@ -28,6 +32,7 @@ struct EntryDetailView: View {
                     .listStyle(.grouped)
                 }
             }
+            
             EntryEditorView(entry: entry)
                 .environmentObject(realmManager)
         }
