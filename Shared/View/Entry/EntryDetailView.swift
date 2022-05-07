@@ -9,11 +9,11 @@ import SwiftUI
 import RealmSwift
 
 struct EntryDetailView: View {
+    @ObservedObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
-    @ObservedRealmObject var entryList: EntryList
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
                     Text(toString(from: entry.createdAt))
@@ -29,22 +29,25 @@ struct EntryDetailView: View {
                     List {
                         Section(header: Text("Replies")) {
                             ForEach(repies) { reply in
-                                EntryRowView(entry: reply, entryList: entryList)
+                                EntryRowView(realmManager: realmManager, entry: reply)
                             }
                         }
                     }
                     .listStyle(.grouped)
                 }
-                
-                ThreadEditorView(entry: entry, entryList: entryList)
             }
+            EntryEditorView(entry: entry)
+                .environmentObject(realmManager)
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct EntryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetailView(entry: Entry(content: "This is a preview notes\nwith a second line"), entryList: EntryList())
+        EntryDetailView(realmManager: RealmManager(name: "flash"),
+                        entry: Entry(content: "This is a preview notes\nwith a second line"))
             .previewLayout(.sizeThatFits)
+            .environmentObject(RealmManager(name: "flash"))
     }
 }

@@ -24,10 +24,6 @@
 		5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntryView.swift */; };
 		5002216C2821217D009D9A4E /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetailView.swift */; };
 		5002216D2821217D009D9A4E /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetailView.swift */; };
-		5002216F2821290F009D9A4E /* ThreadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216E2821290F009D9A4E /* ThreadListView.swift */; };
-		500221702821290F009D9A4E /* ThreadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216E2821290F009D9A4E /* ThreadListView.swift */; };
-		5002217228212A59009D9A4E /* ThreadEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002217128212A59009D9A4E /* ThreadEditorView.swift */; };
-		5002217328212A59009D9A4E /* ThreadEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002217128212A59009D9A4E /* ThreadEditorView.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -36,6 +32,8 @@
 		50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43CD281BACE90033E148 /* flashApp.swift */; };
 		50AC43F9281BACEA0033E148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AC43CF281BACEA0033E148 /* Assets.xcassets */; };
 		50AC43FA281BACEA0033E148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AC43CF281BACEA0033E148 /* Assets.xcassets */; };
+		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
+		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,8 +63,6 @@
 		50022155281D8C7D009D9A4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		50022158281D8CD0009D9A4E /* EmptyEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntryView.swift; sourceTree = "<group>"; };
 		5002216B2821217D009D9A4E /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
-		5002216E2821290F009D9A4E /* ThreadListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadListView.swift; sourceTree = "<group>"; };
-		5002217128212A59009D9A4E /* ThreadEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadEditorView.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +74,7 @@
 		50AC43ED281BACEA0033E148 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,23 +150,8 @@
 			children = (
 				5002215B281D922F009D9A4E /* Home */,
 				50022154281D8521009D9A4E /* Entry */,
-				5002216A28212166009D9A4E /* Thread */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		5002213F281BAE0B009D9A4E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		50022140281BAE12009D9A4E /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		50022150281D729E009D9A4E /* Helper */ = {
@@ -200,15 +182,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		5002216A28212166009D9A4E /* Thread */ = {
-			isa = PBXGroup;
-			children = (
-				5002216E2821290F009D9A4E /* ThreadListView.swift */,
-				5002217128212A59009D9A4E /* ThreadEditorView.swift */,
-			);
-			path = Thread;
-			sourceTree = "<group>";
-		};
 		50AC43C7281BACE90033E148 = {
 			isa = PBXGroup;
 			children = (
@@ -227,8 +200,8 @@
 			children = (
 				5002213D281BADFE009D9A4E /* Model */,
 				5002213E281BAE06009D9A4E /* View */,
-				5002213F281BAE0B009D9A4E /* ViewModel */,
-				50022140281BAE12009D9A4E /* Manager */,
+				50D9C35C2826397C00AC4E89 /* ViewModel */,
+				50D9C35B2826396C00AC4E89 /* Manager */,
 				50022150281D729E009D9A4E /* Helper */,
 				50AC43CD281BACE90033E148 /* flashApp.swift */,
 				50AC43CF281BACEA0033E148 /* Assets.xcassets */,
@@ -271,6 +244,21 @@
 				50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		50D9C35B2826396C00AC4E89 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				50D9C3582826328300AC4E89 /* RealmManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		50D9C35C2826397C00AC4E89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,15 +504,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
 				5002214E281D7145009D9A4E /* EntryRowView.swift in Sources */,
 				5002216C2821217D009D9A4E /* EntryDetailView.swift in Sources */,
 				50AC43F5281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
-				5002216F2821290F009D9A4E /* ThreadListView.swift in Sources */,
 				50022142281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				5002214B281C0220009D9A4E /* EntryEditorView.swift in Sources */,
-				5002217228212A59009D9A4E /* ThreadEditorView.swift in Sources */,
 				50022156281D8C7D009D9A4E /* HomeView.swift in Sources */,
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 			);
@@ -534,15 +521,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */,
 				5002214F281D7145009D9A4E /* EntryRowView.swift in Sources */,
 				5002216D2821217D009D9A4E /* EntryDetailView.swift in Sources */,
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
 				5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
-				500221702821290F009D9A4E /* ThreadListView.swift in Sources */,
 				50022143281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
 				5002214C281C0220009D9A4E /* EntryEditorView.swift in Sources */,
-				5002217328212A59009D9A4E /* ThreadEditorView.swift in Sources */,
 				50022157281D8C7D009D9A4E /* HomeView.swift in Sources */,
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,
 			);

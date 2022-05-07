@@ -9,16 +9,9 @@ import SwiftUI
 import RealmSwift
 
 struct HomeView: View {
-    @ObservedResults(EntryList.self) var entryLists
     
     var body: some View {
-        if let entryList = entryLists.first {
-            EntryListView(entryList: entryList)
-        } else {
-            ProgressView().onAppear {
-                $entryLists.append(EntryList())
-            }
-        }
+        EntryListView()
     }
 }
 
