@@ -11,6 +11,8 @@ import RealmSwift
 struct EntryEditorView: View {
     private let initHeight: CGFloat = 38
     
+    let entry: Entry?
+    
     @State private var inputText: String = ""
     @State private var height: CGFloat = CGFloat()
     @State private var showingAlert = false
@@ -45,8 +47,11 @@ struct EntryEditorView: View {
                     if content.isEmpty {
                         showingAlert.toggle()
                     } else {
-                        Entry(content: content).add()
-                        
+                        if let entry = entry {
+                            Entry(content: content, replyTo: entry).add()
+                        } else {
+                            Entry(content: content).add()
+                        }
                     }
                     inputText = ""
                     height = initHeight
@@ -86,6 +91,6 @@ struct textViewHeight: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditorView()
+        EntryEditorView(entry: nil)
     }
 }

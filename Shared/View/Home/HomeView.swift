@@ -9,11 +9,9 @@ import SwiftUI
 import RealmSwift
 
 struct HomeView: View {
-    @ObservedResults(EntryList.self) var entryLists
-    @ObservedObject var viewModel = EntryListViewModel()
     
     var body: some View {
-        EntryListView(entryList: entryLists.first!, viewModel: viewModel)
+        EntryListView()
     }
 }
 

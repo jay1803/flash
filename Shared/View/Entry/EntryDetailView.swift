@@ -10,7 +10,6 @@ import RealmSwift
 
 struct EntryDetailView: View {
     @ObservedRealmObject var entry: Entry
-    @ObservedRealmObject var entryList: EntryList
     
     var body: some View {
         ZStack {
@@ -29,22 +28,21 @@ struct EntryDetailView: View {
                     List {
                         Section(header: Text("Replies")) {
                             ForEach(repies) { reply in
-                                EntryRowView(entry: reply, entryList: entryList)
+                                EntryRowView(entry: reply)
                             }
                         }
                     }
                     .listStyle(.grouped)
                 }
-                
-                ThreadEditorView(entry: entry, entryList: entryList)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 struct EntryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetailView(entry: Entry(content: "This is a preview notes\nwith a second line"), entryList: EntryList())
+        EntryDetailView(entry: Entry(content: "This is a preview notes\nwith a second line"))
             .previewLayout(.sizeThatFits)
     }
 }

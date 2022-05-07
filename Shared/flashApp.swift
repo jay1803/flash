@@ -10,11 +10,16 @@ import RealmSwift
 
 @main
 struct flashApp: SwiftUI.App {
+    @StateObject var realmManager = RealmManager(name: "flash")
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 HomeView()
-                    .environment(\.realmConfiguration, Realm.Configuration())
+                    .environmentObject(realmManager)
+            }
+            .onAppear {
+                UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnstatisfiable")
             }
         }
     }

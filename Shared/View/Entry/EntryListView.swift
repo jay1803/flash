@@ -9,23 +9,22 @@ import SwiftUI
 import RealmSwift
 
 struct EntryListView: View {
-    @ObservedRealmObject var entryList: EntryList
-    @ObservedObject var viewModel: EntryListViewModel
+    @ObservedResults(Entry.self, sortDescriptor: SortDescriptor.init(keyPath: "createdAt", ascending: false)) var entries
     @State private var isShowingDeleteAlert: Bool = false
     @State private var deleteItemIndexSet: IndexSet?
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            if viewModel.entries!.first != nil {
+            if entries.first != nil {
                 List {
-                    ForEach(viewModel.entries!) { entry in
-                        EntryRowView(entry: entry, entryList: entryList)
+                    ForEach(entries) { entry in
+                        EntryRowView(entry: entry)
                             .actionSheet(isPresented: $isShowingDeleteAlert) {
                                 ActionSheet(title: Text("Permanently delete this note?"),
                                             message: Text("You can't undo this action."),
                                             buttons: [
                                                 .destructive(Text("Delete"), action: {
-                                                    $entryList.items.remove(atOffsets: deleteItemIndexSet!)
+                                                    $entries.remove(atOffsets: deleteItemIndexSet!)
                                                 }),
                                                 .cancel(Text("Cancel"), action: {
                                                     self.isShowingDeleteAlert = false
@@ -37,13 +36,13 @@ struct EntryListView: View {
                 }
                 .navigationTitle("Notes")
                 .navigationBarItems(leading: EditButton())
-                .animation(.easeInOut, value: viewModel.entries)
+                .animation(.easeInOut, value: entries)
                 .listStyle(.inset)
                 .padding(.bottom, 48)
             } else {
                 EmptyEntryView()
             }
-            EntryEditorView()
+            EntryEditorView(entry: nil)
         }
     }
     
@@ -55,6 +54,6 @@ struct EntryListView: View {
 
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
-        EntryListView(entryList: EntryList(), viewModel: EntryListViewModel())
+        EntryListView()
     }
 }
