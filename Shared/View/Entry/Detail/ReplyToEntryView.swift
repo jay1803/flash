@@ -26,7 +26,6 @@ struct ReplyToEntryView: View {
                     .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 
                 EntryContentView(entry: replyTo)
-                    .padding(.vertical, 10)
                     .background(GeometryReader {geometry in
                         Color.clear.preference(key: textViewHeight.self, value: geometry.frame(in: .local).size.height)
                     })
