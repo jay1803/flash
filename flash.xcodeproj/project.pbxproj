@@ -34,6 +34,8 @@
 		50AC43FA281BACEA0033E148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AC43CF281BACEA0033E148 /* Assets.xcassets */; };
 		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
+		50D9C3602826C14000AC4E89 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContentView.swift */; };
+		50D9C3612826C14000AC4E89 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContentView.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,7 @@
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
+		50D9C35F2826C14000AC4E89 /* EntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContentView.swift; sourceTree = "<group>"; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,11 +168,9 @@
 		50022154281D8521009D9A4E /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				50022141281BAE38009D9A4E /* EntryListView.swift */,
-				5002214D281D7145009D9A4E /* EntryRowView.swift */,
+				50D9C35D2826C11500AC4E89 /* List */,
+				50D9C35E2826C12500AC4E89 /* Detail */,
 				5002214A281C0220009D9A4E /* EntryEditorView.swift */,
-				50022158281D8CD0009D9A4E /* EmptyEntryView.swift */,
-				5002216B2821217D009D9A4E /* EntryDetailView.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -259,6 +260,25 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		50D9C35D2826C11500AC4E89 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				50022158281D8CD0009D9A4E /* EmptyEntryView.swift */,
+				50022141281BAE38009D9A4E /* EntryListView.swift */,
+				5002214D281D7145009D9A4E /* EntryRowView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		50D9C35E2826C12500AC4E89 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5002216B2821217D009D9A4E /* EntryDetailView.swift */,
+				50D9C35F2826C14000AC4E89 /* EntryContentView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,6 +531,7 @@
 				50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
 				50022142281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
+				50D9C3602826C14000AC4E89 /* EntryContentView.swift in Sources */,
 				5002214B281C0220009D9A4E /* EntryEditorView.swift in Sources */,
 				50022156281D8C7D009D9A4E /* HomeView.swift in Sources */,
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
@@ -528,6 +549,7 @@
 				5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
 				50022143281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
+				50D9C3612826C14000AC4E89 /* EntryContentView.swift in Sources */,
 				5002214C281C0220009D9A4E /* EntryEditorView.swift in Sources */,
 				50022157281D8C7D009D9A4E /* HomeView.swift in Sources */,
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,

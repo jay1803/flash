@@ -15,15 +15,7 @@ struct EntryDetailView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading) {
-                    Text(toString(from: entry.createdAt))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .padding(.bottom, 4)
-                    
-                    Text(entry.content)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
+                EntryContentView(entry: entry)
                 .padding()
                 if let repies = entry.replies {
                     List {
