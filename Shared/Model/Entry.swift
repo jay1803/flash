@@ -26,23 +26,3 @@ final class Entry: Object, ObjectKeyIdentifiable {
         self.replyTo = replyTo
     }
 }
-
-extension Entry {
-    func all(in realm: Realm = try! Realm()) -> Results<Entry> {
-        return realm.objects(Entry.self).sorted(byKeyPath: "createdAt", ascending: false)
-    }
-    
-    func add(in realm: Realm = try! Realm()) -> Entry {
-        let entry = Entry(content: content, replyTo: replyTo)
-        try! realm.write {
-            realm.add(self)
-        }
-        return entry
-    }
-    
-    func delete(in realm: Realm = try! Realm()) {
-        try! realm.write {
-            realm.delete(self)
-        }
-    }
-}
