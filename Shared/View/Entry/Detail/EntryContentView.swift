@@ -20,7 +20,7 @@ struct EntryContentView: View {
             Text(entry.content)
                 .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(.vertical, 8)
+        .padding(8)
     }
 }
 

@@ -18,8 +18,9 @@ struct EntryDetailView: View {
                 if let replyToEntry = entry.replyTo {
                     ReplyToEntryView(replyTo: replyToEntry)
                 }
+                
                 EntryContentView(entry: entry)
-                    .padding()
+                    .padding(.horizontal, 8)
                 
                 if let repies = entry.replies {
                     List {

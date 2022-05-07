@@ -21,8 +21,7 @@ struct ReplyToEntryView: View {
             HStack(alignment: .top, spacing: 0) {
                 Rectangle()
                     .frame(width: 4)
-                    .padding(.leading, 20)
-                    .padding(.trailing, 20)
+                    .padding(.leading, 16)
                     .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 
                 EntryContentView(entry: replyTo)
