@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Thread: View {
     
+    @Environment(\.colorScheme) var appearance
+    
     let replyTo: Entry
     @State private var rowHeight: CGFloat = 0
     
@@ -22,7 +24,9 @@ struct Thread: View {
                 Rectangle()
                     .frame(width: 4)
                     .padding(.leading, 16)
-                    .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.2))
+                    .foregroundColor(appearance == .dark
+                                     ? Color(red: 1, green: 1, blue: 1, opacity: 0.38)
+                                     : Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 
                 EntryContent(entry: replyTo)
                     .background(GeometryReader {geometry in
