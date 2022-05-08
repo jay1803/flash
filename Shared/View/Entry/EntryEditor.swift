@@ -8,7 +8,16 @@
 import SwiftUI
 import RealmSwift
 
+extension UITextView {
+  open override var frame: CGRect {
+    didSet {
+      backgroundColor = .clear
+    }
+  }
+}
+
 struct EntryEditor: View {
+    @Environment(\.colorScheme) var appearance
     @EnvironmentObject var realmManager: RealmManager
     let entry: Entry?
     private let initHeight: CGFloat = 38
@@ -39,7 +48,9 @@ struct EntryEditor: View {
                     .frame(minHeight: initHeight)
                     .padding(.leading, 10)
                     .padding(.trailing, 36)
-                    .background(Color.white)
+                    .background(appearance == .dark
+                                ? Color.clear
+                                : Color.white)
                     .cornerRadius(initHeight / 2)
                     
                 Button(action: {
@@ -58,23 +69,30 @@ struct EntryEditor: View {
                 }) {
                     Image(systemName: "arrow.up.circle.fill")
                         .resizable()
-                        .frame(width: initHeight - CGFloat(4), height: initHeight - CGFloat(4))
+                        .frame(width: initHeight - CGFloat(4),
+                               height: initHeight - CGFloat(4))
                         .padding(.trailing, 2)
                         .padding(.bottom, 2)
                         .foregroundColor(.green)
                 }
                 .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Content cannot be empty"), message: Text("Try to add some text to the content"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Content cannot be empty"),
+                          message: Text("Try to add some text to the content"),
+                          dismissButton: .default(Text("OK")))
                 }
             }
         }
         .overlay(
             RoundedRectangle(cornerRadius: initHeight / 2)
-            .stroke(Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
+                .stroke(appearance == .dark
+                        ? Color(red: 1, green: 1, blue: 1, opacity: 0.38)
+                        : Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
         .padding(.horizontal, 16)
         .padding(.vertical, 4)
         .frame(height: height + CGFloat(10))
-        .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
+        .background(appearance == .dark
+                    ? Color.clear.edgesIgnoringSafeArea(.bottom)
+                    : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
         .onPreferenceChange(textViewHeight.self) { height = $0 }
             .simultaneousGesture(DragGesture().onChanged({ _ in
                 hideKeyboard()
@@ -91,7 +109,11 @@ struct textViewHeight: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditor(entry: nil)
-            .environmentObject(RealmManager(name: "flash"))
+        ForEach(ColorScheme.allCases, id: \.self) {
+            EntryEditor(entry: nil)
+                .environmentObject(RealmManager(name: "flash"))
+                .preferredColorScheme($0)
+        }
+        .previewLayout(.fixed(width: 420, height: 44))
     }
 }

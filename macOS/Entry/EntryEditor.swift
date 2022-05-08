@@ -18,6 +18,8 @@ extension NSTextView {
 }
 
 struct EntryEditor: View {
+    
+    @Environment(\.colorScheme) var appearance
     @EnvironmentObject var realmManager: RealmManager
     let entry: Entry?
     private let initHeight: CGFloat = 38
@@ -29,7 +31,6 @@ struct EntryEditor: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Text(inputText.isEmpty ? " " : inputText)
-                .frame(width: .infinity, alignment: .leading)
                 .lineLimit(10)
                 .padding(.leading, 15)
                 .padding(.trailing, 42)
@@ -46,10 +47,15 @@ struct EntryEditor: View {
                 TextEditor(text: $inputText)
                     .frame(height: height)
                     .frame(minHeight: initHeight)
-                    .background(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
+                    .background(appearance == .dark
+                                ? Color(red: 0, green: 0, blue: 0, opacity: 0.5)
+                                : Color.clear)
                     .cornerRadius(19)
-                    .overlay(RoundedRectangle(cornerRadius: initHeight / 2)
-                        .stroke(Color(red: 1, green: 1, blue: 1, opacity: 0.2), lineWidth: 1))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: initHeight / 2)
+                            .stroke(appearance == .dark
+                                    ? Color(red: 1, green: 1, blue: 1, opacity: 0.2)
+                                    : Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
                 
                 Button(action: {
                     let content = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -93,9 +99,12 @@ struct textViewHeight: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditor(entry: nil)
-            .environmentObject(RealmManager(name: "flash"))
-            .frame(height: 50)
+        ForEach(ColorScheme.allCases, id: \.self) {
+            EntryEditor(entry: nil)
+                .environmentObject(RealmManager(name: "flash"))
+                .preferredColorScheme($0)
+        }
+        .previewLayout(.fixed(width: 420, height: 56))
     }
 }
 
