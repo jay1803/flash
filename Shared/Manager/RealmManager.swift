@@ -31,6 +31,7 @@ class RealmManager: ObservableObject {
         let config = Realm.Configuration(fileURL: realmFilePath, schemaVersion: 1)
         
         Realm.Configuration.defaultConfiguration = config
+        print(docDir)
         
         do {
             realm = try Realm()

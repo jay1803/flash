@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct EntryListView: View {
+struct EntryList: View {
     
     @EnvironmentObject var realmManager: RealmManager
     @State private var isShowingDeleteAlert: Bool = false
@@ -20,7 +20,7 @@ struct EntryListView: View {
                 List {
                     ForEach(realmManager.entries) { entry in
                         if !entry.isInvalidated {
-                            EntryRowView(realmManager: realmManager, entry: entry)
+                            EntryRow(realmManager: realmManager, entry: entry)
                                 .actionSheet(isPresented: $isShowingDeleteAlert) {
                                     ActionSheet(title: Text("Permanently delete this note?"),
                                                 message: Text("You can't undo this action."),
@@ -44,9 +44,9 @@ struct EntryListView: View {
                 .listStyle(.inset)
                 .padding(.bottom, 48)
             } else {
-                EmptyEntryView()
+                EmptyEntry()
             }
-            EntryEditorView(entry: nil)
+            EntryEditor(entry: nil)
         }
     }
     
@@ -56,9 +56,16 @@ struct EntryListView: View {
     }
 }
 
+extension View {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+}
+
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
-        EntryListView()
+        EntryList()
             .environmentObject(RealmManager(name: "flash"))
     }
 }

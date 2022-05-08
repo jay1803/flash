@@ -8,7 +8,16 @@
 import SwiftUI
 import RealmSwift
 
-struct EntryEditorView: View {
+extension NSTextView {
+  open override var frame: CGRect {
+    didSet {
+      backgroundColor = .clear
+      drawsBackground = true
+    }
+  }
+}
+
+struct EntryEditor: View {
     @EnvironmentObject var realmManager: RealmManager
     let entry: Entry?
     private let initHeight: CGFloat = 38
@@ -20,7 +29,7 @@ struct EntryEditorView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Text(inputText.isEmpty ? " " : inputText)
-                .frame(width: UIScreen.main.bounds.width - 78, alignment: .leading)
+                .frame(width: .infinity, alignment: .leading)
                 .lineLimit(10)
                 .padding(.leading, 15)
                 .padding(.trailing, 42)
@@ -33,15 +42,15 @@ struct EntryEditorView: View {
                                     value: geometry.frame(in: .local).size.height)
                 })
             
-            ZStack(alignment: .bottomTrailing) {
+            HStack(alignment: .bottom) {
                 TextEditor(text: $inputText)
                     .frame(height: height)
                     .frame(minHeight: initHeight)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 36)
-                    .background(Color.white)
-                    .cornerRadius(initHeight / 2)
-                    
+                    .background(Color(red: 0, green: 0, blue: 0, opacity: 0.5))
+                    .cornerRadius(19)
+                    .overlay(RoundedRectangle(cornerRadius: initHeight / 2)
+                        .stroke(Color(red: 1, green: 1, blue: 1, opacity: 0.2), lineWidth: 1))
+                
                 Button(action: {
                     let content = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
                     if content.isEmpty {
@@ -63,22 +72,15 @@ struct EntryEditorView: View {
                         .padding(.bottom, 2)
                         .foregroundColor(.green)
                 }
+                .buttonStyle(.plain)
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Content cannot be empty"), message: Text("Try to add some text to the content"), dismissButton: .default(Text("OK")))
                 }
             }
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: initHeight / 2)
-            .stroke(Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
-        .padding(.horizontal, 16)
-        .padding(.vertical, 4)
-        .frame(height: height + CGFloat(10))
-        .background(Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
+        .padding(8)
+        .frame(height: height + CGFloat(16))
         .onPreferenceChange(textViewHeight.self) { height = $0 }
-            .simultaneousGesture(DragGesture().onChanged({ _ in
-                hideKeyboard()
-            }))
     }
 }
 
@@ -91,7 +93,9 @@ struct textViewHeight: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditorView(entry: nil)
+        EntryEditor(entry: nil)
             .environmentObject(RealmManager(name: "flash"))
+            .frame(height: 50)
     }
 }
+

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ReplyToEntryView: View {
+struct Thread: View {
     
     let replyTo: Entry
     @State private var rowHeight: CGFloat = 0
@@ -15,7 +15,7 @@ struct ReplyToEntryView: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: 0) {
             if let replyToEntry = replyTo.replyTo {
-                ReplyToEntryView(replyTo: replyToEntry)
+                Thread(replyTo: replyToEntry)
             }
             
             HStack(alignment: .top, spacing: 0) {
@@ -24,7 +24,7 @@ struct ReplyToEntryView: View {
                     .padding(.leading, 16)
                     .foregroundColor(Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 
-                EntryContentView(entry: replyTo)
+                EntryContent(entry: replyTo)
                     .background(GeometryReader {geometry in
                         Color.clear.preference(key: textViewHeight.self, value: geometry.frame(in: .local).size.height)
                     })
@@ -39,6 +39,6 @@ struct ReplyToEntryView: View {
 
 struct ReplyToEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        ReplyToEntryView(replyTo: Entry(content: "This is a reply to entry.", replyTo: Entry(content: "This is a reply")))
+        Thread(replyTo: Entry(content: "This is a reply to entry.", replyTo: Entry(content: "This is a reply")))
     }
 }

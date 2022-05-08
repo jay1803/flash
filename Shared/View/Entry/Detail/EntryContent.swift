@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EntryContentView: View {
+struct EntryContent: View {
     let entry: Entry
     
     var body: some View {
@@ -26,6 +26,6 @@ struct EntryContentView: View {
 
 struct EntryContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryContentView(entry: Entry(content: "This is a sample note\nThis is a sample note\nThis is a sample note"))
+        EntryContent(entry: Entry(content: "This is a sample note\nThis is a sample note\nThis is a sample note"))
     }
 }

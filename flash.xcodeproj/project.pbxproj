@@ -8,22 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0238AE44663AC7B91E9ED6EC /* Pods_flash__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */; };
-		50022142281BAE38009D9A4E /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022141281BAE38009D9A4E /* EntryListView.swift */; };
-		50022143281BAE38009D9A4E /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022141281BAE38009D9A4E /* EntryListView.swift */; };
+		50022142281BAE38009D9A4E /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022141281BAE38009D9A4E /* EntryList.swift */; };
 		50022145281BAE4B009D9A4E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
 		50022146281BAE4B009D9A4E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
-		5002214B281C0220009D9A4E /* EntryEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214A281C0220009D9A4E /* EntryEditorView.swift */; };
-		5002214C281C0220009D9A4E /* EntryEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214A281C0220009D9A4E /* EntryEditorView.swift */; };
-		5002214E281D7145009D9A4E /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214D281D7145009D9A4E /* EntryRowView.swift */; };
-		5002214F281D7145009D9A4E /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214D281D7145009D9A4E /* EntryRowView.swift */; };
+		5002214B281C0220009D9A4E /* EntryEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214A281C0220009D9A4E /* EntryEditor.swift */; };
+		5002214E281D7145009D9A4E /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214D281D7145009D9A4E /* EntryRow.swift */; };
 		50022152281D72B7009D9A4E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
 		50022153281D72B7009D9A4E /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
-		50022156281D8C7D009D9A4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* HomeView.swift */; };
-		50022157281D8C7D009D9A4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* HomeView.swift */; };
-		50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntryView.swift */; };
-		5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntryView.swift */; };
-		5002216C2821217D009D9A4E /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetailView.swift */; };
-		5002216D2821217D009D9A4E /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetailView.swift */; };
+		50022156281D8C7D009D9A4E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* Home.swift */; };
+		50022159281D8CD0009D9A4E /* EmptyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntry.swift */; };
+		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -34,10 +28,15 @@
 		50AC43FA281BACEA0033E148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AC43CF281BACEA0033E148 /* Assets.xcassets */; };
 		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
-		50D9C3602826C14000AC4E89 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContentView.swift */; };
-		50D9C3612826C14000AC4E89 /* EntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContentView.swift */; };
-		50D9C3632826C35C00AC4E89 /* ReplyToEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* ReplyToEntryView.swift */; };
-		50D9C3642826C35C00AC4E89 /* ReplyToEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* ReplyToEntryView.swift */; };
+		50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
+		50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* Thread.swift */; };
+		50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C36828276F4700AC4E89 /* EntryList.swift */; };
+		50D9C36D2827706800AC4E89 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* Home.swift */; };
+		50D9C36F282770ED00AC4E89 /* EntryEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C36E282770ED00AC4E89 /* EntryEditor.swift */; };
+		50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
+		50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
+		50D9C3722827785700AC4E89 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* Thread.swift */; };
+		50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214D281D7145009D9A4E /* EntryRow.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,14 +58,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		50022141281BAE38009D9A4E /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
+		50022141281BAE38009D9A4E /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
 		50022144281BAE4B009D9A4E /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		5002214A281C0220009D9A4E /* EntryEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEditorView.swift; sourceTree = "<group>"; };
-		5002214D281D7145009D9A4E /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
+		5002214A281C0220009D9A4E /* EntryEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEditor.swift; sourceTree = "<group>"; };
+		5002214D281D7145009D9A4E /* EntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRow.swift; sourceTree = "<group>"; };
 		50022151281D72B7009D9A4E /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		50022155281D8C7D009D9A4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		50022158281D8CD0009D9A4E /* EmptyEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntryView.swift; sourceTree = "<group>"; };
-		5002216B2821217D009D9A4E /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		50022155281D8C7D009D9A4E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		50022158281D8CD0009D9A4E /* EmptyEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntry.swift; sourceTree = "<group>"; };
+		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +78,10 @@
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
-		50D9C35F2826C14000AC4E89 /* EntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContentView.swift; sourceTree = "<group>"; };
-		50D9C3622826C35C00AC4E89 /* ReplyToEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyToEntryView.swift; sourceTree = "<group>"; };
+		50D9C35F2826C14000AC4E89 /* EntryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContent.swift; sourceTree = "<group>"; };
+		50D9C3622826C35C00AC4E89 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		50D9C36828276F4700AC4E89 /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
+		50D9C36E282770ED00AC4E89 /* EntryEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEditor.swift; sourceTree = "<group>"; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +155,7 @@
 		5002213E281BAE06009D9A4E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5002215B281D922F009D9A4E /* Home */,
+				50022155281D8C7D009D9A4E /* Home.swift */,
 				50022154281D8521009D9A4E /* Entry */,
 			);
 			path = View;
@@ -173,17 +174,9 @@
 			children = (
 				50D9C35D2826C11500AC4E89 /* List */,
 				50D9C35E2826C12500AC4E89 /* Detail */,
-				5002214A281C0220009D9A4E /* EntryEditorView.swift */,
+				5002214A281C0220009D9A4E /* EntryEditor.swift */,
 			);
 			path = Entry;
-			sourceTree = "<group>";
-		};
-		5002215B281D922F009D9A4E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				50022155281D8C7D009D9A4E /* HomeView.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		50AC43C7281BACE90033E148 = {
@@ -202,12 +195,12 @@
 		50AC43CC281BACE90033E148 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				50AC43CD281BACE90033E148 /* flashApp.swift */,
 				5002213D281BADFE009D9A4E /* Model */,
 				5002213E281BAE06009D9A4E /* View */,
 				50D9C35C2826397C00AC4E89 /* ViewModel */,
 				50D9C35B2826396C00AC4E89 /* Manager */,
 				50022150281D729E009D9A4E /* Helper */,
-				50AC43CD281BACE90033E148 /* flashApp.swift */,
 				50AC43CF281BACEA0033E148 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -227,6 +220,7 @@
 		50AC43DB281BACEA0033E148 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				50D9C36A28276F5200AC4E89 /* Entry */,
 				50AC43DC281BACEA0033E148 /* macOS.entitlements */,
 			);
 			path = macOS;
@@ -268,9 +262,9 @@
 		50D9C35D2826C11500AC4E89 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				50022158281D8CD0009D9A4E /* EmptyEntryView.swift */,
-				50022141281BAE38009D9A4E /* EntryListView.swift */,
-				5002214D281D7145009D9A4E /* EntryRowView.swift */,
+				50022158281D8CD0009D9A4E /* EmptyEntry.swift */,
+				50022141281BAE38009D9A4E /* EntryList.swift */,
+				5002214D281D7145009D9A4E /* EntryRow.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -278,11 +272,20 @@
 		50D9C35E2826C12500AC4E89 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				5002216B2821217D009D9A4E /* EntryDetailView.swift */,
-				50D9C35F2826C14000AC4E89 /* EntryContentView.swift */,
-				50D9C3622826C35C00AC4E89 /* ReplyToEntryView.swift */,
+				5002216B2821217D009D9A4E /* EntryDetail.swift */,
+				50D9C35F2826C14000AC4E89 /* EntryContent.swift */,
+				50D9C3622826C35C00AC4E89 /* Thread.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		50D9C36A28276F5200AC4E89 /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				50D9C36828276F4700AC4E89 /* EntryList.swift */,
+				50D9C36E282770ED00AC4E89 /* EntryEditor.swift */,
+			);
+			path = Entry;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,16 +532,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
-				5002214E281D7145009D9A4E /* EntryRowView.swift in Sources */,
-				5002216C2821217D009D9A4E /* EntryDetailView.swift in Sources */,
+				5002214E281D7145009D9A4E /* EntryRow.swift in Sources */,
+				5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */,
 				50AC43F5281BACEA0033E148 /* flashApp.swift in Sources */,
-				50022159281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
-				50022142281BAE38009D9A4E /* EntryListView.swift in Sources */,
+				50022159281D8CD0009D9A4E /* EmptyEntry.swift in Sources */,
+				50022142281BAE38009D9A4E /* EntryList.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
-				50D9C3602826C14000AC4E89 /* EntryContentView.swift in Sources */,
-				5002214B281C0220009D9A4E /* EntryEditorView.swift in Sources */,
-				50D9C3632826C35C00AC4E89 /* ReplyToEntryView.swift in Sources */,
-				50022156281D8C7D009D9A4E /* HomeView.swift in Sources */,
+				50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */,
+				5002214B281C0220009D9A4E /* EntryEditor.swift in Sources */,
+				50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */,
+				50022156281D8C7D009D9A4E /* Home.swift in Sources */,
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,18 +550,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */,
 				50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */,
-				5002214F281D7145009D9A4E /* EntryRowView.swift in Sources */,
-				5002216D2821217D009D9A4E /* EntryDetailView.swift in Sources */,
+				50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */,
+				50D9C3722827785700AC4E89 /* Thread.swift in Sources */,
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
-				5002215A281D8CD0009D9A4E /* EmptyEntryView.swift in Sources */,
-				50022143281BAE38009D9A4E /* EntryListView.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
-				50D9C3612826C14000AC4E89 /* EntryContentView.swift in Sources */,
-				5002214C281C0220009D9A4E /* EntryEditorView.swift in Sources */,
-				50D9C3642826C35C00AC4E89 /* ReplyToEntryView.swift in Sources */,
-				50022157281D8C7D009D9A4E /* HomeView.swift in Sources */,
+				50D9C36D2827706800AC4E89 /* Home.swift in Sources */,
+				50D9C36F282770ED00AC4E89 /* EntryEditor.swift in Sources */,
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,
+				50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */,
+				50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +648,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -698,6 +702,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -789,7 +795,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash;
 				PRODUCT_NAME = flash;
@@ -818,7 +824,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash;
 				PRODUCT_NAME = flash;

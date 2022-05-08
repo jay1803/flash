@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmptyEntryView: View {
+struct EmptyEntry: View {
     var body: some View {
         GeometryReader { geometry in
             Text("Start to add some notes here...")
@@ -20,6 +20,6 @@ struct EmptyEntryView: View {
 
 struct EmptyEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        EmptyEntryView()
+        EmptyEntry()
     }
 }
