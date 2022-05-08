@@ -31,9 +31,12 @@
 		50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
 		50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* Thread.swift */; };
 		50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C36828276F4700AC4E89 /* EntryList.swift */; };
-		50D9C36C28276F8700AC4E89 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C36B28276F8700AC4E89 /* EntryRow.swift */; };
 		50D9C36D2827706800AC4E89 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* Home.swift */; };
 		50D9C36F282770ED00AC4E89 /* EntryEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C36E282770ED00AC4E89 /* EntryEditor.swift */; };
+		50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
+		50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
+		50D9C3722827785700AC4E89 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* Thread.swift */; };
+		50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214D281D7145009D9A4E /* EntryRow.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,7 +81,6 @@
 		50D9C35F2826C14000AC4E89 /* EntryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContent.swift; sourceTree = "<group>"; };
 		50D9C3622826C35C00AC4E89 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		50D9C36828276F4700AC4E89 /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
-		50D9C36B28276F8700AC4E89 /* EntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRow.swift; sourceTree = "<group>"; };
 		50D9C36E282770ED00AC4E89 /* EntryEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEditor.swift; sourceTree = "<group>"; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
@@ -282,7 +284,6 @@
 			children = (
 				50D9C36828276F4700AC4E89 /* EntryList.swift */,
 				50D9C36E282770ED00AC4E89 /* EntryEditor.swift */,
-				50D9C36B28276F8700AC4E89 /* EntryRow.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -549,13 +550,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */,
 				50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */,
-				50D9C36C28276F8700AC4E89 /* EntryRow.swift in Sources */,
+				50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */,
+				50D9C3722827785700AC4E89 /* Thread.swift in Sources */,
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
 				50D9C36D2827706800AC4E89 /* Home.swift in Sources */,
 				50D9C36F282770ED00AC4E89 /* EntryEditor.swift in Sources */,
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,
+				50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */,
 				50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

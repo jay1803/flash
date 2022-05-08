@@ -26,18 +26,39 @@ struct EntryDetail: View {
                     List {
                         Section(header: Text("Replies")) {
                             ForEach(repies) { reply in
+                                #if !os(macOS)
                                 EntryRow(realmManager: realmManager, entry: reply)
+                                #endif
+                                
+                                #if os(macOS)
+                                VStack(alignment: .leading, spacing: 8) {
+                                    Text(toString(from: reply.createdAt))
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                    
+                                    Text(reply.content)
+                                        .lineLimit(10)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .foregroundColor(.primary)
+                                        .lineSpacing(4)
+                                }
+                                .padding(.vertical, 8)
+                                #endif
                             }
                         }
                     }
+                    #if !os(macOS)
                     .listStyle(.grouped)
+                    #endif
                 }
             }
             
             EntryEditor(entry: entry)
                 .environmentObject(realmManager)
         }
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 }
 

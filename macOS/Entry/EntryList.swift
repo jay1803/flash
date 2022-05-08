@@ -19,15 +19,16 @@ struct EntryList: View {
             List {
                 ForEach(realmManager.entries) { entry in
                     if !entry.isInvalidated {
-                        EntryRowView(realmManager: realmManager, entry: entry)
+                        EntryRow(realmManager: realmManager, entry: entry)
                     }
                 }
                 .onDelete(perform: deleteConfirmation)
             }
-            .navigationTitle("Notes")
             .animation(.easeInOut, value: realmManager.entries)
-            .listStyle(.inset)
             .padding(.bottom, 48)
+            .frame(minWidth: 300)
+            
+            EntryEditor(entry: nil)
         }
     }
     
