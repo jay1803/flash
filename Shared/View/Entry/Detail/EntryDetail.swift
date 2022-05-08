@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct EntryDetailView: View {
+struct EntryDetail: View {
     @ObservedObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
     
@@ -16,17 +16,17 @@ struct EntryDetailView: View {
         ZStack(alignment: .bottom) {
             VStack(alignment: .leading) {
                 if let replyToEntry = entry.replyTo {
-                    ReplyToEntryView(replyTo: replyToEntry)
+                    Thread(replyTo: replyToEntry)
                 }
                 
-                EntryContentView(entry: entry)
+                EntryContent(entry: entry)
                     .padding(.horizontal, 8)
                 
                 if let repies = entry.replies {
                     List {
                         Section(header: Text("Replies")) {
                             ForEach(repies) { reply in
-                                EntryRowView(realmManager: realmManager, entry: reply)
+                                EntryRow(realmManager: realmManager, entry: reply)
                             }
                         }
                     }
@@ -34,7 +34,7 @@ struct EntryDetailView: View {
                 }
             }
             
-            EntryEditorView(entry: entry)
+            EntryEditor(entry: entry)
                 .environmentObject(realmManager)
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -43,7 +43,7 @@ struct EntryDetailView: View {
 
 struct EntryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetailView(realmManager: RealmManager(name: "flash"),
+        EntryDetail(realmManager: RealmManager(name: "flash"),
                         entry: Entry(content: "This is a preview notes\nwith a second line"))
             .previewLayout(.sizeThatFits)
             .environmentObject(RealmManager(name: "flash"))

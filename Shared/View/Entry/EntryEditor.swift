@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-struct EntryEditorView: View {
+struct EntryEditor: View {
     @EnvironmentObject var realmManager: RealmManager
     let entry: Entry?
     private let initHeight: CGFloat = 38
@@ -91,7 +91,7 @@ struct textViewHeight: PreferenceKey {
 
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
-        EntryEditorView(entry: nil)
+        EntryEditor(entry: nil)
             .environmentObject(RealmManager(name: "flash"))
     }
 }
