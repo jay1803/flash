@@ -15,7 +15,7 @@ struct flashApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                HomeView()
+                Home()
                     .environmentObject(realmManager)
             }
             .onAppear {
