@@ -53,7 +53,7 @@ struct EntryDetail: View {
                 }
             }
             
-            EntryEditor(entry: entry)
+            EntryEditor(viewModel: EditorViewModel(entry: entry))
                 .environmentObject(realmManager)
         }
         #if os(iOS)

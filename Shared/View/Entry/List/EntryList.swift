@@ -46,7 +46,7 @@ struct EntryList: View {
             } else {
                 EmptyEntry()
             }
-            EntryEditor(entry: nil)
+            EntryEditor(viewModel: EditorViewModel())
         }
     }
     
