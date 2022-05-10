@@ -9,6 +9,16 @@ import Foundation
 import Combine
 import RealmSwift
 
+enum fileType: String {
+    case image = "image"
+    case pdf = "pdf"
+}
+
+final class Attachment: EmbeddedObject {
+    @Persisted var fileName: String
+    @Persisted var fileType: String
+}
+
 final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: UUID
     @Persisted var content: String
@@ -19,6 +29,7 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var isArchived: Bool = false
     @Persisted var replyTo: Entry?
     @Persisted var replies: List<Entry>
+    @Persisted var attachments: List<Attachment>
     
     convenience init(id: String = UUID().uuidString, content: String, replyTo: Entry? = nil) {
         self.init()
