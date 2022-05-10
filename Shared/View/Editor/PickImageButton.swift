@@ -13,7 +13,7 @@ struct PickImageButton: View {
     
     var body: some View {
         Button(action: {
-            print("Pick button pressed...")
+            viewModel.showImagePicker.toggle()
         }) {
             Image(systemName: "plus.circle.fill")
                 .resizable()

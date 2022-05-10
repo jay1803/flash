@@ -24,7 +24,6 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var content: String
     @Persisted var createdAt: Date = Date()
     @Persisted var updatedAt: Date = Date()
-    @Persisted var isDeleted: Bool = false
     @Persisted var isFavorated: Bool = false
     @Persisted var isArchived: Bool = false
     @Persisted var replyTo: Entry?

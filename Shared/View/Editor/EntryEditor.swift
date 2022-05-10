@@ -15,20 +15,32 @@ struct EntryEditor: View {
     @EnvironmentObject var viewModel: EditorViewModel
     
     var body: some View {
-        HStack(alignment: .bottom, spacing: 8) {
-            PickImageButton()
-            TextInput()
-            SendButton()
+        VStack {
+            if let image = viewModel.image {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            HStack(alignment: .bottom, spacing: 8) {
+                PickImageButton()
+                TextInput()
+                SendButton()
+            }
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
+            .sheet(isPresented: $viewModel.showImagePicker, content: {
+                ImagePickerView(sourceType: .photoLibrary) { image in
+                    viewModel.image = image
+                }
+            })
+            .background(appearance == .dark
+                        ? Color.clear.edgesIgnoringSafeArea(.bottom)
+                        : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
+            .onPreferenceChange(textViewHeight.self) { viewModel.height = $0 }
+                .simultaneousGesture(DragGesture().onChanged({ _ in
+                    hideKeyboard()
+            }))
         }
-        .padding(.horizontal, 8)
-        .padding(.vertical, 4)
-        .background(appearance == .dark
-                    ? Color.clear.edgesIgnoringSafeArea(.bottom)
-                    : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
-        .onPreferenceChange(textViewHeight.self) { viewModel.height = $0 }
-            .simultaneousGesture(DragGesture().onChanged({ _ in
-                hideKeyboard()
-        }))
     }
 }
 
