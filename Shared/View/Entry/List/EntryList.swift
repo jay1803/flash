@@ -46,7 +46,8 @@ struct EntryList: View {
             } else {
                 EmptyEntry()
             }
-            EntryEditor(viewModel: EditorViewModel())
+            EntryEditor()
+                .environmentObject(EditorViewModel())
         }
     }
     

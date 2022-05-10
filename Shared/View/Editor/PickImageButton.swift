@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PickImageButton: View {
     @EnvironmentObject var realmManager: RealmManager
-    @ObservedObject var viewModel: EditorViewModel
+    @EnvironmentObject var viewModel: EditorViewModel
     
     var body: some View {
         Button(action: {
@@ -17,8 +17,8 @@ struct PickImageButton: View {
         }) {
             Image(systemName: "plus.circle.fill")
                 .resizable()
-                .frame(width: viewModel.initHeight - CGFloat(4),
-                       height: viewModel.initHeight - CGFloat(4))
+                .frame(width: viewModel.initHeight,
+                       height: viewModel.initHeight)
                 .background(Color.white)
                 .cornerRadius(viewModel.initHeight / 2)
                 .foregroundColor(.gray)
@@ -28,6 +28,7 @@ struct PickImageButton: View {
 
 struct PickImageButton_Previews: PreviewProvider {
     static var previews: some View {
-        PickImageButton(viewModel: EditorViewModel())
+        PickImageButton()
+            .environmentObject(EditorViewModel())
     }
 }

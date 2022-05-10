@@ -10,7 +10,7 @@ import SwiftUI
 struct SendButton: View {
     
     @EnvironmentObject var realmManager: RealmManager
-    @ObservedObject var viewModel: EditorViewModel
+    @EnvironmentObject var viewModel: EditorViewModel
     @State var showingAlert: Bool = false
     
     var body: some View {
@@ -30,8 +30,8 @@ struct SendButton: View {
         }) {
             Image(systemName: "arrow.up.circle.fill")
                 .resizable()
-                .frame(width: viewModel.initHeight - CGFloat(4),
-                       height: viewModel.initHeight - CGFloat(4))
+                .frame(width: viewModel.initHeight,
+                       height: viewModel.initHeight)
                 .foregroundColor(.green)
                 .background(Color.white)
                 .cornerRadius(viewModel.initHeight / 2)
@@ -46,7 +46,8 @@ struct SendButton: View {
 
 struct SendButton_Previews: PreviewProvider {
     static var previews: some View {
-        SendButton(viewModel: EditorViewModel())
+        SendButton()
             .environmentObject(RealmManager(name: "flash"))
+            .environmentObject(EditorViewModel())
     }
 }

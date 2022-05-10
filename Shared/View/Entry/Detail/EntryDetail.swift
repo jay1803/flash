@@ -53,8 +53,9 @@ struct EntryDetail: View {
                 }
             }
             
-            EntryEditor(viewModel: EditorViewModel(entry: entry))
+            EntryEditor()
                 .environmentObject(realmManager)
+                .environmentObject(EditorViewModel(entry: entry))
         }
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
