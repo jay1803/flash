@@ -43,6 +43,7 @@
 		50D9C37E2828F1FD00AC4E89 /* PickImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */; };
 		50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
 		50D9C3812828FBEE00AC4E89 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
+		50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickImageButton.swift; sourceTree = "<group>"; };
 		50D9C37F2828FBEE00AC4E89 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		50D9C383282A292100AC4E89 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 				50022155281D8C7D009D9A4E /* Home.swift */,
 				50022154281D8521009D9A4E /* Entry */,
 				50D9C3742828D2D100AC4E89 /* Editor */,
+				50D9C382282A290600AC4E89 /* ImagePicker */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,6 +311,14 @@
 				50D9C3752828D59000AC4E89 /* SendButton.swift */,
 			);
 			path = Editor;
+			sourceTree = "<group>";
+		};
+		50D9C382282A290600AC4E89 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,6 +567,7 @@
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
 				5002214E281D7145009D9A4E /* EntryRow.swift in Sources */,
+				50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */,
 				5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */,
 				50AC43F5281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022159281D8CD0009D9A4E /* EmptyEntry.swift in Sources */,
