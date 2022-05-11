@@ -57,31 +57,7 @@ struct EntryEditor: View {
                                     ? Color(red: 1, green: 1, blue: 1, opacity: 0.2)
                                     : Color(red: 196/255, green: 196/255, blue: 198/255), lineWidth: 1))
                 
-                Button(action: {
-                    let content = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
-                    if content.isEmpty {
-                        showingAlert.toggle()
-                    } else {
-                        if let entry = entry {
-                            realmManager.replyTo(entry: entry, with: Entry(content: content))
-                        } else {
-                            realmManager.add(entry: Entry(content: content))
-                        }
-                    }
-                    inputText = ""
-                    height = initHeight
-                }) {
-                    Image(systemName: "arrow.up.circle.fill")
-                        .resizable()
-                        .frame(width: initHeight - CGFloat(4), height: initHeight - CGFloat(4))
-                        .padding(.trailing, 2)
-                        .padding(.bottom, 2)
-                        .foregroundColor(.green)
-                }
-                .buttonStyle(.plain)
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Content cannot be empty"), message: Text("Try to add some text to the content"), dismissButton: .default(Text("OK")))
-                }
+                SendButton()
             }
         }
         .padding(8)

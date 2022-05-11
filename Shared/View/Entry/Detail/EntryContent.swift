@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EntryContent: View {
     let entry: Entry
+    let font: Font
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -19,8 +20,9 @@ struct EntryContent: View {
             
             Text(entry.content)
                 .fixedSize(horizontal: false, vertical: true)
+                .font(font)
             
-            ImageList(entry: entry)
+            ImageList(entry: entry, maxHeight: .infinity)
         }
         .padding(8)
     }
@@ -28,6 +30,6 @@ struct EntryContent: View {
 
 struct EntryContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryContent(entry: Entry(content: "This is a sample note\nThis is a sample note\nThis is a sample note"))
+        EntryContent(entry: Entry(content: "This is a sample note\nThis is a sample note\nThis is a sample note"), font: .title3)
     }
 }

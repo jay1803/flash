@@ -36,13 +36,9 @@ struct SendButton: View {
             viewModel.content = ""
             viewModel.height = viewModel.initHeight
         }) {
-            Image(systemName: "arrow.up.circle.fill")
-                .resizable()
-                .frame(width: viewModel.initHeight,
-                       height: viewModel.initHeight)
-                .foregroundColor(.green)
-                .background(Color.white)
-                .cornerRadius(viewModel.initHeight / 2)
+            IconButton(systemName: "arrow.up.circle.fill",
+                       height: viewModel.initHeight,
+                       foregroundColor: Color.green)
         }
         .alert(isPresented: $showingAlert) {
             Alert(title: Text("Content cannot be empty"),

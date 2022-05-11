@@ -22,7 +22,9 @@ struct EntryEditor: View {
                     .aspectRatio(contentMode: .fit)
             }
             HStack(alignment: .bottom, spacing: 8) {
+                #if !os(macOS)
                 PickImageButton()
+                #endif
                 TextInput()
                 SendButton()
             }

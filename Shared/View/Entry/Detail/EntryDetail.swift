@@ -19,7 +19,7 @@ struct EntryDetail: View {
                     Thread(replyTo: replyToEntry)
                 }
                 
-                EntryContent(entry: entry)
+                EntryContent(entry: entry, font: .title3)
                     .padding(.horizontal, 8)
                 
                 if let repies = entry.replies {

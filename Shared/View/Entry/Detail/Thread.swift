@@ -28,7 +28,7 @@ struct Thread: View {
                                      ? Color(red: 1, green: 1, blue: 1, opacity: 0.38)
                                      : Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 
-                EntryContent(entry: replyTo)
+                EntryContent(entry: replyTo, font: .body)
                     .background(GeometryReader {geometry in
                         Color.clear.preference(key: textViewHeight.self, value: geometry.frame(in: .local).size.height)
                     })

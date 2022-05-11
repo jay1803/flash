@@ -26,8 +26,8 @@ struct EntryRow: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.primary)
                     .lineSpacing(4)
-                
-                ImageList(entry: entry)
+
+                ImageList(entry: entry, maxHeight: 100)
             }
             .padding(.vertical, 8)
         }

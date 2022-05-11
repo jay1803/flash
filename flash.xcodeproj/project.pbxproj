@@ -20,6 +20,10 @@
 		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
 		501D998E282BB676009022E0 /* ImageToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D998D282BB676009022E0 /* ImageToFile.swift */; };
 		501D9990282BDEDD009022E0 /* ImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D998F282BDEDD009022E0 /* ImageList.swift */; };
+		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
+		501D9997282C0F75009022E0 /* ImageToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D998D282BB676009022E0 /* ImageToFile.swift */; };
+		501D9998282C0F75009022E0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
+		501D9999282C0F78009022E0 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -42,9 +46,7 @@
 		50D9C3762828D59000AC4E89 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3752828D59000AC4E89 /* SendButton.swift */; };
 		50D9C3782828DBE800AC4E89 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */; };
 		50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */; };
-		50D9C37E2828F1FD00AC4E89 /* PickImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */; };
 		50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
-		50D9C3812828FBEE00AC4E89 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
 		50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +79,7 @@
 		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		501D998D282BB676009022E0 /* ImageToFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToFile.swift; sourceTree = "<group>"; };
 		501D998F282BDEDD009022E0 /* ImageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageList.swift; sourceTree = "<group>"; };
+		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,9 +193,9 @@
 		50022154281D8521009D9A4E /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				501D9991282BE48A009022E0 /* Image */,
 				50D9C35D2826C11500AC4E89 /* List */,
 				50D9C35E2826C12500AC4E89 /* Detail */,
+				501D9991282BE48A009022E0 /* Image */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,
 				50D9C3752828D59000AC4E89 /* SendButton.swift */,
+				501D9992282C0B09009022E0 /* IconButton.swift */,
 			);
 			path = Editor;
 			sourceTree = "<group>";
@@ -586,6 +590,7 @@
 				5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */,
 				50AC43F5281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022159281D8CD0009D9A4E /* EmptyEntry.swift in Sources */,
+				501D9993282C0B09009022E0 /* IconButton.swift in Sources */,
 				50022142281BAE38009D9A4E /* EntryList.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				50D9C3782828DBE800AC4E89 /* EditorViewModel.swift in Sources */,
@@ -606,17 +611,18 @@
 			files = (
 				50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */,
 				50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */,
+				501D9997282C0F75009022E0 /* ImageToFile.swift in Sources */,
+				501D9999282C0F78009022E0 /* EditorViewModel.swift in Sources */,
 				50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */,
 				50D9C3722827785700AC4E89 /* Thread.swift in Sources */,
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,
 				50D9C36D2827706800AC4E89 /* Home.swift in Sources */,
 				50D9C36F282770ED00AC4E89 /* EntryEditor.swift in Sources */,
-				50D9C3812828FBEE00AC4E89 /* TextInput.swift in Sources */,
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */,
-				50D9C37E2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
 				50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */,
+				501D9998282C0F75009022E0 /* ImagePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,13 +15,9 @@ struct PickImageButton: View {
         Button(action: {
             viewModel.showImagePicker.toggle()
         }) {
-            Image(systemName: "plus.circle.fill")
-                .resizable()
-                .frame(width: viewModel.initHeight,
-                       height: viewModel.initHeight)
-                .background(Color.white)
-                .cornerRadius(viewModel.initHeight / 2)
-                .foregroundColor(.gray)
+            IconButton(systemName: "plus.circle.fill",
+                       height: viewModel.initHeight,
+                       foregroundColor: Color.gray)
         }
     }
 }
