@@ -19,6 +19,8 @@ struct EntryContent: View {
             
             Text(entry.content)
                 .fixedSize(horizontal: false, vertical: true)
+            
+            ImageList(entry: entry)
         }
         .padding(8)
     }

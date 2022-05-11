@@ -27,9 +27,7 @@ struct EntryRow: View {
                     .foregroundColor(.primary)
                     .lineSpacing(4)
                 
-                if !entry.attachments.isEmpty {
-                    ImageList(entry: entry)
-                }
+                ImageList(entry: entry)
             }
             .padding(.vertical, 8)
         }

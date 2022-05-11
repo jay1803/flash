@@ -19,7 +19,8 @@ struct ImageList: View {
             let image = UIImage(contentsOfFile: imagePath!.path)
             Image(uiImage: image!)
                 .resizable()
-                .frame(maxWidth: 300, maxHeight: 300)
+                .aspectRatio(contentMode: .fit)
+                .frame(maxHeight: 100)
         }
     }
 }
