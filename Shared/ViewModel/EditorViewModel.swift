@@ -16,7 +16,28 @@ final class EditorViewModel: ObservableObject {
     @Published var showImagePicker: Bool = false
     @Published var image: UIImage?
     
+    private var documentDirectoryPath: URL? {
+        return cwd!.appendingPathComponent("attachments")
+    }
+    var attachmentFileName: String = UUID().uuidString
+    
     init(entry: Entry? = nil) {
         self.entry = entry
+    }
+    
+    func saveToPNG() {
+        print(documentDirectoryPath!)
+        if !FileManager.default.fileExists(atPath: documentDirectoryPath!.path) {
+            do {
+                try FileManager.default.createDirectory(at: documentDirectoryPath!,
+                                                        withIntermediateDirectories: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        if let PNG = self.image!.pngData(),
+        let path = self.documentDirectoryPath?.appendingPathComponent("\(attachmentFileName).png") {
+            try? PNG.write(to: path)
+        }
     }
 }

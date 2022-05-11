@@ -28,11 +28,7 @@ struct EntryRow: View {
                     .lineSpacing(4)
                 
                 if !entry.attachments.isEmpty {
-                    Image(systemName: "photo")
-                        .resizable()
-                        .fixedSize()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 120)
+                    ImageList(entry: entry)
                 }
             }
             .padding(.vertical, 8)
