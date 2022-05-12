@@ -9,65 +9,44 @@ import SwiftUI
 import RealmSwift
 
 struct EntryDetail: View {
-    @ObservedObject var realmManager: RealmManager
+    @EnvironmentObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            VStack(alignment: .leading) {
-                if let replyToEntry = entry.replyTo {
-                    Thread(replyTo: replyToEntry)
-                }
-                
-                EntryContent(entry: entry, font: .title3)
-                    .padding(.horizontal, 8)
-                
-                if let repies = entry.replies {
-                    List {
+                List {
+                    Section {
+                        if let replyToEntry = entry.replyTo {
+                            Thread(replyTo: replyToEntry)
+                        }
+                        
+                        EntryContent(entry: entry, font: .title3)
+                    }
+                    
+                    
+                    if !entry.replies.isEmpty {
                         Section(header: Text("Replies")) {
-                            ForEach(repies) { reply in
-                                #if !os(macOS)
-                                EntryRow(realmManager: realmManager, entry: reply)
-                                #endif
-                                
-                                #if os(macOS)
-                                VStack(alignment: .leading, spacing: 8) {
-                                    Text(toString(from: reply.createdAt))
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-                                    
-                                    Text(reply.content)
-                                        .lineLimit(10)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .foregroundColor(.primary)
-                                        .lineSpacing(4)
-                                }
-                                .padding(.vertical, 8)
-                                #endif
+                            ForEach(entry.replies) { reply in
+                                EntryRow(entry: reply)
                             }
                         }
                     }
-                    #if !os(macOS)
-                    .listStyle(.grouped)
-                    #endif
                 }
-            }
+                .padding(.bottom, 48)
             
             EntryEditor()
                 .environmentObject(realmManager)
                 .environmentObject(EditorViewModel(entry: entry))
         }
-        #if os(iOS)
+        .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
-        #endif
     }
 }
 
 struct EntryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetail(realmManager: RealmManager(name: "flash"),
-                        entry: Entry(content: "This is a preview notes\nwith a second line"))
-            .previewLayout(.sizeThatFits)
+        EntryDetail(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."))
+            .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
             .environmentObject(RealmManager(name: "flash"))
     }
 }

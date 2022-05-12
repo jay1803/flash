@@ -9,12 +9,13 @@ import SwiftUI
 import RealmSwift
 
 struct EntryRow: View {
-    @ObservedObject var realmManager: RealmManager
+    @EnvironmentObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
     
     var body: some View {
         NavigationLink {
-            EntryDetail(realmManager: realmManager, entry: entry)
+            EntryDetail(entry: entry)
+                .environmentObject(realmManager)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 Text(toString(from: entry.createdAt))
@@ -37,8 +38,8 @@ struct EntryRow: View {
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EntryRow(realmManager: RealmManager(name: "flash"), entry: Entry(content: "First notes\nFirst notes"))
-            EntryRow(realmManager: RealmManager(name: "flash"), entry: Entry(content: "Second notes\nSecond notes\nSecond notes"))
+            EntryRow(entry: Entry(content: "First notes\nFirst notes"))
+            EntryRow(entry: Entry(content: "Second notes\nSecond notes\nSecond notes"))
         }
         .previewLayout(.sizeThatFits)
     }

@@ -24,7 +24,7 @@ struct EntryContent: View {
             
             ImageList(entry: entry, maxHeight: .infinity)
         }
-        .padding(8)
+        .padding(.vertical, 8)
     }
 }
 
