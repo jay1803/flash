@@ -18,13 +18,13 @@
 		50022156281D8C7D009D9A4E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* Home.swift */; };
 		50022159281D8CD0009D9A4E /* EmptyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntry.swift */; };
 		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
-		501D998E282BB676009022E0 /* ImageToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D998D282BB676009022E0 /* ImageToFile.swift */; };
 		501D9990282BDEDD009022E0 /* ImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D998F282BDEDD009022E0 /* ImageList.swift */; };
 		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
-		501D9997282C0F75009022E0 /* ImageToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D998D282BB676009022E0 /* ImageToFile.swift */; };
 		501D9998282C0F75009022E0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
 		501D9999282C0F78009022E0 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */; };
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
+		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
+		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -78,10 +78,10 @@
 		50022155281D8C7D009D9A4E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		50022158281D8CD0009D9A4E /* EmptyEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyEntry.swift; sourceTree = "<group>"; };
 		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
-		501D998D282BB676009022E0 /* ImageToFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToFile.swift; sourceTree = "<group>"; };
 		501D998F282BDEDD009022E0 /* ImageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageList.swift; sourceTree = "<group>"; };
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
+		508F1400282E1A7E006C92DB /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				50022151281D72B7009D9A4E /* Extentions.swift */,
+				508F1400282E1A7E006C92DB /* ImageProcessor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -337,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
-				501D998D282BB676009022E0 /* ImageToFile.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -589,6 +589,7 @@
 				501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */,
 				501D9990282BDEDD009022E0 /* ImageList.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
+				508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
 				5002214E281D7145009D9A4E /* EntryRow.swift in Sources */,
 				50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */,
 				5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */,
@@ -598,7 +599,6 @@
 				50022142281BAE38009D9A4E /* EntryList.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				50D9C3782828DBE800AC4E89 /* EditorViewModel.swift in Sources */,
-				501D998E282BB676009022E0 /* ImageToFile.swift in Sources */,
 				50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */,
 				5002214B281C0220009D9A4E /* EntryEditor.swift in Sources */,
 				50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */,
@@ -615,9 +615,9 @@
 			files = (
 				50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */,
 				50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */,
-				501D9997282C0F75009022E0 /* ImageToFile.swift in Sources */,
 				501D9999282C0F78009022E0 /* EditorViewModel.swift in Sources */,
 				50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */,
+				508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
 				50D9C3722827785700AC4E89 /* Thread.swift in Sources */,
 				50AC43F6281BACEA0033E148 /* flashApp.swift in Sources */,
 				50022146281BAE4B009D9A4E /* Entry.swift in Sources */,

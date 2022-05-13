@@ -3,59 +3,76 @@
 //  flash (iOS)
 //
 //  Created by Max Zhang on 2022/5/10.
-//  Code from: https://github.com/ralfebert/ImagePickerView
+//  Code from: https://github.com/rebeloper/ImagePickerView/blob/main/Sources/ImagePickerView/ImagePickerView.swift
 //
 
 import SwiftUI
+import UIKit
+import PhotosUI
 
-public struct ImagePickerView: UIViewControllerRepresentable {
+import SwiftUI
+import PhotosUI
 
-    private let sourceType: UIImagePickerController.SourceType
-    private let onImagePicked: (UIImage) -> Void
-    @Environment(\.presentationMode) private var presentationMode
-
-    public init(sourceType: UIImagePickerController.SourceType, onImagePicked: @escaping (UIImage) -> Void) {
-        self.sourceType = sourceType
-        self.onImagePicked = onImagePicked
+struct PHPickerRepresentable: UIViewControllerRepresentable {
+    @Binding var pickedImages: [UIImage]
+    let onDismiss: () -> Void
+    private let picker: PHPickerViewController
+    
+    init(selectionLimit: Int, pickedImages: Binding<[UIImage]>, onDismiss: @escaping () -> Void) {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = selectionLimit
+        configuration.filter = .images
+        self.picker = PHPickerViewController(configuration: configuration)
+        self._pickedImages = pickedImages
+        self.onDismiss = onDismiss
     }
-
-    public func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.sourceType = self.sourceType
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<PHPickerRepresentable>) -> PHPickerViewController {
         picker.delegate = context.coordinator
         return picker
     }
-
-    public func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
-
-    public func makeCoordinator() -> Coordinator {
-        Coordinator(
-            onDismiss: { self.presentationMode.wrappedValue.dismiss() },
-            onImagePicked: self.onImagePicked
-        )
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(control: self)
     }
-
-    final public class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
-        private let onDismiss: () -> Void
-        private let onImagePicked: (UIImage) -> Void
-
-        init(onDismiss: @escaping () -> Void, onImagePicked: @escaping (UIImage) -> Void) {
-            self.onDismiss = onDismiss
-            self.onImagePicked = onImagePicked
+    
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
+        
+    }
+    
+    final class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        let control: PHPickerRepresentable
+        
+        init(control: PHPickerRepresentable) {
+            self.control = control
         }
-
-        public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-            if let image = info[.originalImage] as? UIImage {
-                self.onImagePicked(image)
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            if results.isEmpty {
+                picker.dismiss(animated: true, completion: nil)
+                return
             }
-            self.onDismiss()
-        }
+            
+            // 選択した画像を一つずつ読み込む
+            let dispatchSemaphore = DispatchSemaphore(value: 0)
+            var pickedImage: [UIImage] = []
+            for result in results.enumerated() {
+                if !result.element.itemProvider.canLoadObject(ofClass: UIImage.self) { continue }
+                result.element.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                    if let image: UIImage = image as? UIImage {
+                        pickedImage.append(image)
+                    }
+                    dispatchSemaphore.signal()
+                }
+                dispatchSemaphore.wait()
+            }
 
-        public func imagePickerControllerDidCancel(_: UIImagePickerController) {
-            self.onDismiss()
+            DispatchQueue.main.async { [weak self] in
+                self?.control.pickedImages = pickedImage
+                picker.dismiss(animated: true) {
+                    self?.control.onDismiss()
+                }
+            }
         }
-
     }
-
 }

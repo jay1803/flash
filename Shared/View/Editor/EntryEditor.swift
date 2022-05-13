@@ -14,12 +14,22 @@ struct EntryEditor: View {
     @EnvironmentObject var realmManager: RealmManager
     @EnvironmentObject var viewModel: EditorViewModel
     
+    @ViewBuilder
     var body: some View {
         VStack {
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+            if !viewModel.images.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.attachments) { attachment in
+                            Image(uiImage: attachment.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(height: 100)
+                                .frame(maxWidth: UIScreen.main.bounds.width * 0.8)
+                                
+                        }
+                    }
+                }
             }
             HStack(alignment: .bottom, spacing: 8) {
                 #if !os(macOS)
@@ -31,9 +41,9 @@ struct EntryEditor: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .sheet(isPresented: $viewModel.showImagePicker, content: {
-                ImagePickerView(sourceType: .photoLibrary) { image in
-                    viewModel.image = image
-                }
+                PHPickerRepresentable(selectionLimit: 10, pickedImages: $viewModel.images, onDismiss: {
+                    viewModel.showImagePicker = false
+                })
             })
             .background(appearance == .dark
                         ? Color.clear.edgesIgnoringSafeArea(.bottom)

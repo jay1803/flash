@@ -10,6 +10,7 @@ import SwiftUI
 struct EntryContent: View {
     let entry: Entry
     let font: Font
+    private let fileDir: URL? = CWD!.appendingPathComponent("attachments")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -22,7 +23,17 @@ struct EntryContent: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .font(font)
             
-            ImageList(entry: entry, maxHeight: .infinity)
+            if !entry.attachments.isEmpty {
+                VStack {
+                    ForEach(entry.attachments, id: \.fileName) { attachment in
+                        let imagePath = fileDir!.appendingPathComponent("\(attachment.fileName).\(attachment.fileType)")
+                        let image = UIImage(contentsOfFile: imagePath.path)
+                        Image(uiImage: image!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+                }
+            }
         }
         .padding(.vertical, 8)
     }

@@ -20,12 +20,14 @@ struct SendButton: View {
                 showingAlert.toggle()
             } else {
                 let newEntry = Entry(content: viewModel.content)
-                if let _ = viewModel.image {
-                    let attachment = Attachment()
-                    attachment.fileType = "png"
-                    attachment.fileName = viewModel.attachmentFileName
-                    newEntry.attachments.append(attachment)
-                    viewModel.saveToPNG()
+                if let _ = viewModel.images.first {
+                    for imageData in viewModel.attachments {
+                        let attachment = Attachment()
+                        attachment.fileType = "png"
+                        attachment.fileName = imageData.id
+                        saveToPNG(image: imageData.image, name: attachment.fileName)
+                        newEntry.attachments.append(attachment)
+                    }
                 }
                 if let entry = viewModel.entry {
                     realmManager.replyTo(entry: entry, with: newEntry)

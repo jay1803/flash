@@ -12,16 +12,20 @@ struct ImageList: View {
     
     @ObservedRealmObject var entry: Entry
     var maxHeight: CGFloat
-    private let fileDir: URL? = cwd!.appendingPathComponent("attachments")
+    private let fileDir: URL? = CWD!.appendingPathComponent("attachments")
     
     var body: some View {
-        if let attchment = entry.attachments.first {
-            let imagePath = fileDir!.appendingPathComponent("\(attchment.fileName).\(attchment.fileType)")
-            let image = UIImage(contentsOfFile: imagePath.path)
-            Image(uiImage: image!)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxHeight: maxHeight)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(entry.attachments, id: \.fileName) { attachment in
+                    let imagePath = fileDir!.appendingPathComponent("\(attachment.fileName).\(attachment.fileType)")
+                    let image = UIImage(contentsOfFile: imagePath.path)
+                    Image(uiImage: image!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: maxHeight)
+                }
+            }
         }
     }
 }

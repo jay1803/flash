@@ -14,6 +14,6 @@ func toString(from date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
-var cwd: URL? {
+var CWD: URL? {
     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 }
