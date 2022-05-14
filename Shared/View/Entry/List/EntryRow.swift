@@ -12,6 +12,8 @@ struct EntryRow: View {
     @EnvironmentObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
     
+    private let thumbnailImagePath: URL? = CWD!.appendingPathComponent("thumbnails")
+    
     var body: some View {
         NavigationLink {
             EntryDetail(entry: entry)
@@ -28,7 +30,30 @@ struct EntryRow: View {
                     .foregroundColor(.primary)
                     .lineSpacing(4)
 
-                ImageList(entry: entry, maxHeight: 100)
+                HStack {
+                    if !entry.attachments.isEmpty {
+                        if entry.attachments.count > 3 {
+                            ForEach(entry.attachments[0...3], id: \.fileName) { attachment in
+                                let imagePath = thumbnailImagePath!.appendingPathComponent("\(attachment.fileName).jpg")
+                                let image = UIImage(contentsOfFile: imagePath.path)
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxHeight: 100)
+                                }
+                        } else {
+                            ForEach(entry.attachments, id: \.fileName) { attachment in
+                                let imagePath = thumbnailImagePath!.appendingPathComponent("\(attachment.fileName).jpg")
+                                let image = UIImage(contentsOfFile: imagePath.path)
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxHeight: 100)
+                            }
+                        }
+                    }
+                    
+                }
             }
             .padding(.vertical, 8)
         }
