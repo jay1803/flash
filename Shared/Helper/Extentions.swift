@@ -13,3 +13,7 @@ func toString(from date: Date) -> String {
     dateFormatter.timeStyle = .short
     return dateFormatter.string(from: date)
 }
+
+var CWD: URL? {
+    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+}

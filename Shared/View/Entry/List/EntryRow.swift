@@ -9,12 +9,15 @@ import SwiftUI
 import RealmSwift
 
 struct EntryRow: View {
-    @ObservedObject var realmManager: RealmManager
+    @EnvironmentObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
+    
+    private let thumbnailImagePath: URL? = CWD!.appendingPathComponent("thumbnails")
     
     var body: some View {
         NavigationLink {
-            EntryDetail(realmManager: realmManager, entry: entry)
+            EntryDetail(entry: entry)
+                .environmentObject(realmManager)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 Text(toString(from: entry.createdAt))
@@ -26,6 +29,31 @@ struct EntryRow: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .foregroundColor(.primary)
                     .lineSpacing(4)
+
+                HStack {
+                    if !entry.attachments.isEmpty {
+                        if entry.attachments.count > 3 {
+                            ForEach(entry.attachments[0...3], id: \.fileName) { attachment in
+                                let imagePath = thumbnailImagePath!.appendingPathComponent("\(attachment.fileName).jpg")
+                                let image = UIImage(contentsOfFile: imagePath.path)
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxHeight: 100)
+                                }
+                        } else {
+                            ForEach(entry.attachments, id: \.fileName) { attachment in
+                                let imagePath = thumbnailImagePath!.appendingPathComponent("\(attachment.fileName).jpg")
+                                let image = UIImage(contentsOfFile: imagePath.path)
+                                Image(uiImage: image!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxHeight: 100)
+                            }
+                        }
+                    }
+                    
+                }
             }
             .padding(.vertical, 8)
         }
@@ -35,8 +63,8 @@ struct EntryRow: View {
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EntryRow(realmManager: RealmManager(name: "flash"), entry: Entry(content: "First notes\nFirst notes"))
-            EntryRow(realmManager: RealmManager(name: "flash"), entry: Entry(content: "Second notes\nSecond notes\nSecond notes"))
+            EntryRow(entry: Entry(content: "First notes\nFirst notes"))
+            EntryRow(entry: Entry(content: "Second notes\nSecond notes\nSecond notes"))
         }
         .previewLayout(.sizeThatFits)
     }

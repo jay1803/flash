@@ -20,7 +20,7 @@ struct EntryList: View {
                 List {
                     ForEach(realmManager.entries) { entry in
                         if !entry.isInvalidated {
-                            EntryRow(realmManager: realmManager, entry: entry)
+                            EntryRow(entry: entry)
                                 .actionSheet(isPresented: $isShowingDeleteAlert) {
                                     ActionSheet(title: Text("Permanently delete this note?"),
                                                 message: Text("You can't undo this action."),
@@ -46,7 +46,8 @@ struct EntryList: View {
             } else {
                 EmptyEntry()
             }
-            EntryEditor(entry: nil)
+            EntryEditor()
+                .environmentObject(EditorViewModel())
         }
     }
     
