@@ -21,6 +21,7 @@ struct SendButton: View {
             } else {
                 let newEntry = Entry(content: viewModel.content)
                 if let _ = viewModel.images.first {
+                    
                     for imageData in viewModel.attachments {
                         let attachment = Attachment()
                         attachment.fileType = "png"

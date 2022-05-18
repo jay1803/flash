@@ -19,11 +19,11 @@
 		50022159281D8CD0009D9A4E /* EmptyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntry.swift */; };
 		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
 		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
-		501D9998282C0F75009022E0 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
-		501D9999282C0F78009022E0 /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */; };
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
+		507EE7402832695600FB7589 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
 		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
+		50949742283338BE00A778E5 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50949741283338BE00A778E5 /* ImageViewModel.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -79,7 +79,9 @@
 		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
+		507EE73F2832695600FB7589 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		508F1400282E1A7E006C92DB /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		50949741283338BE00A778E5 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +179,6 @@
 				50022155281D8C7D009D9A4E /* Home.swift */,
 				50022154281D8521009D9A4E /* Entry */,
 				50D9C3742828D2D100AC4E89 /* Editor */,
-				50D9C382282A290600AC4E89 /* ImagePicker */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +205,9 @@
 		501D9991282BE48A009022E0 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				507EE73F2832695600FB7589 /* Thumbnail.swift */,
+				50949741283338BE00A778E5 /* ImageViewModel.swift */,
+				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -227,7 +231,6 @@
 				50AC43CD281BACE90033E148 /* flashApp.swift */,
 				5002213D281BADFE009D9A4E /* Model */,
 				5002213E281BAE06009D9A4E /* View */,
-				50D9C35C2826397C00AC4E89 /* ViewModel */,
 				50D9C35B2826396C00AC4E89 /* Manager */,
 				50022150281D729E009D9A4E /* Helper */,
 				50AC43CF281BACEA0033E148 /* Assets.xcassets */,
@@ -281,19 +284,11 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		50D9C35C2826397C00AC4E89 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		50D9C35D2826C11500AC4E89 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				50022158281D8CD0009D9A4E /* EmptyEntry.swift */,
 				50022141281BAE38009D9A4E /* EntryList.swift */,
+				50022158281D8CD0009D9A4E /* EmptyEntry.swift */,
 				5002214D281D7145009D9A4E /* EntryRow.swift */,
 			);
 			path = List;
@@ -327,16 +322,9 @@
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,
 				50D9C3752828D59000AC4E89 /* SendButton.swift */,
 				501D9992282C0B09009022E0 /* IconButton.swift */,
+				50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */,
 			);
 			path = Editor;
-			sourceTree = "<group>";
-		};
-		50D9C382282A290600AC4E89 /* ImagePicker */ = {
-			isa = PBXGroup;
-			children = (
-				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
-			);
-			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,6 +573,7 @@
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
 				501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
+				50949742283338BE00A778E5 /* ImageViewModel.swift in Sources */,
 				508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
 				5002214E281D7145009D9A4E /* EntryRow.swift in Sources */,
 				50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */,
@@ -602,6 +591,7 @@
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3762828D59000AC4E89 /* SendButton.swift in Sources */,
 				50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */,
+				507EE7402832695600FB7589 /* Thumbnail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +601,6 @@
 			files = (
 				50D9C3702827781300AC4E89 /* EntryDetail.swift in Sources */,
 				50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */,
-				501D9999282C0F78009022E0 /* EditorViewModel.swift in Sources */,
 				50D9C373282778E000AC4E89 /* EntryRow.swift in Sources */,
 				508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
 				50D9C3722827785700AC4E89 /* Thread.swift in Sources */,
@@ -622,7 +611,6 @@
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */,
 				50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */,
-				501D9998282C0F75009022E0 /* ImagePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

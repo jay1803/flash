@@ -10,8 +10,11 @@ import RealmSwift
 
 struct Home: View {
     
+    @StateObject var realmManager = RealmManager(name: "flash")
+    
     var body: some View {
         EntryList()
+            .environmentObject(realmManager)
     }
 }
 

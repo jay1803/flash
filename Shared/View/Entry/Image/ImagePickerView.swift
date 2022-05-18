@@ -10,9 +10,6 @@ import SwiftUI
 import UIKit
 import PhotosUI
 
-import SwiftUI
-import PhotosUI
-
 struct PHPickerRepresentable: UIViewControllerRepresentable {
     @Binding var pickedImages: [UIImage]
     let onDismiss: () -> Void
