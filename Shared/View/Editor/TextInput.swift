@@ -10,7 +10,7 @@ import SwiftUI
 struct TextInput: View {
     
     @Environment(\.colorScheme) var appearance
-    @EnvironmentObject var viewModel: EditorViewModel
+    @ObservedObject var viewModel: EditorViewModel
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -45,7 +45,7 @@ struct TextInput: View {
 
 struct TextInput_Previews: PreviewProvider {
     static var previews: some View {
-        TextInput()
+        TextInput(viewModel: EditorViewModel())
             .environmentObject(EditorViewModel())
             .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 44))
     }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PickImageButton: View {
     @EnvironmentObject var realmManager: RealmManager
-    @EnvironmentObject var viewModel: EditorViewModel
+    @ObservedObject var viewModel: EditorViewModel
     
     var body: some View {
         Button(action: {
@@ -24,7 +24,7 @@ struct PickImageButton: View {
 
 struct PickImageButton_Previews: PreviewProvider {
     static var previews: some View {
-        PickImageButton()
+        PickImageButton(viewModel: EditorViewModel())
             .environmentObject(EditorViewModel())
     }
 }

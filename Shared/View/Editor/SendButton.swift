@@ -10,8 +10,10 @@ import SwiftUI
 struct SendButton: View {
     
     @EnvironmentObject var realmManager: RealmManager
-    @EnvironmentObject var viewModel: EditorViewModel
+    @ObservedObject var viewModel: EditorViewModel
     @State var showingAlert: Bool = false
+    
+    @Binding var parentEntry: Entry?
     
     var body: some View {
         Button(action: {
@@ -30,7 +32,7 @@ struct SendButton: View {
                         newEntry.attachments.append(attachment)
                     }
                 }
-                if let entry = viewModel.entry {
+                if let entry = parentEntry {
                     realmManager.replyTo(entry: entry, with: newEntry)
                 } else {
                     realmManager.add(entry: newEntry)
@@ -38,6 +40,7 @@ struct SendButton: View {
             }
             viewModel.content = ""
             viewModel.height = viewModel.initHeight
+            viewModel.images = []
         }) {
             IconButton(systemName: "arrow.up.circle.fill",
                        height: viewModel.initHeight,
@@ -53,7 +56,7 @@ struct SendButton: View {
 
 struct SendButton_Previews: PreviewProvider {
     static var previews: some View {
-        SendButton()
+        SendButton(viewModel: EditorViewModel(), parentEntry: .constant(Entry()))
             .environmentObject(RealmManager(name: "flash"))
             .environmentObject(EditorViewModel())
     }

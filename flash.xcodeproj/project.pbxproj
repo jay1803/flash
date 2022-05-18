@@ -24,6 +24,7 @@
 		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		50949742283338BE00A778E5 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50949741283338BE00A778E5 /* ImageViewModel.swift */; };
+		509497452834C38F00A778E5 /* ImagePreviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509497442834C38F00A778E5 /* ImagePreviewList.swift */; };
 		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
@@ -82,6 +83,7 @@
 		507EE73F2832695600FB7589 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		508F1400282E1A7E006C92DB /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		50949741283338BE00A778E5 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		509497442834C38F00A778E5 /* ImagePreviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewList.swift; sourceTree = "<group>"; };
 		50AC43CD281BACE90033E148 /* flashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flashApp.swift; sourceTree = "<group>"; };
 		50AC43CF281BACEA0033E148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50AC43D4281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				5002214A281C0220009D9A4E /* EntryEditor.swift */,
+				509497442834C38F00A778E5 /* ImagePreviewList.swift */,
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,
 				50D9C3752828D59000AC4E89 /* SendButton.swift */,
@@ -591,6 +594,7 @@
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3762828D59000AC4E89 /* SendButton.swift in Sources */,
 				50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */,
+				509497452834C38F00A778E5 /* ImagePreviewList.swift in Sources */,
 				507EE7402832695600FB7589 /* Thumbnail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

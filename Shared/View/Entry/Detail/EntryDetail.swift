@@ -34,9 +34,8 @@ struct EntryDetail: View {
                 }
                 .padding(.bottom, 48)
             
-            EntryEditor()
+            EntryEditor(parentEntry: entry)
                 .environmentObject(realmManager)
-                .environmentObject(EditorViewModel(entry: entry))
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
