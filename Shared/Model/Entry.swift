@@ -22,7 +22,7 @@ final class Attachment: EmbeddedObject {
 final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: UUID
     @Persisted var content: String
-    @Persisted var createdAt: Date = Date()
+    @Persisted var createdAt: Date
     @Persisted var updatedAt: Date = Date()
     @Persisted var isFavorated: Bool = false
     @Persisted var isArchived: Bool = false
@@ -30,9 +30,11 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var replies: List<Entry>
     @Persisted var attachments: List<Attachment>
     
-    convenience init(id: String = UUID().uuidString, content: String, replyTo: Entry? = nil) {
+    convenience init(id: UUID = UUID(), content: String, replyTo: Entry? = nil, createdAt: Date = Date()) {
         self.init()
+        self.id = id
         self.content = content
         self.replyTo = replyTo
+        self.createdAt = createdAt
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class RealmManager: ObservableObject {
+    // MARK: - Properies
     private (set) var realm: Realm?
     @Published var entriesResult: Results<Entry>?
     var entries: [Entry] {
@@ -20,6 +21,7 @@ class RealmManager: ObservableObject {
     
     private var entryToken: NotificationToken?
     
+    // MARK: - Init
     init(name: String) {
         initializeSchema(name: name)
         setupObserver()
@@ -62,6 +64,7 @@ class RealmManager: ObservableObject {
         })
     }
     
+    // MARK: - Private functions
     func add(entry: Entry) {
         guard let realm = realm else {
             return
@@ -69,6 +72,19 @@ class RealmManager: ObservableObject {
         do {
             try realm.write {
                 realm.add(entry)
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
+    
+    func update(entry: Entry) {
+        guard let realm = realm else {
+            return
+        }
+        do {
+            try realm.write {
+                realm.add(entry, update: .modified)
             }
         } catch {
             fatalError(error.localizedDescription)

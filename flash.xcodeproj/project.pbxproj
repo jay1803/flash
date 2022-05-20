@@ -20,6 +20,8 @@
 		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
 		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
+		50696FDC2836283500CB464A /* UpdateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FDB2836283500CB464A /* UpdateEditor.swift */; };
+		50696FDE28362D9000CB464A /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FDD28362D9000CB464A /* EntryViewModel.swift */; };
 		507EE7402832695600FB7589 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
 		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
@@ -80,6 +82,8 @@
 		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
+		50696FDB2836283500CB464A /* UpdateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEditor.swift; sourceTree = "<group>"; };
+		50696FDD28362D9000CB464A /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
 		507EE73F2832695600FB7589 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		508F1400282E1A7E006C92DB /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		50949741283338BE00A778E5 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			children = (
 				50D9C35D2826C11500AC4E89 /* List */,
 				50D9C35E2826C12500AC4E89 /* Detail */,
+				50696FDA2836281500CB464A /* UpdateEntry */,
 				501D9991282BE48A009022E0 /* Image */,
 			);
 			path = Entry;
@@ -212,6 +217,14 @@
 				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		50696FDA2836281500CB464A /* UpdateEntry */ = {
+			isa = PBXGroup;
+			children = (
+				50696FDB2836283500CB464A /* UpdateEditor.swift */,
+			);
+			path = UpdateEntry;
 			sourceTree = "<group>";
 		};
 		50AC43C7281BACE90033E148 = {
@@ -303,6 +316,7 @@
 				501D999B282C8AF0009022E0 /* EntryReplies.swift */,
 				50D9C35F2826C14000AC4E89 /* EntryContent.swift */,
 				50D9C3622826C35C00AC4E89 /* Thread.swift */,
+				50696FDD28362D9000CB464A /* EntryViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -574,6 +588,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
+				50696FDE28362D9000CB464A /* EntryViewModel.swift in Sources */,
 				501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
 				50949742283338BE00A778E5 /* ImageViewModel.swift in Sources */,
@@ -588,6 +603,7 @@
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				50D9C3782828DBE800AC4E89 /* EditorViewModel.swift in Sources */,
 				50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */,
+				50696FDC2836283500CB464A /* UpdateEditor.swift in Sources */,
 				5002214B281C0220009D9A4E /* EntryEditor.swift in Sources */,
 				50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */,
 				50022156281D8C7D009D9A4E /* Home.swift in Sources */,
