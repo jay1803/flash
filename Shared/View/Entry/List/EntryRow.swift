@@ -28,7 +28,9 @@ struct EntryRow: View {
                     .foregroundColor(.primary)
                     .lineSpacing(4)
 
-                Thumbnail(entry: entry)
+                if !entry.attachments.isEmpty {
+                    Thumbnail(attachments: Array(entry.attachments))
+                }
             }
             .padding(.vertical, 8)
         }

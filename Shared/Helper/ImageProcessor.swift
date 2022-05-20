@@ -29,10 +29,10 @@ func saveToPNG(image: UIImage, name: String) {
         }
     }
     
-    if let originPNG = image.pngData(),
-       let thumbnailImage = image.jpegData(compressionQuality: 0.1) {
+    if let originJPG = image.jpegData(compressionQuality: 1),
+       let thumbnailImage = image.jpegData(compressionQuality: 0.01) {
         DispatchQueue.global().async {
-            try? originPNG.write(to: originAttachmentsPath!.appendingPathComponent("\(name).png"))
+            try? originJPG.write(to: originAttachmentsPath!.appendingPathComponent("\(name).jpg"))
             try? thumbnailImage.write(to: imageThumbnailPath!.appendingPathComponent("\(name).jpg"))
         }
     }
