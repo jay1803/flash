@@ -47,7 +47,6 @@ struct EntryList: View {
                 EmptyEntry()
             }
             EntryEditor()
-                .environmentObject(EditorViewModel())
         }
     }
     

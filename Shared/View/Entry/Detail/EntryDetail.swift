@@ -11,6 +11,8 @@ import RealmSwift
 struct EntryDetail: View {
     @EnvironmentObject var realmManager: RealmManager
     @ObservedRealmObject var entry: Entry
+    @State var inputText: String = ""
+    @State var isPresentingEditView = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -34,12 +36,41 @@ struct EntryDetail: View {
                 }
                 .padding(.bottom, 48)
             
-            EntryEditor()
+            EntryEditor(parentEntry: entry)
                 .environmentObject(realmManager)
-                .environmentObject(EditorViewModel(entry: entry))
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            inputText = entry.content
+        }
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Edit") {
+                    isPresentingEditView = true
+                }
+            }
+        }
+        .sheet(isPresented: $isPresentingEditView) {
+            NavigationView {
+                UpdateEditor(inputText: $inputText)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") {
+                                isPresentingEditView = false
+                                inputText = entry.content
+                            }
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Save") {
+                                isPresentingEditView = false
+                                let modifiedEntry = Entry(id: entry.id, content: inputText, createdAt: entry.createdAt)
+                                realmManager.update(entry: modifiedEntry)
+                            }
+                        }
+                    }
+            }
+        }
     }
 }
 

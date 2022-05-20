@@ -28,8 +28,4 @@ final class EditorViewModel: ObservableObject {
         return CWD!.appendingPathComponent("attachments")
     }
     var attachmentFileName: String = UUID().uuidString
-    
-    init(entry: Entry? = nil) {
-        self.entry = entry
-    }
 }

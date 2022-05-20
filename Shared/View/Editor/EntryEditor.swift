@@ -12,32 +12,23 @@ struct EntryEditor: View {
     
     @Environment(\.colorScheme) var appearance
     @EnvironmentObject var realmManager: RealmManager
-    @EnvironmentObject var viewModel: EditorViewModel
+    @StateObject var viewModel = EditorViewModel()
+    @State var parentEntry: Entry? = nil
     
     @ViewBuilder
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             if !viewModel.images.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(viewModel.attachments) { attachment in
-                            Image(uiImage: attachment.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 100)
-                                .frame(maxWidth: UIScreen.main.bounds.width * 0.8)
-                                
-                        }
-                    }
-                }
+                ImagePreviewList(viewModel: viewModel)
             }
             HStack(alignment: .bottom, spacing: 8) {
                 #if !os(macOS)
-                PickImageButton()
+                PickImageButton(viewModel: viewModel)
                 #endif
-                TextInput()
-                SendButton()
+                TextInput(viewModel: viewModel)
+                SendButton(viewModel: viewModel, parentEntry: $parentEntry)
             }
+            .frame(height: 48)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .sheet(isPresented: $viewModel.showImagePicker, content: {
@@ -49,8 +40,8 @@ struct EntryEditor: View {
                         ? Color.clear.edgesIgnoringSafeArea(.bottom)
                         : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
             .onPreferenceChange(textViewHeight.self) { viewModel.height = $0 }
-                .simultaneousGesture(DragGesture().onChanged({ _ in
-                    hideKeyboard()
+            .simultaneousGesture(DragGesture().onChanged({ _ in
+                hideKeyboard()
             }))
         }
     }
