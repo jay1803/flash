@@ -28,6 +28,7 @@ struct EntryEditor: View {
                 TextInput(viewModel: viewModel)
                 SendButton(viewModel: viewModel, parentEntry: $parentEntry)
             }
+            .frame(height: 48)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .sheet(isPresented: $viewModel.showImagePicker, content: {
@@ -39,8 +40,8 @@ struct EntryEditor: View {
                         ? Color.clear.edgesIgnoringSafeArea(.bottom)
                         : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
             .onPreferenceChange(textViewHeight.self) { viewModel.height = $0 }
-                .simultaneousGesture(DragGesture().onChanged({ _ in
-                    hideKeyboard()
+            .simultaneousGesture(DragGesture().onChanged({ _ in
+                hideKeyboard()
             }))
         }
     }

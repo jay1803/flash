@@ -82,12 +82,14 @@ class RealmManager: ObservableObject {
         guard let realm = realm else {
             return
         }
-        do {
-            try realm.write {
-                realm.add(entry, update: .modified)
+        if let existingEntry = realm.object(ofType: Entry.self, forPrimaryKey: entry.id) {
+            do {
+                try realm.write {
+                    existingEntry.content = entry.content
+                }
+            } catch {
+                fatalError(error.localizedDescription)
             }
-        } catch {
-            fatalError(error.localizedDescription)
         }
     }
     
