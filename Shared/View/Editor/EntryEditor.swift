@@ -37,7 +37,7 @@ struct EntryEditor: View {
                 })
             })
             .background(appearance == .dark
-                        ? Color.clear.edgesIgnoringSafeArea(.bottom)
+                        ? Color.black.edgesIgnoringSafeArea(.bottom)
                         : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
             .onPreferenceChange(textViewHeight.self) { viewModel.height = $0 }
             .simultaneousGesture(DragGesture().onChanged({ _ in

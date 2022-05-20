@@ -14,6 +14,7 @@ struct UpdateEditor: View {
     var body: some View {
         Form {
             TextEditor(text: $inputText)
+                .frame(minHeight: 300)
         }
     }
 }

@@ -17,3 +17,22 @@ func toString(from date: Date) -> String {
 var CWD: URL? {
     return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
 }
+
+enum AttachmentType {
+    case origin, thumbnail
+}
+
+/*
+ - file: String, equals fileName + '.' + fileType
+ */
+
+func getImageFilePath(_ attachmentType: AttachmentType, of file: Attachment) -> URL {
+    let fileName = "\(file.fileName).\(file.fileType)"
+    var dirPath: URL = CWD!.appendingPathComponent("attachments")
+    if attachmentType == AttachmentType.thumbnail {
+        dirPath = CWD!.appendingPathComponent("thumbnails")
+    }
+    let attachmentFilePath = dirPath.appendingPathComponent("\(fileName)")
+    print(attachmentFilePath.path)
+    return attachmentFilePath
+}

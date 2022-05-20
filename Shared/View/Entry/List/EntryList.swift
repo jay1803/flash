@@ -13,6 +13,7 @@ struct EntryList: View {
     @EnvironmentObject var realmManager: RealmManager
     @State private var isShowingDeleteAlert: Bool = false
     @State private var deleteItemIndexSet: IndexSet?
+    @State private var isImageSaved = true
     
     var body: some View {
         ZStack(alignment: .bottom) {

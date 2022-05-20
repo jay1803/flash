@@ -26,13 +26,19 @@ struct ImagePreviewList: View {
         }
         .padding()
         .background(appearance == .dark
-                    ? Color.clear.edgesIgnoringSafeArea(.bottom)
+                    ? Color.black.edgesIgnoringSafeArea(.bottom)
                     : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
     }
 }
 
 struct ImagePreviewList_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePreviewList(viewModel: EditorViewModel())
+        Group {
+            ImagePreviewList(viewModel: EditorViewModel())
+                .preferredColorScheme(.light)
+            ImagePreviewList(viewModel: EditorViewModel())
+                .preferredColorScheme(.dark)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

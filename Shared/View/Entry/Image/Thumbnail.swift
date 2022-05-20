@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct Thumbnail: View {
-    let entry: Entry
+    let attachments: [Attachment]
     
     var body: some View {
         HStack {
-            if !entry.attachments.isEmpty {
-                ForEach(entry.attachments, id: \.fileName) { attchment in
-                    Image(systemName: "photo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 12)
+            ForEach(attachments, id: \.fileName) { attachment in
+                if let filePath = getImageFilePath(.thumbnail, of: attachment) {
+                    if FileManager.default.fileExists(atPath: filePath.path) {
+                        Image(uiImage: UIImage(contentsOfFile: filePath.path)!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 64)
+                    } else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 24)
+                    }
                 }
             }
         }
@@ -26,6 +33,6 @@ struct Thumbnail: View {
 
 struct Thumbnail_Previews: PreviewProvider {
     static var previews: some View {
-        Thumbnail(entry: Entry())
+        Thumbnail(attachments: [Attachment()])
     }
 }
