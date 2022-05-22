@@ -28,7 +28,7 @@ struct SendButton: View {
                         let attachment = Attachment()
                         attachment.fileType = "jpg"
                         attachment.fileName = imageData.id
-                        saveToPNG(image: imageData.image, name: attachment.fileName)
+                        saveToJPG(image: imageData.image, name: attachment.fileName)
                         newEntry.attachments.append(attachment)
                     }
                 }

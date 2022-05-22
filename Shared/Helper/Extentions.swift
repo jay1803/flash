@@ -15,7 +15,7 @@ func toString(from date: Date) -> String {
 }
 
 var CWD: URL? {
-    return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")!
 }
 
 enum AttachmentType {

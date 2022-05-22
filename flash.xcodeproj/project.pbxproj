@@ -20,7 +20,14 @@
 		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
 		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
+		505BA7692838921000796AA6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
+		505BA76A2838921500796AA6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
+		505BA76C2839D96D00796AA6 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
+		505BA76D2839D97900796AA6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
 		50696FDC2836283500CB464A /* UpdateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FDB2836283500CB464A /* UpdateEditor.swift */; };
+		50696FF9283874FE00CB464A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FF8283874FE00CB464A /* ShareViewController.swift */; };
+		50696FFC283874FE00CB464A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50696FFA283874FE00CB464A /* MainInterface.storyboard */; };
+		50697000283874FE00CB464A /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 50696FF6283874FE00CB464A /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		507EE7402832695600FB7589 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
 		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
@@ -49,10 +56,18 @@
 		50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */; };
 		50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
 		50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
+		6CB8BFC6F0ECEFAAA610E95C /* Pods_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0C6AA4E79AB9BCFAE75500 /* Pods_Share.framework */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		50696FFE283874FE00CB464A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50AC43C8281BACE90033E148 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50696FF5283874FE00CB464A;
+			remoteInfo = Share;
+		};
 		50AC43E2281BACEA0033E148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 50AC43C8281BACE90033E148 /* Project object */;
@@ -69,7 +84,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		50696FF12838014F00CB464A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				50697000283874FE00CB464A /* Share.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		24E6407F1067C08E6823F33C /* Pods-Share.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.release.xcconfig"; path = "Target Support Files/Pods-Share/Pods-Share.release.xcconfig"; sourceTree = "<group>"; };
 		50022141281BAE38009D9A4E /* EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryList.swift; sourceTree = "<group>"; };
 		50022144281BAE4B009D9A4E /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		5002214A281C0220009D9A4E /* EntryEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryEditor.swift; sourceTree = "<group>"; };
@@ -80,7 +110,14 @@
 		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
+		505BA7672838879500796AA6 /* flash--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "flash--iOS--Info.plist"; sourceTree = "<group>"; };
+		505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Release.entitlements"; sourceTree = "<group>"; };
+		505BA76B2839CE8000796AA6 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Share.entitlements; sourceTree = "<group>"; };
 		50696FDB2836283500CB464A /* UpdateEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEditor.swift; sourceTree = "<group>"; };
+		50696FF6283874FE00CB464A /* Share.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Share.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		50696FF8283874FE00CB464A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		50696FFB283874FE00CB464A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		50696FFD283874FE00CB464A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		507EE73F2832695600FB7589 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		508F1400282E1A7E006C92DB /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		509497442834C38F00A778E5 /* ImagePreviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewList.swift; sourceTree = "<group>"; };
@@ -109,11 +146,21 @@
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F6FD985F953BC0AD1B3302 /* Pods-flash (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).release.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		C5B70B03FF1D518950C36326 /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
 		DA6AEA625262CD78947A09B4 /* Pods-flash (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).release.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).release.xcconfig"; sourceTree = "<group>"; };
+		DF0C6AA4E79AB9BCFAE75500 /* Pods_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		50696FF3283874FE00CB464A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB8BFC6F0ECEFAAA610E95C /* Pods_Share.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50AC43D1281BACEA0033E148 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +199,7 @@
 			children = (
 				E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */,
 				73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */,
+				DF0C6AA4E79AB9BCFAE75500 /* Pods_Share.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +211,8 @@
 				91F6FD985F953BC0AD1B3302 /* Pods-flash (iOS).release.xcconfig */,
 				54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */,
 				DA6AEA625262CD78947A09B4 /* Pods-flash (macOS).release.xcconfig */,
+				C5B70B03FF1D518950C36326 /* Pods-Share.debug.xcconfig */,
+				24E6407F1067C08E6823F33C /* Pods-Share.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -222,13 +272,27 @@
 			path = UpdateEntry;
 			sourceTree = "<group>";
 		};
+		50696FF7283874FE00CB464A /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				505BA76B2839CE8000796AA6 /* Share.entitlements */,
+				50696FF8283874FE00CB464A /* ShareViewController.swift */,
+				50696FFA283874FE00CB464A /* MainInterface.storyboard */,
+				50696FFD283874FE00CB464A /* Info.plist */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
 		50AC43C7281BACE90033E148 = {
 			isa = PBXGroup;
 			children = (
+				505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */,
+				505BA7672838879500796AA6 /* flash--iOS--Info.plist */,
 				50AC43CC281BACE90033E148 /* Shared */,
 				50AC43DB281BACEA0033E148 /* macOS */,
 				50AC43E4281BACEA0033E148 /* Tests iOS */,
 				50AC43F0281BACEA0033E148 /* Tests macOS */,
+				50696FF7283874FE00CB464A /* Share */,
 				50AC43D5281BACEA0033E148 /* Products */,
 				4B656B9D6A115E3AD2899AF0 /* Pods */,
 				0FA1797C043550F37C8A4529 /* Frameworks */,
@@ -255,6 +319,7 @@
 				50AC43DA281BACEA0033E148 /* flash.app */,
 				50AC43E1281BACEA0033E148 /* Tests iOS.xctest */,
 				50AC43ED281BACEA0033E148 /* Tests macOS.xctest */,
+				50696FF6283874FE00CB464A /* Share.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -341,6 +406,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		50696FF5283874FE00CB464A /* Share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50697001283874FE00CB464A /* Build configuration list for PBXNativeTarget "Share" */;
+			buildPhases = (
+				486C8B55FBBFDE14B3BA112C /* [CP] Check Pods Manifest.lock */,
+				50696FF2283874FE00CB464A /* Sources */,
+				50696FF3283874FE00CB464A /* Frameworks */,
+				50696FF4283874FE00CB464A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Share;
+			productName = Share;
+			productReference = 50696FF6283874FE00CB464A /* Share.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		50AC43D3281BACEA0033E148 /* flash (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50AC43FD281BACEA0033E148 /* Build configuration list for PBXNativeTarget "flash (iOS)" */;
@@ -350,10 +433,12 @@
 				50AC43D1281BACEA0033E148 /* Frameworks */,
 				50AC43D2281BACEA0033E148 /* Resources */,
 				E506FA8AE4D801FBDAA49E2E /* [CP] Embed Pods Frameworks */,
+				50696FF12838014F00CB464A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				50696FFF283874FE00CB464A /* PBXTargetDependency */,
 			);
 			name = "flash (iOS)";
 			productName = "flash (iOS)";
@@ -422,9 +507,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
+					50696FF5283874FE00CB464A = {
+						CreatedOnToolsVersion = 13.4;
+					};
 					50AC43D3281BACEA0033E148 = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
@@ -458,11 +546,20 @@
 				50AC43D9281BACEA0033E148 /* flash (macOS) */,
 				50AC43E0281BACEA0033E148 /* Tests iOS */,
 				50AC43EC281BACEA0033E148 /* Tests macOS */,
+				50696FF5283874FE00CB464A /* Share */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50696FF4283874FE00CB464A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50696FFC283874FE00CB464A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50AC43D2281BACEA0033E148 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,6 +593,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		486C8B55FBBFDE14B3BA112C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Share-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7D225789315CDCF7AC623BDE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,6 +696,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50696FF2283874FE00CB464A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505BA7692838921000796AA6 /* Entry.swift in Sources */,
+				50696FF9283874FE00CB464A /* ShareViewController.swift in Sources */,
+				505BA76D2839D97900796AA6 /* Extentions.swift in Sources */,
+				505BA76C2839D96D00796AA6 /* ImageProcessor.swift in Sources */,
+				505BA76A2838921500796AA6 /* RealmManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50AC43D0281BACEA0033E148 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -647,6 +778,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		50696FFF283874FE00CB464A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50696FF5283874FE00CB464A /* Share */;
+			targetProxy = 50696FFE283874FE00CB464A /* PBXContainerItemProxy */;
+		};
 		50AC43E3281BACEA0033E148 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 50AC43D3281BACEA0033E148 /* flash (iOS) */;
@@ -659,7 +795,77 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		50696FFA283874FE00CB464A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50696FFB283874FE00CB464A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		50697002283874FE00CB464A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5B70B03FF1D518950C36326 /* Pods-Share.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WX2JA5FWNQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Share/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Share;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash.Share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50697003283874FE00CB464A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E6407F1067C08E6823F33C /* Pods-Share.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WX2JA5FWNQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Share/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Share;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash.Share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		50AC43FB281BACEA0033E148 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -777,6 +983,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -784,6 +991,7 @@
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "flash--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -809,13 +1017,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91F6FD985F953BC0AD1B3302 /* Pods-flash (iOS).release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "flash (iOS)Release.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "flash--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -845,6 +1056,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -874,6 +1086,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -978,6 +1191,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50697001283874FE00CB464A /* Build configuration list for PBXNativeTarget "Share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50697002283874FE00CB464A /* Debug */,
+				50697003283874FE00CB464A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		50AC43CB281BACE90033E148 /* Build configuration list for PBXProject "flash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

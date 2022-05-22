@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct Home: View {
-    
+    //TODO: - REMOVE THIS STATEOBJECT
     @StateObject var realmManager = RealmManager(name: "flash")
     
     var body: some View {
