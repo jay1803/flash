@@ -38,9 +38,18 @@ class ShareViewController: SLComposeServiceViewController {
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
         guard let itemProvider: NSItemProvider = extensionItem.attachments?.first else { return }
+        let textTypeIdentifier = String(kUTTypeText)
         let URLTypeIdentifier = String(kUTTypeURL)
         let imageTypeIdentifier = String(kUTTypeImage)
-        if itemProvider.hasItemConformingToTypeIdentifier(URLTypeIdentifier) {
+        if itemProvider.hasItemConformingToTypeIdentifier(textTypeIdentifier) {
+            itemProvider.loadItem(forTypeIdentifier: textTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
+                OperationQueue.main.addOperation {
+                    let content = self.contentText!
+                    self.realmManager.add(entry: Entry(content: content))
+                }
+            })
+        }
+        else if itemProvider.hasItemConformingToTypeIdentifier(URLTypeIdentifier) {
             itemProvider.loadItem(forTypeIdentifier: URLTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
                 guard let sharedURL = item as? URL else { return }
                 OperationQueue.main.addOperation {
