@@ -22,6 +22,8 @@
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
 		505BA7692838921000796AA6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
 		505BA76A2838921500796AA6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
+		505BA76C2839D96D00796AA6 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
+		505BA76D2839D97900796AA6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
 		50696FDC2836283500CB464A /* UpdateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FDB2836283500CB464A /* UpdateEditor.swift */; };
 		50696FF9283874FE00CB464A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FF8283874FE00CB464A /* ShareViewController.swift */; };
 		50696FFC283874FE00CB464A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50696FFA283874FE00CB464A /* MainInterface.storyboard */; };
@@ -700,6 +702,8 @@
 			files = (
 				505BA7692838921000796AA6 /* Entry.swift in Sources */,
 				50696FF9283874FE00CB464A /* ShareViewController.swift in Sources */,
+				505BA76D2839D97900796AA6 /* Extentions.swift in Sources */,
+				505BA76C2839D96D00796AA6 /* ImageProcessor.swift in Sources */,
 				505BA76A2838921500796AA6 /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

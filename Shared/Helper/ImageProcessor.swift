@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-func saveToPNG(image: UIImage, name: String) {
+func saveToJPG(image: UIImage, name: String) {
     let originAttachmentsPath = CWD?.appendingPathComponent("attachments")
     let imageThumbnailPath = CWD?.appendingPathComponent("thumbnails")
     

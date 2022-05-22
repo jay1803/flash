@@ -9,6 +9,7 @@ import UIKit
 import Social
 import MobileCoreServices
 import RealmSwift
+import UniformTypeIdentifiers.UTType
 
 class ShareViewController: SLComposeServiceViewController {
     
@@ -37,19 +38,42 @@ class ShareViewController: SLComposeServiceViewController {
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
         guard let itemProvider: NSItemProvider = extensionItem.attachments?.first else { return }
-        let propertyList = String(kUTTypeURL)
-        print(String(repeating: "+", count: 100))
-        print(itemProvider)
-        if itemProvider.hasItemConformingToTypeIdentifier(propertyList) {
-            itemProvider.loadItem(forTypeIdentifier: propertyList, options: nil, completionHandler: { (item, error) -> Void in
-                print(String(repeating: "+", count: 100))
-                print(item, error)
+        let URLTypeIdentifier = String(kUTTypeURL)
+        let imageTypeIdentifier = String(kUTTypeImage)
+        if itemProvider.hasItemConformingToTypeIdentifier(URLTypeIdentifier) {
+            itemProvider.loadItem(forTypeIdentifier: URLTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
                 guard let sharedURL = item as? URL else { return }
-                print(String(repeating: "+", count: 100))
-                print(sharedURL)
                 OperationQueue.main.addOperation {
                     let urlString = sharedURL.absoluteString
-                    self.realmManager.add(entry: Entry(content: urlString))
+                    var content = urlString
+                    if self.contentText != nil {
+                        content = "\(urlString)\n\(self.contentText!)"
+                    }
+                    self.realmManager.add(entry: Entry(content: content))
+                }
+            })
+        } else if itemProvider.hasItemConformingToTypeIdentifier(imageTypeIdentifier) {
+            itemProvider.loadItem(forTypeIdentifier: imageTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
+                guard let sharedURL = item as? URL else { return }
+                do {
+                    let imageData = try Data(contentsOf: sharedURL)
+                    OperationQueue.main.addOperation {
+                        guard let image = UIImage(data: imageData) else { return }
+                        let imageName = UUID().uuidString
+                        saveToJPG(image: image, name: imageName)
+                        let attachment = Attachment()
+                        attachment.fileName = imageName
+                        attachment.fileType = "jpg"
+                        var content = "image"
+                        if let text = self.contentText {
+                            content = text
+                        }
+                        let entry = Entry(content: content)
+                        entry.attachments.append(attachment)
+                        self.realmManager.add(entry: entry)
+                    }
+                } catch {
+                    fatalError(error.localizedDescription)
                 }
             })
         } else {
