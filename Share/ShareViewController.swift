@@ -7,9 +7,7 @@
 
 import UIKit
 import Social
-import MobileCoreServices
 import RealmSwift
-import UniformTypeIdentifiers.UTType
 
 class ShareViewController: SLComposeServiceViewController {
     
@@ -38,19 +36,18 @@ class ShareViewController: SLComposeServiceViewController {
         // Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
         let extensionItem = extensionContext?.inputItems.first as! NSExtensionItem
         guard let itemProvider: NSItemProvider = extensionItem.attachments?.first else { return }
-        let textTypeIdentifier = String(kUTTypeText)
-        let URLTypeIdentifier = String(kUTTypeURL)
-        let imageTypeIdentifier = String(kUTTypeImage)
-        if itemProvider.hasItemConformingToTypeIdentifier(textTypeIdentifier) {
-            itemProvider.loadItem(forTypeIdentifier: textTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
+        
+        if itemProvider.hasItemConformingToTypeIdentifier("public.text") {
+            itemProvider.loadItem(forTypeIdentifier: "public.text", options: nil, completionHandler: { (item, error) -> Void in
                 OperationQueue.main.addOperation {
                     let content = self.contentText!
                     self.realmManager.add(entry: Entry(content: content))
                 }
             })
         }
-        else if itemProvider.hasItemConformingToTypeIdentifier(URLTypeIdentifier) {
-            itemProvider.loadItem(forTypeIdentifier: URLTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
+        
+        if itemProvider.hasItemConformingToTypeIdentifier("public.url") {
+            itemProvider.loadItem(forTypeIdentifier: "public.url", options: nil, completionHandler: { (item, error) -> Void in
                 guard let sharedURL = item as? URL else { return }
                 OperationQueue.main.addOperation {
                     let urlString = sharedURL.absoluteString
@@ -61,18 +58,20 @@ class ShareViewController: SLComposeServiceViewController {
                     self.realmManager.add(entry: Entry(content: content))
                 }
             })
-        } else if itemProvider.hasItemConformingToTypeIdentifier(imageTypeIdentifier) {
-            itemProvider.loadItem(forTypeIdentifier: imageTypeIdentifier, options: nil, completionHandler: { (item, error) -> Void in
+        }
+        
+        if itemProvider.hasItemConformingToTypeIdentifier("public.image") {
+            itemProvider.loadItem(forTypeIdentifier: "public.image", options: nil, completionHandler: { (item, error) -> Void in
                 guard let sharedURL = item as? URL else { return }
                 do {
                     let imageData = try Data(contentsOf: sharedURL)
                     OperationQueue.main.addOperation {
                         guard let image = UIImage(data: imageData) else { return }
-                        let imageName = UUID().uuidString
-                        saveToJPG(image: image, name: imageName)
+                        let imagePath = "\(UUID().uuidString).jpg"
+                        saveToJPG(image: image, path: imagePath)
                         let attachment = Attachment()
-                        attachment.fileName = imageName
-                        attachment.fileType = "jpg"
+                        attachment.path = imagePath
+                        attachment.type = "image"
                         var content = "image"
                         if let text = self.contentText {
                             content = text
@@ -85,9 +84,8 @@ class ShareViewController: SLComposeServiceViewController {
                     fatalError(error.localizedDescription)
                 }
             })
-        } else {
-            print("error")
         }
+        
         self.extensionContext!.completeRequest(returningItems: [], completionHandler: nil)
     }
 

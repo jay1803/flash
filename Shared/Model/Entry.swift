@@ -9,14 +9,16 @@ import Foundation
 import Combine
 import RealmSwift
 
-enum fileType: String {
+enum AttachmentType: String {
     case image = "image"
     case pdf = "pdf"
 }
 
 final class Attachment: EmbeddedObject {
-    @Persisted var fileName: String
-    @Persisted var fileType: String
+    @Persisted var title: String?
+    @Persisted var path: String
+    @Persisted var type: String
+    @Persisted var previewImagePath: String?
 }
 
 final class Entry: Object, ObjectKeyIdentifiable {

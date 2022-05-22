@@ -12,7 +12,7 @@ struct Thumbnail: View {
     
     var body: some View {
         HStack {
-            ForEach(attachments, id: \.fileName) { attachment in
+            ForEach(attachments, id: \.path) { attachment in
                 if let filePath = getImageFilePath(.thumbnail, of: attachment) {
                     if FileManager.default.fileExists(atPath: filePath.path) {
                         Image(uiImage: UIImage(contentsOfFile: filePath.path)!)

@@ -25,8 +25,8 @@ struct EntryContent: View {
             
             if !entry.attachments.isEmpty {
                 VStack {
-                    ForEach(entry.attachments, id: \.fileName) { attachment in
-                        let imagePath = fileDir!.appendingPathComponent("\(attachment.fileName).\(attachment.fileType)")
+                    ForEach(entry.attachments, id: \.path) { attachment in
+                        let imagePath = fileDir!.appendingPathComponent(attachment.path)
                         let image = UIImage(contentsOfFile: imagePath.path)
                         Image(uiImage: image!)
                             .resizable()
