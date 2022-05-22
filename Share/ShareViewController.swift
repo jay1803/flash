@@ -67,11 +67,11 @@ class ShareViewController: SLComposeServiceViewController {
                     let imageData = try Data(contentsOf: sharedURL)
                     OperationQueue.main.addOperation {
                         guard let image = UIImage(data: imageData) else { return }
-                        let imageName = UUID().uuidString
-                        saveToJPG(image: image, name: imageName)
+                        let imagePath = "\(UUID().uuidString).jpg"
+                        saveToJPG(image: image, path: imagePath)
                         let attachment = Attachment()
-                        attachment.fileName = imageName
-                        attachment.fileType = "jpg"
+                        attachment.path = imagePath
+                        attachment.type = "image"
                         var content = "image"
                         if let text = self.contentText {
                             content = text

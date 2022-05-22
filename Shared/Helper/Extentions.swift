@@ -18,7 +18,7 @@ var CWD: URL? {
     return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")!
 }
 
-enum AttachmentType {
+enum AttachmentSourceType {
     case origin, thumbnail
 }
 
@@ -26,13 +26,12 @@ enum AttachmentType {
  - file: String, equals fileName + '.' + fileType
  */
 
-func getImageFilePath(_ attachmentType: AttachmentType, of file: Attachment) -> URL {
-    let fileName = "\(file.fileName).\(file.fileType)"
+func getImageFilePath(_ attachmentSourceType: AttachmentSourceType, of file: Attachment) -> URL {
     var dirPath: URL = CWD!.appendingPathComponent("attachments")
-    if attachmentType == AttachmentType.thumbnail {
+    if attachmentSourceType == AttachmentSourceType.thumbnail {
         dirPath = CWD!.appendingPathComponent("thumbnails")
     }
-    let attachmentFilePath = dirPath.appendingPathComponent("\(fileName)")
+    let attachmentFilePath = dirPath.appendingPathComponent("\(file.path)")
     print(attachmentFilePath.path)
     return attachmentFilePath
 }

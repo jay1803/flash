@@ -26,9 +26,9 @@ struct SendButton: View {
                     
                     for imageData in viewModel.attachments {
                         let attachment = Attachment()
-                        attachment.fileType = "jpg"
-                        attachment.fileName = imageData.id
-                        saveToJPG(image: imageData.image, name: attachment.fileName)
+                        attachment.type = "image"
+                        attachment.path = "\(imageData.id).jpg"
+                        saveToJPG(image: imageData.image, path: attachment.path)
                         newEntry.attachments.append(attachment)
                     }
                 }

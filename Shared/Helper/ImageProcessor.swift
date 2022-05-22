@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-func saveToJPG(image: UIImage, name: String) {
+func saveToJPG(image: UIImage, path: String) {
     let originAttachmentsPath = CWD?.appendingPathComponent("attachments")
     let imageThumbnailPath = CWD?.appendingPathComponent("thumbnails")
     
@@ -32,8 +32,8 @@ func saveToJPG(image: UIImage, name: String) {
     if let originJPG = image.jpegData(compressionQuality: 1),
        let thumbnailImage = image.jpegData(compressionQuality: 0.01) {
         DispatchQueue.global().async {
-            try? originJPG.write(to: originAttachmentsPath!.appendingPathComponent("\(name).jpg"))
-            try? thumbnailImage.write(to: imageThumbnailPath!.appendingPathComponent("\(name).jpg"))
+            try? originJPG.write(to: originAttachmentsPath!.appendingPathComponent(path))
+            try? thumbnailImage.write(to: imageThumbnailPath!.appendingPathComponent(path))
         }
     }
 }
