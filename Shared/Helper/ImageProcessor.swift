@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 func saveToJPG(image: UIImage, path: String) {
-    let originAttachmentsPath = CWD?.appendingPathComponent("attachments")
-    let imageThumbnailPath = CWD?.appendingPathComponent("thumbnails")
+    let originAttachmentsPath = docDir?.appendingPathComponent("attachments")
+    let imageThumbnailPath = docDir?.appendingPathComponent("thumbnails")
     
     if !FileManager.default.fileExists(atPath: originAttachmentsPath!.path) {
         do {

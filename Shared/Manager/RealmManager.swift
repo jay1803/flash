@@ -28,12 +28,12 @@ class RealmManager: ObservableObject {
     }
     
     func initializeSchema(name: String) {
-        let docDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")!
-        let realmFilePath = docDir.appendingPathComponent("\(name).realm")
+
+        let realmFilePath = docDir!.appendingPathComponent("\(name).realm")
         let config = Realm.Configuration(fileURL: realmFilePath, schemaVersion: 1)
         
         Realm.Configuration.defaultConfiguration = config
-        print(docDir)
+        print(docDir!.path)
         
         do {
             realm = try Realm()

@@ -10,7 +10,7 @@ import SwiftUI
 struct EntryContent: View {
     let entry: Entry
     let font: Font
-    private let fileDir: URL? = CWD!.appendingPathComponent("attachments")
+    private let fileDir: URL? = docDir!.appendingPathComponent("attachments")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
