@@ -14,8 +14,13 @@ func toString(from date: Date) -> String {
     return dateFormatter.string(from: date)
 }
 
-var CWD: URL? {
-    return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")!
+var docDir: URL? {
+    var docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let groupDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")
+    if groupDir != nil {
+        docDir = groupDir!
+    }
+    return docDir
 }
 
 enum AttachmentSourceType {
@@ -27,9 +32,9 @@ enum AttachmentSourceType {
  */
 
 func getImageFilePath(_ attachmentSourceType: AttachmentSourceType, of file: Attachment) -> URL {
-    var dirPath: URL = CWD!.appendingPathComponent("attachments")
+    var dirPath: URL = docDir!.appendingPathComponent("attachments")
     if attachmentSourceType == AttachmentSourceType.thumbnail {
-        dirPath = CWD!.appendingPathComponent("thumbnails")
+        dirPath = docDir!.appendingPathComponent("thumbnails")
     }
     let attachmentFilePath = dirPath.appendingPathComponent("\(file.path)")
     print(attachmentFilePath.path)

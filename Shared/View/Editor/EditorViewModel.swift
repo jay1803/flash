@@ -25,7 +25,7 @@ final class EditorViewModel: ObservableObject {
     }
     
     private var documentDirectoryPath: URL? {
-        return CWD!.appendingPathComponent("attachments")
+        return docDir!.appendingPathComponent("attachments")
     }
     var attachmentFileName: String = UUID().uuidString
 }
