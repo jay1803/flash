@@ -28,7 +28,7 @@ struct EntryEditor: View {
                 TextInput(viewModel: viewModel)
                 SendButton(viewModel: viewModel, parentEntry: $parentEntry)
             }
-            .frame(height: 48)
+            .frame(height: viewModel.height)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .sheet(isPresented: $viewModel.showImagePicker, content: {
@@ -57,16 +57,14 @@ struct textViewHeight: PreferenceKey {
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EntryEditor()
+            EntryEditor(viewModel: EditorViewModel(content: "This is a sample content\nThis is a sample content\nThis is a sample content\n"))
                 .environmentObject(RealmManager(name: "flash"))
-                .environmentObject(EditorViewModel())
                 .preferredColorScheme(.light)
             
             EntryEditor()
                 .environmentObject(RealmManager(name: "flash"))
-                .environmentObject(EditorViewModel())
                 .preferredColorScheme(.dark)
         }
-        .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 44))
+        .previewLayout(.sizeThatFits)
     }
 }
