@@ -16,7 +16,7 @@ struct ImageData: Identifiable {
 final class EditorViewModel: ObservableObject {
     @Published var initHeight: CGFloat = 36
     @Published var height: CGFloat = 36
-    @Published var content: String = ""
+    @Published var content: String
     @Published var entry: Entry?
     @Published var showImagePicker: Bool = false
     @Published var images: [UIImage] = []
@@ -27,5 +27,8 @@ final class EditorViewModel: ObservableObject {
     private var documentDirectoryPath: URL? {
         return docDir!.appendingPathComponent("attachments")
     }
-    var attachmentFileName: String = UUID().uuidString
+    
+    init(content: String = "") {
+        self.content = content
+    }
 }

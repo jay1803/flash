@@ -45,8 +45,8 @@ struct TextInput: View {
 
 struct TextInput_Previews: PreviewProvider {
     static var previews: some View {
-        TextInput(viewModel: EditorViewModel())
+        TextInput(viewModel: EditorViewModel(content: "This is a sample content\nThis is a sample content\nThis is a sample content\n"))
             .environmentObject(EditorViewModel())
-            .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 44))
+            .previewLayout(.sizeThatFits)
     }
 }
