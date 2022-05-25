@@ -32,7 +32,7 @@
 		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		509497452834C38F00A778E5 /* ImagePreviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509497442834C38F00A778E5 /* ImagePreviewList.swift */; };
-		50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_iOS.swift */; };
+		50AC43E6281BACEA0033E148 /* Tests_RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E5281BACEA0033E148 /* Tests_RealmManager.swift */; };
 		50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */; };
 		50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F1281BACEA0033E148 /* Tests_macOS.swift */; };
 		50AC43F4281BACEA0033E148 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */; };
@@ -133,7 +133,7 @@
 		50AC43DA281BACEA0033E148 /* flash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AC43DC281BACEA0033E148 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		50AC43E1281BACEA0033E148 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50AC43E5281BACEA0033E148 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		50AC43E5281BACEA0033E148 /* Tests_RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_RealmManager.swift; sourceTree = "<group>"; };
 		50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
 		50AC43ED281BACEA0033E148 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 		50AC43E4281BACEA0033E148 /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
-				50AC43E5281BACEA0033E148 /* Tests_iOS.swift */,
+				50AC43E5281BACEA0033E148 /* Tests_RealmManager.swift */,
 				50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */,
 			);
 			path = "Tests iOS";
@@ -819,7 +819,7 @@
 				50CD797E283DFAD3008EFD9A /* Extentions.swift in Sources */,
 				50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */,
 				50CD797F283DFAD6008EFD9A /* ImageProcessor.swift in Sources */,
-				50AC43E6281BACEA0033E148 /* Tests_iOS.swift in Sources */,
+				50AC43E6281BACEA0033E148 /* Tests_RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

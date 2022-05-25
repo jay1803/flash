@@ -11,7 +11,7 @@ import XCTest
 
 // Naming: test_Unit_State_Expectaion
 
-class Tests_iOS: XCTestCase {
+class Tests_RealmManager: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -54,7 +54,48 @@ class Tests_iOS: XCTestCase {
         // Then
         XCTAssertEqual(realmManager.entries.count, 1)
         XCTAssertEqual(realmManager.entries.first?.content, "testing entry")
+    }
+    
+    func test_Realm_AddReplyEntry_ExpectedTwoEntries() throws {
+        // Given
+        let realmManager = RealmManager(name: "testFlash")
+        let entry = Entry(content: "testing entry")
+        realmManager.add(entry: entry)
+        // When
+        let replyTo = realmManager.entries.first!
+        let reply = Entry(content: "This is a reply", replyTo: replyTo)
+        realmManager.replyTo(entry: entry, with: reply)
+        // Then
+        XCTAssertEqual(realmManager.entries.count, 2)
+        XCTAssertEqual(realmManager.entries.first?.content, "This is a reply")
+        XCTAssertEqual(realmManager.entries.last?.replies[0], realmManager.entries.first)
+    }
+    
+    func test_Realm_DeleteEntry_ExpectedTotalEqualZero() throws {
+        // Given
+        let realmManager = RealmManager(name: "testFlash")
+        let entry = Entry(content: "testing entry")
+        realmManager.add(entry: entry)
+        // When
+        realmManager.remove(entry: entry)
+        // Then
+        XCTAssertEqual(realmManager.entries.count, 0)
+    }
+    
+    func test_Realm_UpdateEntryContent_ExpectTheNewContentApplied() throws {
+        // Given
+        let realmManager = RealmManager(name: "testFlash")
+        let content = "This is init content"
+        let newContent = "This is new content"
+        let entry = Entry(content: content)
+        let newEntry = Entry(id: entry.id, content: newContent)
+        realmManager.add(entry: entry)
+        // When
+        realmManager.update(entry: newEntry)
         
+        // Then
+        XCTAssertEqual(realmManager.entries.count, 1)
+        XCTAssertEqual(realmManager.entries.first?.content, newContent)
     }
 
     func testLaunchPerformance() throws {
