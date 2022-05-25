@@ -123,4 +123,17 @@ class RealmManager: ObservableObject {
             }
         }
     }
+    
+    func deleteAll() {
+        guard let realm = realm else {
+            return
+        }
+        do {
+            try realm.write {
+                realm.deleteAll()
+            }
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
 }

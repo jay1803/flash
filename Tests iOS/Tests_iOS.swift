@@ -6,6 +6,10 @@
 //
 
 import XCTest
+@testable import flash
+@testable import RealmSwift
+
+// Naming: test_Unit_State_Expectaion
 
 class Tests_iOS: XCTestCase {
 
@@ -20,6 +24,8 @@ class Tests_iOS: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        let realmManager = RealmManager(name: "testFlash")
+        realmManager.deleteAll()
     }
 
     func testExample() throws {
@@ -28,6 +34,27 @@ class Tests_iOS: XCTestCase {
         app.launch()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func test_Realm_Init_ExpectToBeEmpty() throws {
+        // Given
+        let realmManager = RealmManager(name: "testFlash")
+        // When
+        // Then
+        XCTAssertEqual(realmManager.entries.count, 0)
+        
+    }
+    
+    func test_Realm_AddEntryWithContent_ExpectTheTotalEqualsOne() throws {
+        // Given
+        let realmManager = RealmManager(name: "testFlash")
+        let entry = Entry(content: "testing entry")
+        // When
+        realmManager.add(entry: entry)
+        // Then
+        XCTAssertEqual(realmManager.entries.count, 1)
+        XCTAssertEqual(realmManager.entries.first?.content, "testing entry")
+        
     }
 
     func testLaunchPerformance() throws {
