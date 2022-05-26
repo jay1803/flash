@@ -12,6 +12,8 @@ import XCTest
 // Naming: test_Unit_State_Expectaion
 
 class Tests_RealmManager: XCTestCase {
+    
+    let realmManager = RealmManager(name: "testFlash")
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,7 +26,6 @@ class Tests_RealmManager: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        let realmManager = RealmManager(name: "testFlash")
         realmManager.deleteAll()
     }
 
@@ -38,7 +39,7 @@ class Tests_RealmManager: XCTestCase {
     
     func test_Realm_Init_ExpectToBeEmpty() throws {
         // Given
-        let realmManager = RealmManager(name: "testFlash")
+        
         // When
         // Then
         XCTAssertEqual(realmManager.entries.count, 0)
@@ -47,7 +48,6 @@ class Tests_RealmManager: XCTestCase {
     
     func test_Realm_AddEntryWithContent_ExpectTheTotalEqualsOne() throws {
         // Given
-        let realmManager = RealmManager(name: "testFlash")
         let entry = Entry(content: "testing entry")
         // When
         realmManager.add(entry: entry)
@@ -58,7 +58,6 @@ class Tests_RealmManager: XCTestCase {
     
     func test_Realm_AddReplyEntry_ExpectedTwoEntries() throws {
         // Given
-        let realmManager = RealmManager(name: "testFlash")
         let entry = Entry(content: "testing entry")
         realmManager.add(entry: entry)
         // When
@@ -73,7 +72,6 @@ class Tests_RealmManager: XCTestCase {
     
     func test_Realm_DeleteEntry_ExpectedTotalEqualZero() throws {
         // Given
-        let realmManager = RealmManager(name: "testFlash")
         let entry = Entry(content: "testing entry")
         realmManager.add(entry: entry)
         // When
@@ -84,7 +82,6 @@ class Tests_RealmManager: XCTestCase {
     
     func test_Realm_UpdateEntryContent_ExpectTheNewContentApplied() throws {
         // Given
-        let realmManager = RealmManager(name: "testFlash")
         let content = "This is init content"
         let newContent = "This is new content"
         let entry = Entry(content: content)
@@ -96,14 +93,5 @@ class Tests_RealmManager: XCTestCase {
         // Then
         XCTAssertEqual(realmManager.entries.count, 1)
         XCTAssertEqual(realmManager.entries.first?.content, newContent)
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }
