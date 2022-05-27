@@ -11,7 +11,10 @@ import RealmSwift
 struct Home: View {
     
     var body: some View {
-        EntryList()
+        ZStack(alignment: .bottom) {
+            EntryList()
+            EntryEditor()
+        }
     }
 }
 

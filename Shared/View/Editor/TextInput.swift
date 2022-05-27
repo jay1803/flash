@@ -34,6 +34,8 @@ struct TextInput: View {
                             ? Color.clear
                             : Color.white)
                 .cornerRadius(viewModel.initHeight / 2)
+                .accessibility(addTraits: .isButton)
+                .accessibilityIdentifier("EntryTextEditor")
         }
         .overlay(
             RoundedRectangle(cornerRadius: viewModel.initHeight / 2)
