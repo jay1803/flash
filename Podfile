@@ -32,4 +32,5 @@ target 'Tests iOS' do
   
   # Pods for flash (iOS)
   pod 'RealmSwift', '~>10'
+  pod 'ViewInspector'
 end

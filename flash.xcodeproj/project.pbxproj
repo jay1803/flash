@@ -44,6 +44,25 @@
 		50CD797D283DFAAB008EFD9A /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50CD797E283DFAD3008EFD9A /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
 		50CD797F283DFAD6008EFD9A /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
+		50CD7981283F4255008EFD9A /* Tests_EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD7980283F4255008EFD9A /* Tests_EntryList.swift */; };
+		50CD798228409464008EFD9A /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022155281D8C7D009D9A4E /* Home.swift */; };
+		50CD7983284094BF008EFD9A /* EntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214D281D7145009D9A4E /* EntryRow.swift */; };
+		50CD7984284094BF008EFD9A /* EntryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022141281BAE38009D9A4E /* EntryList.swift */; };
+		50CD7985284094BF008EFD9A /* EmptyEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022158281D8CD0009D9A4E /* EmptyEntry.swift */; };
+		50CD7986284094C5008EFD9A /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
+		50CD7987284094C5008EFD9A /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
+		50CD7988284094C5008EFD9A /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
+		50CD7989284094C5008EFD9A /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3622826C35C00AC4E89 /* Thread.swift */; };
+		50CD798A284094CA008EFD9A /* UpdateEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FDB2836283500CB464A /* UpdateEditor.swift */; };
+		50CD798B284094CD008EFD9A /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
+		50CD798C284094CD008EFD9A /* PickImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */; };
+		50CD798D284094CD008EFD9A /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */; };
+		50CD798E284094CD008EFD9A /* ImagePreviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509497442834C38F00A778E5 /* ImagePreviewList.swift */; };
+		50CD798F284094CD008EFD9A /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
+		50CD7990284094CD008EFD9A /* EntryEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002214A281C0220009D9A4E /* EntryEditor.swift */; };
+		50CD7991284094CD008EFD9A /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3752828D59000AC4E89 /* SendButton.swift */; };
+		50CD799228409728008EFD9A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
+		50CD799328409728008EFD9A /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
 		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
@@ -138,6 +157,7 @@
 		50AC43ED281BACEA0033E148 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		50CD7980283F4255008EFD9A /* Tests_EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_EntryList.swift; sourceTree = "<group>"; };
 		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		50D9C35F2826C14000AC4E89 /* EntryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContent.swift; sourceTree = "<group>"; };
 		50D9C3622826C35C00AC4E89 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -349,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				50AC43E5281BACEA0033E148 /* Tests_RealmManager.swift */,
+				50CD7980283F4255008EFD9A /* Tests_EntryList.swift */,
 				50AC43E7281BACEA0033E148 /* Tests_iOSLaunchTests.swift */,
 			);
 			path = "Tests iOS";
@@ -814,12 +835,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50CD7991284094CD008EFD9A /* SendButton.swift in Sources */,
 				50CD797C283DFAA5008EFD9A /* Entry.swift in Sources */,
+				50CD7989284094C5008EFD9A /* Thread.swift in Sources */,
 				50CD797D283DFAAB008EFD9A /* RealmManager.swift in Sources */,
+				50CD799228409728008EFD9A /* ImagePickerView.swift in Sources */,
 				50CD797E283DFAD3008EFD9A /* Extentions.swift in Sources */,
+				50CD7987284094C5008EFD9A /* EntryDetail.swift in Sources */,
+				50CD7988284094C5008EFD9A /* EntryContent.swift in Sources */,
+				50CD798E284094CD008EFD9A /* ImagePreviewList.swift in Sources */,
 				50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */,
+				50CD798A284094CA008EFD9A /* UpdateEditor.swift in Sources */,
+				50CD7981283F4255008EFD9A /* Tests_EntryList.swift in Sources */,
+				50CD798D284094CD008EFD9A /* EditorViewModel.swift in Sources */,
 				50CD797F283DFAD6008EFD9A /* ImageProcessor.swift in Sources */,
+				50CD798C284094CD008EFD9A /* PickImageButton.swift in Sources */,
+				50CD7984284094BF008EFD9A /* EntryList.swift in Sources */,
+				50CD7986284094C5008EFD9A /* EntryReplies.swift in Sources */,
+				50CD798228409464008EFD9A /* Home.swift in Sources */,
+				50CD799328409728008EFD9A /* Thumbnail.swift in Sources */,
+				50CD7985284094BF008EFD9A /* EmptyEntry.swift in Sources */,
+				50CD7990284094CD008EFD9A /* EntryEditor.swift in Sources */,
+				50CD798B284094CD008EFD9A /* IconButton.swift in Sources */,
 				50AC43E6281BACEA0033E148 /* Tests_RealmManager.swift in Sources */,
+				50CD7983284094BF008EFD9A /* EntryRow.swift in Sources */,
+				50CD798F284094CD008EFD9A /* TextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
