@@ -16,38 +16,35 @@ struct EntryList: View {
     @State private var isImageSaved = true
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            if realmManager.entries.first != nil {
-                List {
-                    ForEach(realmManager.entries) { entry in
-                        if !entry.isInvalidated {
-                            EntryRow(entry: entry)
-                                .actionSheet(isPresented: $isShowingDeleteAlert) {
-                                    ActionSheet(title: Text("Permanently delete this note?"),
-                                                message: Text("You can't undo this action."),
-                                                buttons: [
-                                                    .destructive(Text("Delete"), action: {
-                                                        let entry = realmManager.entries[deleteItemIndexSet!.first!]
-                                                        realmManager.remove(entry: entry)
-                                                    }),
-                                                    .cancel(Text("Cancel"), action: {
-                                                        self.isShowingDeleteAlert = false
-                                                    })
-                                    ])
-                            }
+        if realmManager.entries.first != nil {
+            List {
+                ForEach(realmManager.entries) { entry in
+                    if !entry.isInvalidated {
+                        EntryRow(entry: entry)
+                            .actionSheet(isPresented: $isShowingDeleteAlert) {
+                                ActionSheet(title: Text("Permanently delete this note?"),
+                                            message: Text("You can't undo this action."),
+                                            buttons: [
+                                                .destructive(Text("Delete"), action: {
+                                                    let entry = realmManager.entries[deleteItemIndexSet!.first!]
+                                                    realmManager.remove(entry: entry)
+                                                }),
+                                                .cancel(Text("Cancel"), action: {
+                                                    self.isShowingDeleteAlert = false
+                                                })
+                                ])
                         }
                     }
-                    .onDelete(perform: deleteConfirmation)
                 }
-                .navigationTitle("Notes")
-                .navigationBarItems(leading: EditButton())
-                .animation(.easeInOut, value: realmManager.entries)
-                .listStyle(.inset)
-                .padding(.bottom, 48)
-            } else {
-                EmptyEntry()
+                .onDelete(perform: deleteConfirmation)
             }
-            EntryEditor()
+            .navigationTitle("Notes")
+            .navigationBarItems(leading: EditButton())
+            .animation(.easeInOut, value: realmManager.entries)
+            .listStyle(.inset)
+            .padding(.bottom, 48)
+        } else {
+            EmptyEntry()
         }
     }
     

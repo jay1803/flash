@@ -4,19 +4,23 @@ PODS:
   - Realm/Headers (10.25.2)
   - RealmSwift (10.25.2):
     - Realm (= 10.25.2)
+  - ViewInspector (0.9.1)
 
 DEPENDENCIES:
   - RealmSwift (~> 10)
+  - ViewInspector
 
 SPEC REPOS:
   trunk:
     - Realm
     - RealmSwift
+    - ViewInspector
 
 SPEC CHECKSUMS:
   Realm: 978303663d0509166498f423d112e5ee97d4c91b
   RealmSwift: a0c30c1efc49e928a0a6f8fb141bb2629616d79b
+  ViewInspector: 68842776f07fbf186713689d4846e54f32ccbffb
 
-PODFILE CHECKSUM: 711389d378f450679aed9e4148c3e571dfc650ee
+PODFILE CHECKSUM: c9ad2502836af04adca68ca136ffc3b76919c2e7
 
 COCOAPODS: 1.11.3
