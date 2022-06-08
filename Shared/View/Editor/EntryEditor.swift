@@ -57,7 +57,7 @@ struct textViewHeight: PreferenceKey {
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EntryEditor(viewModel: EditorViewModel(content: "This is a sample content\nThis is a sample content\nThis is a sample content\n"))
+            EntryEditor(viewModel: EditorViewModel(content: "This is a sample content This is a sample content\nThis is a sample content\nthis"))
                 .environmentObject(RealmManager(name: "flash"))
                 .preferredColorScheme(.light)
             
@@ -65,6 +65,6 @@ struct NoteEditor_Previews: PreviewProvider {
                 .environmentObject(RealmManager(name: "flash"))
                 .preferredColorScheme(.dark)
         }
-        .previewLayout(.sizeThatFits)
+        .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 120))
     }
 }
