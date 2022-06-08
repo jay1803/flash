@@ -14,10 +14,7 @@ struct EntryContent: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(toString(from: entry.createdAt))
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .lineSpacing(4)
+            EntryCreationDateTime(entryCreatedAt: entry.createdAt)
             
             Text(entry.content)
                 .fixedSize(horizontal: false, vertical: true)

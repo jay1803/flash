@@ -18,9 +18,7 @@ struct EntryRow: View {
                 .environmentObject(realmManager)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
-                Text(toString(from: entry.createdAt))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                EntryCreationDateTime(entryCreatedAt: entry.createdAt)
                 
                 Text(entry.content)
                     .lineLimit(10)

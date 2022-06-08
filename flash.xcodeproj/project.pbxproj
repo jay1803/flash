@@ -20,6 +20,8 @@
 		5002216C2821217D009D9A4E /* EntryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002216B2821217D009D9A4E /* EntryDetail.swift */; };
 		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
+		504C509528506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */; };
+		504C509628506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */; };
 		505BA7692838921000796AA6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
 		505BA76A2838921500796AA6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		505BA76C2839D96D00796AA6 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
@@ -136,6 +138,7 @@
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
 		504C5093285068B400E7AA16 /* flash (iOS)Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Debug.entitlements"; sourceTree = "<group>"; };
+		504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCreationDateTime.swift; sourceTree = "<group>"; };
 		505BA7672838879500796AA6 /* flash--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "flash--iOS--Info.plist"; sourceTree = "<group>"; };
 		505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Release.entitlements"; sourceTree = "<group>"; };
 		505BA76B2839CE8000796AA6 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Share.entitlements; sourceTree = "<group>"; };
@@ -400,6 +403,7 @@
 				50022141281BAE38009D9A4E /* EntryList.swift */,
 				50022158281D8CD0009D9A4E /* EmptyEntry.swift */,
 				5002214D281D7145009D9A4E /* EntryRow.swift */,
+				504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -806,6 +810,7 @@
 				5002214B281C0220009D9A4E /* EntryEditor.swift in Sources */,
 				50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */,
 				50022156281D8C7D009D9A4E /* Home.swift in Sources */,
+				504C509528506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */,
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3762828D59000AC4E89 /* SendButton.swift in Sources */,
 				50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */,
@@ -839,6 +844,7 @@
 			files = (
 				50CD7991284094CD008EFD9A /* SendButton.swift in Sources */,
 				50CD797C283DFAA5008EFD9A /* Entry.swift in Sources */,
+				504C509628506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */,
 				50CD7989284094C5008EFD9A /* Thread.swift in Sources */,
 				50CD797D283DFAAB008EFD9A /* RealmManager.swift in Sources */,
 				50CD799228409728008EFD9A /* ImagePickerView.swift in Sources */,
