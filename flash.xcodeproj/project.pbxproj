@@ -135,6 +135,7 @@
 		5002216B2821217D009D9A4E /* EntryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetail.swift; sourceTree = "<group>"; };
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
+		504C5093285068B400E7AA16 /* flash (iOS)Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Debug.entitlements"; sourceTree = "<group>"; };
 		505BA7672838879500796AA6 /* flash--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "flash--iOS--Info.plist"; sourceTree = "<group>"; };
 		505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Release.entitlements"; sourceTree = "<group>"; };
 		505BA76B2839CE8000796AA6 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Share.entitlements; sourceTree = "<group>"; };
@@ -318,6 +319,7 @@
 		50AC43C7281BACE90033E148 = {
 			isa = PBXGroup;
 			children = (
+				504C5093285068B400E7AA16 /* flash (iOS)Debug.entitlements */,
 				505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */,
 				505BA7672838879500796AA6 /* flash--iOS--Info.plist */,
 				50AC43CC281BACE90033E148 /* Shared */,
@@ -1083,6 +1085,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "flash (iOS)Debug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
