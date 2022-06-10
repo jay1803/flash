@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct EntryContent: View {
-    let entry: Entry
+    @ObservedRealmObject var entry: Entry
     let font: Font
+    
     private let fileDir: URL? = docDir!.appendingPathComponent("attachments")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             EntryCreationDateTime(entryCreatedAt: entry.createdAt)
             
-            Text(entry.content)
-                .fixedSize(horizontal: false, vertical: true)
+            EntryTextView(text: $entry.content)
                 .font(font)
             
             if !entry.attachments.isEmpty {

@@ -12,10 +12,8 @@ struct UpdateEditor: View {
     @Binding var inputText: String
     
     var body: some View {
-        Form {
-            TextEditor(text: $inputText)
-                .frame(minHeight: 300)
-        }
+        TextEditor(text: $inputText)
+            .padding()
     }
 }
 

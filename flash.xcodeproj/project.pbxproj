@@ -22,6 +22,9 @@
 		501D999C282C8AF0009022E0 /* EntryReplies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D999B282C8AF0009022E0 /* EntryReplies.swift */; };
 		504C509528506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */; };
 		504C509628506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */; };
+		504C50982853071400E7AA16 /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C50972853071400E7AA16 /* EntryTextView.swift */; };
+		504C50992853071400E7AA16 /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C50972853071400E7AA16 /* EntryTextView.swift */; };
+		504C509A2853071400E7AA16 /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C50972853071400E7AA16 /* EntryTextView.swift */; };
 		505BA7692838921000796AA6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
 		505BA76A2838921500796AA6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		505BA76C2839D96D00796AA6 /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
@@ -139,6 +142,7 @@
 		501D999B282C8AF0009022E0 /* EntryReplies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryReplies.swift; sourceTree = "<group>"; };
 		504C5093285068B400E7AA16 /* flash (iOS)Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Debug.entitlements"; sourceTree = "<group>"; };
 		504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCreationDateTime.swift; sourceTree = "<group>"; };
+		504C50972853071400E7AA16 /* EntryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTextView.swift; sourceTree = "<group>"; };
 		505BA7672838879500796AA6 /* flash--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "flash--iOS--Info.plist"; sourceTree = "<group>"; };
 		505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Release.entitlements"; sourceTree = "<group>"; };
 		505BA76B2839CE8000796AA6 /* Share.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Share.entitlements; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 				5002216B2821217D009D9A4E /* EntryDetail.swift */,
 				501D999B282C8AF0009022E0 /* EntryReplies.swift */,
 				50D9C35F2826C14000AC4E89 /* EntryContent.swift */,
+				504C50972853071400E7AA16 /* EntryTextView.swift */,
 				50D9C3622826C35C00AC4E89 /* Thread.swift */,
 			);
 			path = Detail;
@@ -810,6 +815,7 @@
 				5002214B281C0220009D9A4E /* EntryEditor.swift in Sources */,
 				50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */,
 				50022156281D8C7D009D9A4E /* Home.swift in Sources */,
+				504C50982853071400E7AA16 /* EntryTextView.swift in Sources */,
 				504C509528506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */,
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3762828D59000AC4E89 /* SendButton.swift in Sources */,
@@ -834,6 +840,7 @@
 				50D9C36F282770ED00AC4E89 /* EntryEditor.swift in Sources */,
 				50022153281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3712827782100AC4E89 /* EntryContent.swift in Sources */,
+				504C50992853071400E7AA16 /* EntryTextView.swift in Sources */,
 				50D9C36928276F4700AC4E89 /* EntryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -867,6 +874,7 @@
 				50CD798B284094CD008EFD9A /* IconButton.swift in Sources */,
 				50AC43E6281BACEA0033E148 /* Tests_RealmManager.swift in Sources */,
 				50CD7983284094BF008EFD9A /* EntryRow.swift in Sources */,
+				504C509A2853071400E7AA16 /* EntryTextView.swift in Sources */,
 				50CD798F284094CD008EFD9A /* TextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1092,6 +1100,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "flash (iOS)Debug.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
@@ -1128,6 +1137,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "flash (iOS)Release.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
