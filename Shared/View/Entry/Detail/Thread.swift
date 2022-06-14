@@ -30,13 +30,13 @@ struct Thread: View {
                 
                 EntryContent(entry: replyTo, font: .body)
                     .background(GeometryReader {geometry in
-                        Color.clear.preference(key: textViewHeight.self, value: geometry.frame(in: .local).size.height)
+                        Color.clear.preference(key: entryEditorHeight.self, value: geometry.frame(in: .local).size.height)
                     })
                 
                 Spacer()
             }
             .frame(height: rowHeight)
-            .onPreferenceChange(textViewHeight.self) { rowHeight = $0 }
+            .onPreferenceChange(entryEditorHeight.self) { rowHeight = $0 }
         }
     }
 }

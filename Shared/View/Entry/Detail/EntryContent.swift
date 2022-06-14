@@ -10,6 +10,7 @@ import RealmSwift
 
 struct EntryContent: View {
     @ObservedRealmObject var entry: Entry
+    @State var calculatedHeight: CGFloat = 40
     let font: Font
     
     private let fileDir: URL? = docDir!.appendingPathComponent("attachments")
@@ -18,8 +19,9 @@ struct EntryContent: View {
         VStack(alignment: .leading, spacing: 8) {
             EntryCreationDateTime(entryCreatedAt: entry.createdAt)
             
-            EntryTextView(text: $entry.content)
+            EntryTextView(text: $entry.content, calculatedHeight: $calculatedHeight)
                 .font(font)
+                .frame(minHeight: calculatedHeight, maxHeight: calculatedHeight)
             
             if !entry.attachments.isEmpty {
                 VStack {
@@ -33,12 +35,13 @@ struct EntryContent: View {
                 }
             }
         }
+//        .frame(height: 300)
         .padding(.vertical, 8)
     }
 }
 
 struct EntryContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryContent(entry: Entry(content: "This is a sample note\nThis is a sample note\nThis is a sample note"), font: .title3)
+        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."), font: .title3)
     }
 }

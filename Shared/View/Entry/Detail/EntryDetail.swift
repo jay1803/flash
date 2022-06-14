@@ -23,7 +23,6 @@ struct EntryDetail: View {
                     }
                     
                     EntryContent(entry: entry, font: .title3)
-                        .frame(height: 300)
                 }
                 
                 

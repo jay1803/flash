@@ -21,8 +21,7 @@ struct EntryRow: View {
                 EntryCreationDateTime(entryCreatedAt: entry.createdAt)
                 
                 Text(entry.content)
-                    .lineLimit(10)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(5)
                     .foregroundColor(.primary)
                     .lineSpacing(4)
 

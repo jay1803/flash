@@ -22,7 +22,7 @@ struct TextInput: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .cornerRadius(viewModel.initHeight / 2)
                 .background(GeometryReader { geometry in
-                    Color.clear.preference(key: textViewHeight.self,
+                    Color.clear.preference(key: entryEditorHeight.self,
                                     value: geometry.frame(in: .local).size.height)
                 })
             
