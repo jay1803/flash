@@ -39,7 +39,7 @@ struct EntryEditor: View {
             .background(appearance == .dark
                         ? Color.black.edgesIgnoringSafeArea(.bottom)
                         : Color(red: 214/255, green: 217/255, blue: 222/255).edgesIgnoringSafeArea(.bottom))
-            .onPreferenceChange(textViewHeight.self) { viewModel.height = $0 }
+            .onPreferenceChange(entryEditorHeight.self) { viewModel.height = $0 }
             .simultaneousGesture(DragGesture().onChanged({ _ in
                 hideKeyboard()
             }))
@@ -47,7 +47,7 @@ struct EntryEditor: View {
     }
 }
 
-struct textViewHeight: PreferenceKey {
+struct entryEditorHeight: PreferenceKey {
     static var defaultValue: CGFloat { 0 }
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = value + nextValue()
@@ -57,7 +57,7 @@ struct textViewHeight: PreferenceKey {
 struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            EntryEditor(viewModel: EditorViewModel(content: "This is a sample content\nThis is a sample content\nThis is a sample content\n"))
+            EntryEditor(viewModel: EditorViewModel(content: "This is a sample content This is a sample content\nThis is a sample content\nthis"))
                 .environmentObject(RealmManager(name: "flash"))
                 .preferredColorScheme(.light)
             
@@ -65,6 +65,6 @@ struct NoteEditor_Previews: PreviewProvider {
                 .environmentObject(RealmManager(name: "flash"))
                 .preferredColorScheme(.dark)
         }
-        .previewLayout(.sizeThatFits)
+        .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 120))
     }
 }

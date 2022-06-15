@@ -16,25 +16,25 @@ struct EntryDetail: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-                List {
-                    Section {
-                        if let replyToEntry = entry.replyTo {
-                            Thread(replyTo: replyToEntry)
-                        }
-                        
-                        EntryContent(entry: entry, font: .title3)
+            List {
+                Section {
+                    if let replyToEntry = entry.replyTo {
+                        Thread(replyTo: replyToEntry)
                     }
                     
-                    
-                    if !entry.replies.isEmpty {
-                        Section(header: Text("Replies")) {
-                            ForEach(entry.replies) { reply in
-                                EntryRow(entry: reply)
-                            }
+                    EntryContent(entry: entry, font: .title3)
+                }
+                
+                
+                if !entry.replies.isEmpty {
+                    Section(header: Text("Replies")) {
+                        ForEach(entry.replies) { reply in
+                            EntryRow(entry: reply)
                         }
                     }
                 }
-                .padding(.bottom, 48)
+            }
+            .padding(.bottom, 48)
             
             EntryEditor(parentEntry: entry)
                 .environmentObject(realmManager)

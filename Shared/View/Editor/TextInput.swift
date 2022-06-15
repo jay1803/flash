@@ -15,14 +15,14 @@ struct TextInput: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Text(viewModel.content.isEmpty ? " " : viewModel.content)
-                .frame(width: UIScreen.main.bounds.width - 108, alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width - 104 - 16, alignment: .leading)
                 .lineLimit(10)
                 .padding(.vertical, 8)
                 .foregroundColor(.clear)
                 .fixedSize(horizontal: false, vertical: true)
                 .cornerRadius(viewModel.initHeight / 2)
                 .background(GeometryReader { geometry in
-                    Color.clear.preference(key: textViewHeight.self,
+                    Color.clear.preference(key: entryEditorHeight.self,
                                     value: geometry.frame(in: .local).size.height)
                 })
             
