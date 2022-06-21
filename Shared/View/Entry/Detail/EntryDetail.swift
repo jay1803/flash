@@ -10,7 +10,7 @@ import RealmSwift
 
 struct EntryDetail: View {
     @EnvironmentObject var realmManager: RealmManager
-    @ObservedRealmObject var entry: Entry
+    @ObservedObject var viewModel: EntryDetailViewModel
     @State var inputText: String = ""
     @State var isPresentingEditView = false
     
@@ -18,17 +18,17 @@ struct EntryDetail: View {
         ZStack(alignment: .bottom) {
             List {
                 Section {
-                    if let replyToEntry = entry.replyTo {
+                    if let replyToEntry = viewModel.entry.replyTo {
                         Thread(replyTo: replyToEntry)
                     }
                     
-                    EntryContent(entry: entry, font: .title3)
+                    EntryContent(entry: viewModel.entry, font: .title3)
                 }
                 
                 
-                if !entry.replies.isEmpty {
+                if !viewModel.entry.replies.isEmpty {
                     Section(header: Text("Replies")) {
-                        ForEach(entry.replies) { reply in
+                        ForEach(viewModel.entry.replies) { reply in
                             EntryRow(entry: reply)
                         }
                     }
@@ -36,13 +36,13 @@ struct EntryDetail: View {
             }
             .padding(.bottom, 48)
             
-            EntryEditor(parentEntry: entry)
+            EntryEditor(parentEntry: viewModel.entry)
                 .environmentObject(realmManager)
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            inputText = entry.content
+            inputText = viewModel.entry.content
         }
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
@@ -58,13 +58,13 @@ struct EntryDetail: View {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Cancel") {
                                 isPresentingEditView = false
-                                inputText = entry.content
+                                inputText = viewModel.entry.content
                             }
                         }
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Save") {
                                 isPresentingEditView = false
-                                let modifiedEntry = Entry(id: entry.id, content: inputText, createdAt: entry.createdAt)
+                                let modifiedEntry = Entry(id: viewModel.entry.id, content: inputText, createdAt: viewModel.entry.createdAt)
                                 realmManager.update(entry: modifiedEntry)
                             }
                         }
@@ -76,7 +76,7 @@ struct EntryDetail: View {
 
 struct EntryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetail(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."))
+        EntryDetail(viewModel: EntryDetailViewModel(id: UUID()))
             .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
             .environmentObject(RealmManager(name: "flash"))
     }

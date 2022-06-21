@@ -14,7 +14,7 @@ struct EntryRow: View {
     
     var body: some View {
         NavigationLink {
-            EntryDetail(entry: entry)
+            EntryDetail(viewModel: EntryDetailViewModel(id: entry.id))
                 .environmentObject(realmManager)
         } label: {
             VStack(alignment: .leading, spacing: 8) {
