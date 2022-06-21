@@ -65,6 +65,16 @@ class RealmManager: ObservableObject {
     }
     
     // MARK: - Private functions
+    func getEntry(by id: UUID) -> Entry? {
+        guard let realm = realm else {
+            return nil
+        }
+        if let entry = realm.object(ofType: Entry.self, forPrimaryKey: id) {
+            return entry
+        }
+        return nil
+    }
+    
     func add(entry: Entry) {
         guard let realm = realm else {
             return
