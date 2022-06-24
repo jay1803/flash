@@ -12,7 +12,7 @@ import RealmSwift
 class ShareViewController: SLComposeServiceViewController {
     
     // MARK: - Properties
-    private var realmManager = RealmManager(name: "flash")
+    private var realmManager = RealmManager.shared
     private var showReplySelection = "New note"
     
     // MARK: - PrivateFunctions

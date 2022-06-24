@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct EntryList: View {
     
-    @EnvironmentObject var realmManager: RealmManager
+    @ObservedObject var viewModel = EntryListViewModel()
     @State private var isShowingDeleteAlert: Bool = false
     @State private var deleteItemIndexSet: IndexSet?
     @State private var isImageSaved = true
     
     var body: some View {
-        if realmManager.entries.first != nil {
+        if viewModel.entries.first != nil {
             List {
-                ForEach(realmManager.entries) { entry in
+                ForEach(viewModel.entries) { entry in
                     if !entry.isInvalidated {
                         EntryRow(entry: entry)
                             .actionSheet(isPresented: $isShowingDeleteAlert) {
@@ -26,8 +25,8 @@ struct EntryList: View {
                                             message: Text("You can't undo this action."),
                                             buttons: [
                                                 .destructive(Text("Delete"), action: {
-                                                    let entry = realmManager.entries[deleteItemIndexSet!.first!]
-                                                    realmManager.remove(entry: entry)
+                                                    let entry = viewModel.entries[deleteItemIndexSet!.first!]
+                                                    viewModel.remove(entry: entry)
                                                 }),
                                                 .cancel(Text("Cancel"), action: {
                                                     self.isShowingDeleteAlert = false
@@ -40,11 +39,20 @@ struct EntryList: View {
             }
             .navigationTitle("Notes")
             .navigationBarItems(leading: EditButton())
-            .animation(.easeInOut, value: realmManager.entries)
+            .animation(.easeInOut, value: viewModel.entries)
             .listStyle(.inset)
             .padding(.bottom, 48)
+            .onAppear(perform: {
+                viewModel.fetch()
+            })
+            .onDisappear(perform: {
+                viewModel.invalidate()
+            })
         } else {
             EmptyEntry()
+                .onAppear(perform: {
+                    viewModel.fetch()
+                })
         }
     }
     
@@ -64,6 +72,5 @@ extension View {
 struct NoteList_Previews: PreviewProvider {
     static var previews: some View {
         EntryList()
-            .environmentObject(RealmManager(name: "flash"))
     }
 }

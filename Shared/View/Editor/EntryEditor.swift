@@ -11,7 +11,6 @@ import RealmSwift
 struct EntryEditor: View {
     
     @Environment(\.colorScheme) var appearance
-    @EnvironmentObject var realmManager: RealmManager
     @StateObject var viewModel = EditorViewModel()
     @State var parentEntry: Entry? = nil
     
@@ -26,7 +25,7 @@ struct EntryEditor: View {
                 PickImageButton(viewModel: viewModel)
                 #endif
                 TextInput(viewModel: viewModel)
-                SendButton(viewModel: viewModel, parentEntry: $parentEntry)
+                SendButton(viewModel: viewModel, entryListViewModel: EntryListViewModel(), parentEntry: $parentEntry)
             }
             .frame(height: viewModel.height)
             .padding(.horizontal, 8)
@@ -58,11 +57,9 @@ struct NoteEditor_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             EntryEditor(viewModel: EditorViewModel(content: "This is a sample content This is a sample content\nThis is a sample content\nthis"))
-                .environmentObject(RealmManager(name: "flash"))
                 .preferredColorScheme(.light)
             
             EntryEditor()
-                .environmentObject(RealmManager(name: "flash"))
                 .preferredColorScheme(.dark)
         }
         .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 120))

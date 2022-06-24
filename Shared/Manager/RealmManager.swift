@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class RealmManager: ObservableObject {
+    static let shared = RealmManager(name: "flash")
     // MARK: - Properies
     private (set) var realm: Realm?
     @Published var entriesResult: Results<Entry>?
@@ -22,7 +23,7 @@ class RealmManager: ObservableObject {
     private var entryToken: NotificationToken?
     
     // MARK: - Init
-    init(name: String) {
+    private init(name: String) {
         initializeSchema(name: name)
         setupObserver()
     }
@@ -65,6 +66,14 @@ class RealmManager: ObservableObject {
     }
     
     // MARK: - Private functions
+    func getEntries() -> [Entry] {
+        guard let realm = realm else {
+            return []
+        }
+        let entries = realm.objects(Entry.self).sorted(byKeyPath: "createdAt", ascending: false)
+        return Array(entries)
+    }
+    
     func getEntry(by id: UUID) -> Entry? {
         guard let realm = realm else {
             return nil
