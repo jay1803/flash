@@ -10,6 +10,7 @@ import RealmSwift
 
 struct EntryDetail: View {
     @ObservedObject var viewModel: EntryDetailViewModel
+    @Environment(\.colorScheme) var appearance
     @State var inputText: String = ""
     @State var isPresentingEditView = false
     
@@ -19,7 +20,15 @@ struct EntryDetail: View {
                 Section {
                     // MARK: - ReplyTo
                     if let replyToEntry = viewModel.entry!.replyTo {
-                        Thread(replyTo: replyToEntry)
+                        HStack(alignment: .top, spacing: 8) {
+                            Rectangle()
+                                .frame(width: 4)
+                                .padding(.leading, 0)
+                                .foregroundColor(appearance == .dark
+                                                 ? Color(red: 1, green: 1, blue: 1, opacity: 0.38)
+                                                 : Color(red: 0, green: 0, blue: 0, opacity: 0.2))
+                            Thread(replyTo: replyToEntry)
+                        }
                     }
                     
                     // MARK: - Content
@@ -80,8 +89,11 @@ struct EntryDetail: View {
 }
 
 struct EntryDetailView_Previews: PreviewProvider {
+    static let entry = Entry(content: "Some content")
+    static let viewModel = EntryDetailViewModel(id: UUID())
+
     static var previews: some View {
-        EntryDetail(viewModel: EntryDetailViewModel(id: UUID()))
+        EntryDetail(viewModel: viewModel)
             .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     }
 }

@@ -20,18 +20,7 @@ struct Thread: View {
                 Thread(replyTo: replyToEntry)
             }
             
-            HStack(alignment: .top, spacing: 8) {
-                Rectangle()
-                    .frame(width: 4)
-                    .padding(.leading, 0)
-                    .foregroundColor(appearance == .dark
-                                     ? Color(red: 1, green: 1, blue: 1, opacity: 0.38)
-                                     : Color(red: 0, green: 0, blue: 0, opacity: 0.2))
-                
-                EntryContent(entry: replyTo, font: .body)
-                
-                Spacer()
-            }
+            EntryContent(entry: replyTo, font: .body)
         }
     }
 }
