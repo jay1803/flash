@@ -39,15 +39,14 @@ struct EntryList: View {
             }
             .navigationTitle("Notes")
             .navigationBarItems(leading: EditButton())
-            .animation(.easeInOut, value: viewModel.entries)
             .listStyle(.inset)
             .padding(.bottom, 48)
-            .onAppear(perform: {
-                viewModel.fetch()
-            })
-            .onDisappear(perform: {
+            .onAppear {
+                viewModel.setupObserver()
+            }
+            .onDisappear {
                 viewModel.invalidate()
-            })
+            }
         } else {
             EmptyEntry()
                 .onAppear(perform: {

@@ -43,6 +43,10 @@ struct EntryDetail: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             inputText = viewModel.entry!.content
+            viewModel.setupObserver()
+        }
+        .onDisappear {
+            viewModel.invalidate()
         }
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
