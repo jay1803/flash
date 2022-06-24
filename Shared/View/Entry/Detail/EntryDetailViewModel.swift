@@ -17,7 +17,6 @@ final class EntryDetailViewModel: ObservableObject {
     init(id: UUID) {
         self.entryId = id
         fetch()
-        setupObserver()
     }
     
     func fetch() {
@@ -43,5 +42,9 @@ final class EntryDetailViewModel: ObservableObject {
                 fatalError("Item has been deleted.")
             }
         })
+    }
+    
+    func invalidate() {
+        notificationToken?.invalidate()
     }
 }

@@ -19,7 +19,7 @@ final class EntryListViewModel: ObservableObject {
     @Published var entriesResult: Results<Entry>?
     
     private let realmManager = RealmManager.shared
-    private var entryToken: NotificationToken?
+    private var notificationToken: NotificationToken?
     
     init() {
         setupObserver()
@@ -34,7 +34,7 @@ final class EntryListViewModel: ObservableObject {
             return
         }
         let observedEntry = realm.objects(Entry.self).sorted(byKeyPath: "createdAt", ascending: false)
-        entryToken = observedEntry.observe({ [weak self] changes in
+        notificationToken = observedEntry.observe({ [weak self] changes in
             switch changes {
             case .update(_, let deletions, let insertions, let modifications):
                 self?.entriesResult = observedEntry
@@ -52,18 +52,14 @@ final class EntryListViewModel: ObservableObject {
     }
     
     func add(entry: Entry) {
-        setupObserver()
         realmManager.add(entry: entry)
-        invalidate()
     }
     
     func remove(entry: Entry) {
-        setupObserver()
         realmManager.remove(entry: entry)
-        invalidate()
     }
     
     func invalidate() {
-        entryToken?.invalidate()
+        notificationToken?.invalidate()
     }
 }
