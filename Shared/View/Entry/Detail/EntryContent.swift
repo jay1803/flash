@@ -35,7 +35,6 @@ struct EntryContent: View {
                 }
             }
         }
-//        .frame(height: 300)
         .padding(.vertical, 8)
     }
 }

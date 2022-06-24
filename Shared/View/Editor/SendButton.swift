@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SendButton: View {
-    
-    @EnvironmentObject var realmManager: RealmManager
+
     @ObservedObject var viewModel: EditorViewModel
+    @ObservedObject var entryListViewModel: EntryListViewModel
     @State var showingAlert: Bool = false
     
     @Binding var parentEntry: Entry?
@@ -33,9 +33,9 @@ struct SendButton: View {
                     }
                 }
                 if let entry = parentEntry {
-                    realmManager.replyTo(entry: entry, with: newEntry)
+                    viewModel.replyTo(entry: entry, reply: newEntry)
                 } else {
-                    realmManager.add(entry: newEntry)
+                    entryListViewModel.add(entry: newEntry)
                 }
             }
             viewModel.content = ""
@@ -56,8 +56,7 @@ struct SendButton: View {
 
 struct SendButton_Previews: PreviewProvider {
     static var previews: some View {
-        SendButton(viewModel: EditorViewModel(), parentEntry: .constant(Entry()))
-            .environmentObject(RealmManager(name: "flash"))
+        SendButton(viewModel: EditorViewModel(), entryListViewModel: EntryListViewModel(), parentEntry: .constant(Entry()))
             .environmentObject(EditorViewModel())
     }
 }

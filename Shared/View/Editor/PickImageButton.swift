@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PickImageButton: View {
-    @EnvironmentObject var realmManager: RealmManager
     @ObservedObject var viewModel: EditorViewModel
     
     var body: some View {

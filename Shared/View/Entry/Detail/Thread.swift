@@ -29,14 +29,9 @@ struct Thread: View {
                                      : Color(red: 0, green: 0, blue: 0, opacity: 0.2))
                 
                 EntryContent(entry: replyTo, font: .body)
-                    .background(GeometryReader {geometry in
-                        Color.clear.preference(key: entryEditorHeight.self, value: geometry.frame(in: .local).size.height)
-                    })
                 
                 Spacer()
             }
-            .frame(height: rowHeight)
-            .onPreferenceChange(entryEditorHeight.self) { rowHeight = $0 }
         }
     }
 }

@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import RealmSwift
 
 struct ImageData: Identifiable {
     var id: String = UUID().uuidString
     var image: UIImage
+    
 }
 
 final class EditorViewModel: ObservableObject {
@@ -20,6 +22,8 @@ final class EditorViewModel: ObservableObject {
     @Published var entry: Entry?
     @Published var showImagePicker: Bool = false
     @Published var images: [UIImage] = []
+    
+    private let realm = RealmManager.shared
     var attachments: [ImageData] {
         images.map({ ImageData(image: $0) })
     }
@@ -30,5 +34,13 @@ final class EditorViewModel: ObservableObject {
     
     init(content: String = "") {
         self.content = content
+    }
+    
+    func add(entry: Entry) {
+        realm.add(entry: entry)
+    }
+    
+    func replyTo(entry: Entry, reply: Entry) {
+        realm.replyTo(entry: entry, with: reply)
     }
 }
