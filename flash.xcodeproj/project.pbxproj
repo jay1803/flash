@@ -302,8 +302,6 @@
 		501D9991282BE48A009022E0 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				507EE73F2832695600FB7589 /* Thumbnail.swift */,
-				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -413,6 +411,7 @@
 				5002214D281D7145009D9A4E /* EntryRow.swift */,
 				504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */,
 				5067E15D28642F6000C4E8DF /* EntryListViewModel.swift */,
+				507EE73F2832695600FB7589 /* Thumbnail.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -441,6 +440,7 @@
 		50D9C3742828D2D100AC4E89 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
 				5002214A281C0220009D9A4E /* EntryEditor.swift */,
 				509497442834C38F00A778E5 /* ImagePreviewList.swift */,
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
