@@ -3,73 +3,61 @@
 //  flash (iOS)
 //
 //  Created by Max Zhang on 2022/5/10.
-//  Code from: https://github.com/rebeloper/ImagePickerView/blob/main/Sources/ImagePickerView/ImagePickerView.swift
 //
 
 import SwiftUI
 import UIKit
 import PhotosUI
 
-struct PHPickerRepresentable: UIViewControllerRepresentable {
-    @Binding var pickedImages: [UIImage]
+struct PhotoPicker: UIViewControllerRepresentable {
+    @Binding var pickerResults: [UIImage]
+    @Binding var isPresented: Bool
     let onDismiss: () -> Void
     private let picker: PHPickerViewController
     
-    init(selectionLimit: Int, pickedImages: Binding<[UIImage]>, onDismiss: @escaping () -> Void) {
+    init(selectionLimit: Int, pickerResults: Binding<[UIImage]>, isPresented: Binding<Bool>, onDismiss: @escaping () -> Void) {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = selectionLimit
         configuration.filter = .images
         self.picker = PHPickerViewController(configuration: configuration)
-        self._pickedImages = pickedImages
+        self._pickerResults = pickerResults
+        self._isPresented = isPresented
         self.onDismiss = onDismiss
     }
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<PHPickerRepresentable>) -> PHPickerViewController {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<PhotoPicker>) -> PHPickerViewController {
         picker.delegate = context.coordinator
         return picker
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(control: self)
+        Coordinator(self)
     }
     
-    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-        
-    }
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) { }
     
     final class Coordinator: NSObject, PHPickerViewControllerDelegate {
-        let control: PHPickerRepresentable
+        private let control: PhotoPicker
         
-        init(control: PHPickerRepresentable) {
+        init(_ control: PhotoPicker) {
             self.control = control
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            if results.isEmpty {
-                picker.dismiss(animated: true, completion: nil)
-                return
-            }
-            
-            // 選択した画像を一つずつ読み込む
-            let dispatchSemaphore = DispatchSemaphore(value: 0)
-            var pickedImage: [UIImage] = []
-            for result in results.enumerated() {
-                if !result.element.itemProvider.canLoadObject(ofClass: UIImage.self) { continue }
-                result.element.itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
-                    if let image: UIImage = image as? UIImage {
-                        pickedImage.append(image)
+            for image in results {
+                if image.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                    image.itemProvider.loadObject(ofClass: UIImage.self) { (newImage, error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            self.control.pickerResults.append(newImage as! UIImage)
+                        }
                     }
-                    dispatchSemaphore.signal()
-                }
-                dispatchSemaphore.wait()
-            }
-
-            DispatchQueue.main.async { [weak self] in
-                self?.control.pickedImages = pickedImage
-                picker.dismiss(animated: true) {
-                    self?.control.onDismiss()
+                } else {
+                    print("Loaded Asset is not a Image")
                 }
             }
+            self.control.isPresented = false
         }
     }
 }

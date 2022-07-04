@@ -31,7 +31,10 @@ struct EntryEditor: View {
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .sheet(isPresented: $viewModel.showImagePicker, content: {
-                PHPickerRepresentable(selectionLimit: 10, pickedImages: $viewModel.images, onDismiss: {
+                PhotoPicker(selectionLimit: 10,
+                            pickerResults: $viewModel.images, 
+                            isPresented: $viewModel.showImagePicker, 
+                            onDismiss: {
                     viewModel.showImagePicker = false
                 })
             })
