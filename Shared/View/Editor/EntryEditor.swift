@@ -32,11 +32,8 @@ struct EntryEditor: View {
             .padding(.vertical, 4)
             .sheet(isPresented: $viewModel.showImagePicker, content: {
                 PhotoPicker(selectionLimit: 10,
-                            pickerResults: $viewModel.images, 
-                            isPresented: $viewModel.showImagePicker, 
-                            onDismiss: {
-                    viewModel.showImagePicker = false
-                })
+                            pickerResults: $viewModel.images,
+                            isPresented: $viewModel.showImagePicker)
             })
             .background(appearance == .dark
                         ? Color.black.edgesIgnoringSafeArea(.bottom)

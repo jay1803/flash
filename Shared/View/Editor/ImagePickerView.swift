@@ -12,17 +12,15 @@ import PhotosUI
 struct PhotoPicker: UIViewControllerRepresentable {
     @Binding var pickerResults: [UIImage]
     @Binding var isPresented: Bool
-    let onDismiss: () -> Void
     private let picker: PHPickerViewController
     
-    init(selectionLimit: Int, pickerResults: Binding<[UIImage]>, isPresented: Binding<Bool>, onDismiss: @escaping () -> Void) {
+    init(selectionLimit: Int, pickerResults: Binding<[UIImage]>, isPresented: Binding<Bool>) {
         var configuration = PHPickerConfiguration()
         configuration.selectionLimit = selectionLimit
         configuration.filter = .images
         self.picker = PHPickerViewController(configuration: configuration)
         self._pickerResults = pickerResults
         self._isPresented = isPresented
-        self.onDismiss = onDismiss
     }
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<PhotoPicker>) -> PHPickerViewController {
