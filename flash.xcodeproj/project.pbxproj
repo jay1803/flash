@@ -37,6 +37,8 @@
 		50696FF9283874FE00CB464A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696FF8283874FE00CB464A /* ShareViewController.swift */; };
 		50696FFC283874FE00CB464A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50696FFA283874FE00CB464A /* MainInterface.storyboard */; };
 		50697000283874FE00CB464A /* Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 50696FF6283874FE00CB464A /* Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		506E5C682873FD8D00113DD6 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506E5C672873FD8D00113DD6 /* ImagePreview.swift */; };
+		506E5C692873FD8D00113DD6 /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506E5C672873FD8D00113DD6 /* ImagePreview.swift */; };
 		507EE7402832695600FB7589 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
 		508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
 		508F1402282E1A7E006C92DB /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508F1400282E1A7E006C92DB /* ImageProcessor.swift */; };
@@ -155,6 +157,7 @@
 		50696FF8283874FE00CB464A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		50696FFB283874FE00CB464A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		50696FFD283874FE00CB464A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		506E5C672873FD8D00113DD6 /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		507EE73F2832695600FB7589 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		508F1400282E1A7E006C92DB /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 		509497442834C38F00A778E5 /* ImagePreviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewList.swift; sourceTree = "<group>"; };
@@ -292,20 +295,10 @@
 			isa = PBXGroup;
 			children = (
 				50D9C35D2826C11500AC4E89 /* List */,
-				501D9991282BE48A009022E0 /* Image */,
 				50D9C35E2826C12500AC4E89 /* Detail */,
 				50696FDA2836281500CB464A /* UpdateEntry */,
 			);
 			path = Entry;
-			sourceTree = "<group>";
-		};
-		501D9991282BE48A009022E0 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				507EE73F2832695600FB7589 /* Thumbnail.swift */,
-				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		50696FDA2836281500CB464A /* UpdateEntry */ = {
@@ -325,6 +318,13 @@
 				50696FFD283874FE00CB464A /* Info.plist */,
 			);
 			path = Share;
+			sourceTree = "<group>";
+		};
+		506E5C6A2873FE6200113DD6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		50AC43C7281BACE90033E148 = {
@@ -347,6 +347,7 @@
 		50AC43CC281BACE90033E148 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				506E5C6A2873FE6200113DD6 /* Resources */,
 				50AC43CD281BACE90033E148 /* flashApp.swift */,
 				5002213D281BADFE009D9A4E /* Model */,
 				5002213E281BAE06009D9A4E /* View */,
@@ -413,6 +414,7 @@
 				5002214D281D7145009D9A4E /* EntryRow.swift */,
 				504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */,
 				5067E15D28642F6000C4E8DF /* EntryListViewModel.swift */,
+				507EE73F2832695600FB7589 /* Thumbnail.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -442,11 +444,13 @@
 			isa = PBXGroup;
 			children = (
 				5002214A281C0220009D9A4E /* EntryEditor.swift */,
-				509497442834C38F00A778E5 /* ImagePreviewList.swift */,
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,
 				50D9C3752828D59000AC4E89 /* SendButton.swift */,
 				501D9992282C0B09009022E0 /* IconButton.swift */,
+				50D9C383282A292100AC4E89 /* ImagePickerView.swift */,
+				509497442834C38F00A778E5 /* ImagePreviewList.swift */,
+				506E5C672873FD8D00113DD6 /* ImagePreview.swift */,
 				50D9C3772828DBE800AC4E89 /* EditorViewModel.swift */,
 			);
 			path = Editor;
@@ -803,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
+				506E5C682873FD8D00113DD6 /* ImagePreview.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
 				508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
 				5067E15E28642F6000C4E8DF /* EntryListViewModel.swift in Sources */,
@@ -870,6 +875,7 @@
 				50CD798E284094CD008EFD9A /* ImagePreviewList.swift in Sources */,
 				50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */,
 				50CD798A284094CA008EFD9A /* UpdateEditor.swift in Sources */,
+				506E5C692873FD8D00113DD6 /* ImagePreview.swift in Sources */,
 				50CD7981283F4255008EFD9A /* Tests_EntryList.swift in Sources */,
 				50CD798D284094CD008EFD9A /* EditorViewModel.swift in Sources */,
 				50CD797F283DFAD6008EFD9A /* ImageProcessor.swift in Sources */,

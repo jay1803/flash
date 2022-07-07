@@ -14,13 +14,8 @@ struct ImagePreviewList: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(viewModel.attachments) { attachment in
-                    Image(uiImage: attachment.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
-                        .frame(maxWidth: UIScreen.main.bounds.width * 0.8)
-                        
+                ForEach(viewModel.images, id: \.self) { image in
+                    ImagePreview(viewModel: viewModel, image: image)
                 }
             }
         }
