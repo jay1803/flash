@@ -11,6 +11,7 @@ import RealmSwift
 struct EntryContent: View {
     @ObservedRealmObject var entry: Entry
     @State var calculatedHeight: CGFloat = 40
+    @State var selectedContent = "ABC"
     let font: Font
     
     private let fileDir: URL? = docDir!.appendingPathComponent("attachments")
@@ -19,7 +20,7 @@ struct EntryContent: View {
         VStack(alignment: .leading, spacing: 8) {
             EntryCreationDateTime(entryCreatedAt: entry.createdAt)
             
-            EntryTextView(text: $entry.content, calculatedHeight: $calculatedHeight)
+            EntryTextView(content: $entry.content, calculatedHeight: $calculatedHeight, selectedContent: $selectedContent)
                 .font(font)
                 .frame(minHeight: calculatedHeight, maxHeight: calculatedHeight)
             

@@ -8,15 +8,13 @@ import SwiftUI
 
 struct EntryTextView: UIViewRepresentable {
     
-    @Binding var text: String
+    @Binding var content: String
     @Binding var calculatedHeight: CGFloat
+    @Binding var selectedContent: String
     
-    typealias UIViewType = UITextView
-    
-    func makeUIView(context: UIViewRepresentableContext<EntryTextView>) -> UITextView {
-        let textView = UITextView()
+    func makeUIView(context: UIViewRepresentableContext<EntryTextView>) -> TextView {
+        let textView = TextView(content: self.$content, calculatedHeight: self.$calculatedHeight, selectedContent: self.$selectedContent)
         textView.delegate = context.coordinator
-        
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.isSelectable = true
         textView.isUserInteractionEnabled = true
@@ -28,8 +26,8 @@ struct EntryTextView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<EntryTextView>) {
-        if uiView.text != self.text {
-            uiView.text = self.text
+        if uiView.text != self.content {
+            uiView.text = self.content
         }
         if uiView.window != nil, !uiView.isFirstResponder {
             uiView.becomeFirstResponder()
@@ -38,7 +36,7 @@ struct EntryTextView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(text: $text, height: $calculatedHeight)
+        return Coordinator(text: $content, height: $calculatedHeight)
     }
     
     final class Coordinator: NSObject, UITextViewDelegate {
@@ -63,5 +61,30 @@ struct EntryTextView: UIViewRepresentable {
                 result.wrappedValue = newSize.height
             }
         }
+    }
+}
+
+class TextView: UITextView, UITextViewDelegate {
+    @Binding var content: String
+    @Binding var calculatedHeight: CGFloat
+    @Binding var selectedContent: String
+    
+    init(content: Binding<String>, calculatedHeight: Binding<CGFloat>, selectedContent: Binding<String>) {
+        self._content = content
+        self._calculatedHeight = calculatedHeight
+        self._selectedContent = selectedContent
+        super.init(frame: .zero, textContainer: nil)
+        
+        let quoteMenu = UIMenuItem(title: "Quote", action: #selector(quote))
+        UIMenuController.shared.menuItems = [quoteMenu]
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func quote() {
+        print("quote pressed...")
     }
 }
