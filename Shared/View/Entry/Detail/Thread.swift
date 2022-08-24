@@ -23,7 +23,7 @@ struct Thread: View {
             EntryContent(entry: replyTo,
                          selectedContent: .constant(nil), 
                          isPresentingQuoteView: .constant(false), 
-                         font: .body)
+                         fontSize: 17)
         }
     }
 }

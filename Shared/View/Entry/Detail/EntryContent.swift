@@ -13,7 +13,7 @@ struct EntryContent: View {
     @State var calculatedHeight: CGFloat = 40
     @Binding var selectedContent: String?
     @Binding var isPresentingQuoteView: Bool
-    let font: Font
+    let fontSize: CGFloat
     
     private let fileDir: URL? = docDir!.appendingPathComponent("attachments")
     
@@ -24,8 +24,8 @@ struct EntryContent: View {
             EntryTextView(content: $entry.content,
                           calculatedHeight: $calculatedHeight,
                           selectedContent: $selectedContent,
-                          isPresentingQuoteView: $isPresentingQuoteView)
-                .font(font)
+                          isPresentingQuoteView: $isPresentingQuoteView,
+                          fontSize: fontSize)
                 .frame(minHeight: calculatedHeight, maxHeight: calculatedHeight)
             
             if !entry.attachments.isEmpty {
@@ -39,6 +39,10 @@ struct EntryContent: View {
                     }
                 }
             }
+            
+            if let quoteContent = entry.quote {
+                Text(quoteContent)
+            }
         }
         .padding(.vertical, 8)
     }
@@ -47,6 +51,6 @@ struct EntryContent: View {
 struct EntryContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."), selectedContent: .constant(nil), isPresentingQuoteView: .constant(false), font: .title3)
+        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."), selectedContent: .constant(nil), isPresentingQuoteView: .constant(false), fontSize: 19)
     }
 }

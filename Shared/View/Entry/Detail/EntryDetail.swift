@@ -38,7 +38,7 @@ struct EntryDetail: View {
                     EntryContent(entry: viewModel.entry!,
                                  selectedContent: $viewModel.quoteContent,
                                  isPresentingQuoteView: $isPresentingQuoteView,
-                                 font: .title3)
+                                 fontSize: 19)
                 }
                 
                 // MARK: - Replies
