@@ -21,16 +21,10 @@ final class Attachment: EmbeddedObject {
     @Persisted var previewImagePath: String?
 }
 
-final class Quote: EmbeddedObject {
-    @Persisted var title: String?
-    @Persisted var content: String
-    @Persisted var url: String?
-    @Persisted var originalEntry: Entry?
-}
-
 final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: UUID
     @Persisted var content: String
+    @Persisted var quote: String?
     @Persisted var createdAt: Date
     @Persisted var updatedAt: Date = Date()
     @Persisted var isFavorated: Bool = false
@@ -38,12 +32,12 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var replyTo: Entry?
     @Persisted var replies: List<Entry>
     @Persisted var attachments: List<Attachment>
-    @Persisted var quote: Quote?
     
-    convenience init(id: UUID = UUID(), content: String, replyTo: Entry? = nil, createdAt: Date = Date()) {
+    convenience init(id: UUID = UUID(), content: String, quote:String? = nil, replyTo: Entry? = nil, createdAt: Date = Date()) {
         self.init()
         self.id = id
         self.content = content
+        self.quote = quote
         self.replyTo = replyTo
         self.createdAt = createdAt
     }

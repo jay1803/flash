@@ -9,10 +9,13 @@ import SwiftUI
 import RealmSwift
 
 struct EntryDetail: View {
-    @ObservedObject var viewModel: EntryDetailViewModel
     @Environment(\.colorScheme) var appearance
-    @State var inputText: String = ""
-    @State var isPresentingEditView = false
+    @ObservedObject var viewModel: EntryDetailViewModel
+    @StateObject var editViewModel = EditorViewModel()
+    @State var inputText: String        = ""
+    @State var isPresentingEditView     = false
+    @State var isPresentingQuoteView    = false
+    @State var newEntryContent: String  = ""
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -32,7 +35,10 @@ struct EntryDetail: View {
                     }
                     
                     // MARK: - Content
-                    EntryContent(entry: viewModel.entry!, font: .title3)
+                    EntryContent(entry: viewModel.entry!,
+                                 selectedContent: $viewModel.quoteContent,
+                                 isPresentingQuoteView: $isPresentingQuoteView,
+                                 font: .title3)
                 }
                 
                 // MARK: - Replies
@@ -85,6 +91,32 @@ struct EntryDetail: View {
                     }
             }
         }
+        .sheet(isPresented: $isPresentingQuoteView) {
+            NavigationView {
+                if let quoteContent = viewModel.quoteContent {
+                    QuoteEditor(quoteContent: quoteContent,
+                                entryContent: $newEntryContent)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button("Cancel") {
+                                    isPresentingQuoteView = false
+                                    viewModel.quoteContent = nil
+                                }
+                            }
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Send") {
+                                    let newEntry = Entry(content: newEntryContent, quote: quoteContent)
+                                    isPresentingQuoteView = false
+                                    editViewModel.replyTo(entry: viewModel.entry!, reply: newEntry)
+                                    editViewModel.content = ""
+                                    viewModel.quoteContent = nil
+                                }
+                            }
+                        }
+                }
+                
+            }
+        }
     }
 }
 
@@ -93,7 +125,7 @@ struct EntryDetailView_Previews: PreviewProvider {
     static let viewModel = EntryDetailViewModel(id: UUID())
 
     static var previews: some View {
-        EntryDetail(viewModel: viewModel)
+        EntryDetail(viewModel: viewModel, editViewModel: EditorViewModel())
             .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     }
 }

@@ -11,7 +11,8 @@ import RealmSwift
 struct EntryContent: View {
     @ObservedRealmObject var entry: Entry
     @State var calculatedHeight: CGFloat = 40
-    @State var selectedContent = "ABC"
+    @Binding var selectedContent: String?
+    @Binding var isPresentingQuoteView: Bool
     let font: Font
     
     private let fileDir: URL? = docDir!.appendingPathComponent("attachments")
@@ -20,7 +21,10 @@ struct EntryContent: View {
         VStack(alignment: .leading, spacing: 8) {
             EntryCreationDateTime(entryCreatedAt: entry.createdAt)
             
-            EntryTextView(content: $entry.content, calculatedHeight: $calculatedHeight, selectedContent: $selectedContent)
+            EntryTextView(content: $entry.content,
+                          calculatedHeight: $calculatedHeight,
+                          selectedContent: $selectedContent,
+                          isPresentingQuoteView: $isPresentingQuoteView)
                 .font(font)
                 .frame(minHeight: calculatedHeight, maxHeight: calculatedHeight)
             
@@ -41,7 +45,8 @@ struct EntryContent: View {
 }
 
 struct EntryContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."), font: .title3)
+        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."), selectedContent: .constant(nil), isPresentingQuoteView: .constant(false), font: .title3)
     }
 }

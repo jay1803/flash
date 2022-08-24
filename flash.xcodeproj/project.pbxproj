@@ -73,6 +73,8 @@
 		50CD7991284094CD008EFD9A /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3752828D59000AC4E89 /* SendButton.swift */; };
 		50CD799228409728008EFD9A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
 		50CD799328409728008EFD9A /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
+		50D3B24628B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */; };
+		50D3B24728B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */; };
 		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
@@ -173,6 +175,7 @@
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		50CD7980283F4255008EFD9A /* Tests_EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_EntryList.swift; sourceTree = "<group>"; };
+		50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditor.swift; sourceTree = "<group>"; };
 		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		50D9C35F2826C14000AC4E89 /* EntryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContent.swift; sourceTree = "<group>"; };
 		50D9C3622826C35C00AC4E89 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -443,6 +446,7 @@
 		50D9C3742828D2D100AC4E89 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */,
 				5002214A281C0220009D9A4E /* EntryEditor.swift */,
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,
@@ -807,6 +811,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
+				50D3B24628B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */,
 				506E5C682873FD8D00113DD6 /* ImagePreview.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
 				508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
@@ -874,6 +879,7 @@
 				50CD7988284094C5008EFD9A /* EntryContent.swift in Sources */,
 				50CD798E284094CD008EFD9A /* ImagePreviewList.swift in Sources */,
 				50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */,
+				50D3B24728B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */,
 				50CD798A284094CA008EFD9A /* UpdateEditor.swift in Sources */,
 				506E5C692873FD8D00113DD6 /* ImagePreview.swift in Sources */,
 				50CD7981283F4255008EFD9A /* Tests_EntryList.swift in Sources */,

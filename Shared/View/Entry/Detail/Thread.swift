@@ -20,7 +20,10 @@ struct Thread: View {
                 Thread(replyTo: replyToEntry)
             }
             
-            EntryContent(entry: replyTo, font: .body)
+            EntryContent(entry: replyTo,
+                         selectedContent: .constant(nil), 
+                         isPresentingQuoteView: .constant(false), 
+                         font: .body)
         }
     }
 }
