@@ -24,10 +24,10 @@ struct QuoteEditor: View {
                         RoundedRectangle(cornerRadius: 7)
                             .stroke(Color.gray, style: StrokeStyle(lineWidth: 1))
                 }
-                Text("Reply with quote: ")
+                Text("Reply to the quote: ")
                     .font(.caption)
             }
-            .padding(.horizontal, 12)
+            .padding(.horizontal, 16)
             
             Divider()
             
