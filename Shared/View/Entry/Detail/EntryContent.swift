@@ -21,6 +21,16 @@ struct EntryContent: View {
         VStack(alignment: .leading, spacing: 8) {
             EntryCreationDateTime(entryCreatedAt: entry.createdAt)
             
+            if let quoteContent = entry.quote {
+                Text(quoteContent)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color.gray, style: StrokeStyle(lineWidth: 1)))
+                    
+            }
+            
             EntryTextView(content: $entry.content,
                           calculatedHeight: $calculatedHeight,
                           selectedContent: $selectedContent,
@@ -38,10 +48,6 @@ struct EntryContent: View {
                             .aspectRatio(contentMode: .fit)
                     }
                 }
-            }
-            
-            if let quoteContent = entry.quote {
-                Text(quoteContent)
             }
         }
         .padding(.vertical, 8)
