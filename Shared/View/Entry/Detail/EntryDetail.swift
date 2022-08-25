@@ -113,6 +113,8 @@ struct EntryDetail: View {
                                 }
                             }
                         }
+                        .navigationTitle("Reply with a quote")
+                        .navigationBarTitleDisplayMode(.inline)
                 }
                 
             }

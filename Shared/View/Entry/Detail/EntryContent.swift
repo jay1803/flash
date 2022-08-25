@@ -57,6 +57,6 @@ struct EntryContent: View {
 struct EntryContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead."), selectedContent: .constant(nil), isPresentingQuoteView: .constant(false), fontSize: 19)
+        EntryContent(entry: Entry(content: "This is a preview notes\nwith a second lineWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.\nWoke up to the shattering news that my AJA colleague Shireen is dead - shot in the head, while doing her job. She was brave, warm, and committed to her job.Deepest condolences to her family and her colleagues, who have some bleak, tough days ahead.", quote: "This is a quote content preview"), selectedContent: .constant(nil), isPresentingQuoteView: .constant(false), fontSize: 19)
     }
 }

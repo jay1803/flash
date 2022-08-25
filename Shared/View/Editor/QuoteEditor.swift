@@ -13,10 +13,11 @@ struct QuoteEditor: View {
     @Binding var entryContent: String
     @Environment(\.colorScheme) var appearance
     @State var parentEntry: Entry? = nil
+    @FocusState private var focusedField: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
+            Group {
                 Text(quoteContent)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
@@ -24,15 +25,16 @@ struct QuoteEditor: View {
                         RoundedRectangle(cornerRadius: 7)
                             .stroke(Color.gray, style: StrokeStyle(lineWidth: 1))
                 }
-                Text("Reply to the quote: ")
-                    .font(.caption)
-            }
-            .padding(.horizontal, 16)
+            }.padding()
             
             Divider()
             
             TextEditor(text: $entryContent)
                 .padding(.horizontal, 12)
+                .focused($focusedField)
+        }
+        .onAppear {
+            focusedField = true
         }
     }
 }
