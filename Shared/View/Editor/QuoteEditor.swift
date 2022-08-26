@@ -33,9 +33,11 @@ struct QuoteEditor: View {
                 .padding(.horizontal, 12)
                 .focused($focusedField)
         }
-        .onAppear {
-            focusedField = true
-        }
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.focusedField = true
+            }
+        })
     }
 }
 
