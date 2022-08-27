@@ -8,28 +8,37 @@ import SwiftUI
 
 struct EntryTextView: UIViewRepresentable {
     
-    @Binding var text: String
+    @Binding var content: String
     @Binding var calculatedHeight: CGFloat
+    @Binding var selectedContent: String?
+    @Binding var isPresentingQuoteView: Bool
+    var fontSize: CGFloat
     
-    typealias UIViewType = UITextView
-    
-    func makeUIView(context: UIViewRepresentableContext<EntryTextView>) -> UITextView {
-        let textView = UITextView()
+    func makeUIView(context: UIViewRepresentableContext<EntryTextView>) -> TextView {
+        let textView = TextView(content: self.$content,
+                                calculatedHeight: self.$calculatedHeight,
+                                selectedContent: self.$selectedContent,
+                                isPresentingQuoteView: self.$isPresentingQuoteView)
         textView.delegate = context.coordinator
-        
-        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.font = .systemFont(ofSize: fontSize)
         textView.isSelectable = true
         textView.isUserInteractionEnabled = true
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.backgroundColor = UIColor.clear
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 5
+        let attributes = [NSAttributedString.Key.paragraphStyle : style, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+        textView.attributedText = NSAttributedString(string: self.content, attributes: attributes)
         return textView
     }
     
     func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<EntryTextView>) {
-        if uiView.text != self.text {
-            uiView.text = self.text
+        if uiView.text != self.content {
+            uiView.text = self.content
+            uiView.attributedText = NSAttributedString(string: self.content)
         }
         if uiView.window != nil, !uiView.isFirstResponder {
             uiView.becomeFirstResponder()
@@ -38,7 +47,7 @@ struct EntryTextView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(text: $text, height: $calculatedHeight)
+        return Coordinator(text: $content, height: $calculatedHeight)
     }
     
     final class Coordinator: NSObject, UITextViewDelegate {
@@ -63,5 +72,37 @@ struct EntryTextView: UIViewRepresentable {
                 result.wrappedValue = newSize.height
             }
         }
+    }
+}
+
+class TextView: UITextView, UITextViewDelegate {
+    @Binding var content: String
+    @Binding var calculatedHeight: CGFloat
+    @Binding var selectedContent: String?
+    @Binding var isPresentingQuoteView: Bool
+    
+    init(content: Binding<String>,
+         calculatedHeight: Binding<CGFloat>,
+         selectedContent: Binding<String?>,
+         isPresentingQuoteView: Binding<Bool>) {
+        self._content               = content
+        self._calculatedHeight      = calculatedHeight
+        self._selectedContent       = selectedContent
+        self._isPresentingQuoteView = isPresentingQuoteView
+        super.init(frame: .zero, textContainer: nil)
+        
+        let quoteMenu = UIMenuItem(title: "Quote", action: #selector(quote))
+        UIMenuController.shared.menuItems = [quoteMenu]
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func quote() {
+        guard let selectedText = self.text(in: selectedTextRange!) else { return }
+        self.selectedContent = selectedText
+        self.isPresentingQuoteView = true
     }
 }

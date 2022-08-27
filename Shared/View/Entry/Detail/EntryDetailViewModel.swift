@@ -10,6 +10,7 @@ import RealmSwift
 
 final class EntryDetailViewModel: ObservableObject {
     @Published var entry: Entry?
+    @Published var quoteContent: String? = nil
     private let entryId: UUID
     private let realmManager = RealmManager.shared
     private var notificationToken: NotificationToken?

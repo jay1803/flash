@@ -19,6 +19,7 @@ final class EditorViewModel: ObservableObject {
     @Published var initHeight: CGFloat = 36
     @Published var height: CGFloat = 36
     @Published var content: String
+    @Published var quoteContent: String?
     @Published var entry: Entry?
     @Published var showImagePicker: Bool = false
     @Published var images: [UIImage] = []

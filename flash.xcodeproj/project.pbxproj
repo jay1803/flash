@@ -73,6 +73,8 @@
 		50CD7991284094CD008EFD9A /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3752828D59000AC4E89 /* SendButton.swift */; };
 		50CD799228409728008EFD9A /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
 		50CD799328409728008EFD9A /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
+		50D3B24628B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */; };
+		50D3B24728B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */; };
 		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
@@ -173,6 +175,7 @@
 		50AC43F1281BACEA0033E148 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		50CD7980283F4255008EFD9A /* Tests_EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_EntryList.swift; sourceTree = "<group>"; };
+		50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditor.swift; sourceTree = "<group>"; };
 		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		50D9C35F2826C14000AC4E89 /* EntryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContent.swift; sourceTree = "<group>"; };
 		50D9C3622826C35C00AC4E89 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -296,17 +299,8 @@
 			children = (
 				50D9C35D2826C11500AC4E89 /* List */,
 				50D9C35E2826C12500AC4E89 /* Detail */,
-				50696FDA2836281500CB464A /* UpdateEntry */,
 			);
 			path = Entry;
-			sourceTree = "<group>";
-		};
-		50696FDA2836281500CB464A /* UpdateEntry */ = {
-			isa = PBXGroup;
-			children = (
-				50696FDB2836283500CB464A /* UpdateEditor.swift */,
-			);
-			path = UpdateEntry;
 			sourceTree = "<group>";
 		};
 		50696FF7283874FE00CB464A /* Share */ = {
@@ -443,6 +437,8 @@
 		50D9C3742828D2D100AC4E89 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				50696FDB2836283500CB464A /* UpdateEditor.swift */,
+				50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */,
 				5002214A281C0220009D9A4E /* EntryEditor.swift */,
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,
@@ -807,6 +803,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */,
+				50D3B24628B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */,
 				506E5C682873FD8D00113DD6 /* ImagePreview.swift in Sources */,
 				50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */,
 				508F1401282E1A7E006C92DB /* ImageProcessor.swift in Sources */,
@@ -874,6 +871,7 @@
 				50CD7988284094C5008EFD9A /* EntryContent.swift in Sources */,
 				50CD798E284094CD008EFD9A /* ImagePreviewList.swift in Sources */,
 				50AC43E8281BACEA0033E148 /* Tests_iOSLaunchTests.swift in Sources */,
+				50D3B24728B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */,
 				50CD798A284094CA008EFD9A /* UpdateEditor.swift in Sources */,
 				506E5C692873FD8D00113DD6 /* ImagePreview.swift in Sources */,
 				50CD7981283F4255008EFD9A /* Tests_EntryList.swift in Sources */,
@@ -939,6 +937,7 @@
 			baseConfigurationReference = C5B70B03FF1D518950C36326 /* Pods-Share.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
@@ -953,8 +952,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash.Share;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxos.flash.share-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -968,6 +968,7 @@
 			baseConfigurationReference = 24E6407F1067C08E6823F33C /* Pods-Share.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Share/Share.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WX2JA5FWNQ;
@@ -982,8 +983,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash.Share;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxos.flash.share-widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1043,8 +1045,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1097,8 +1099,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1128,7 +1130,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1165,7 +1167,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
