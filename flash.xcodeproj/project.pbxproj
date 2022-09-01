@@ -75,6 +75,18 @@
 		50CD799328409728008EFD9A /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507EE73F2832695600FB7589 /* Thumbnail.swift */; };
 		50D3B24628B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */; };
 		50D3B24728B5E73A00ABF7B6 /* QuoteEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */; };
+		50D3B24E28BC7BB300ABF7B6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D3B24D28BC7BB300ABF7B6 /* WidgetKit.framework */; };
+		50D3B25028BC7BB300ABF7B6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D3B24F28BC7BB300ABF7B6 /* SwiftUI.framework */; };
+		50D3B25328BC7BB300ABF7B6 /* QuickNoteWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B25228BC7BB300ABF7B6 /* QuickNoteWidget.swift */; };
+		50D3B25628BC7BB400ABF7B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50D3B25528BC7BB400ABF7B6 /* Assets.xcassets */; };
+		50D3B25828BC7BB400ABF7B6 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B25428BC7BB300ABF7B6 /* widget.intentdefinition */; };
+		50D3B25928BC7BB400ABF7B6 /* widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B25428BC7BB300ABF7B6 /* widget.intentdefinition */; };
+		50D3B25C28BC7BB400ABF7B6 /* widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 50D3B24C28BC7BB300ABF7B6 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		50D3B26028BF217400ABF7B6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
+		50D3B26128BF225B00ABF7B6 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022144281BAE4B009D9A4E /* Entry.swift */; };
+		50D3B26228BF23EE00ABF7B6 /* EntryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5067E15D28642F6000C4E8DF /* EntryListViewModel.swift */; };
+		50D3B26328BF251300ABF7B6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
+		50D3B26428BF251500ABF7B6 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50022151281D72B7009D9A4E /* Extentions.swift */; };
 		50D9C3592826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C35A2826328300AC4E89 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C3582826328300AC4E89 /* RealmManager.swift */; };
 		50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C35F2826C14000AC4E89 /* EntryContent.swift */; };
@@ -91,6 +103,7 @@
 		50D9C37D2828F1FD00AC4E89 /* PickImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */; };
 		50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C37F2828FBEE00AC4E89 /* TextInput.swift */; };
 		50D9C384282A292100AC4E89 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D9C383282A292100AC4E89 /* ImagePickerView.swift */; };
+		60105A6918E397FB1F9E3820 /* Pods_widgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03C31606D7611C13A6CD8EB /* Pods_widgetExtension.framework */; };
 		6CB8BFC6F0ECEFAAA610E95C /* Pods_Share.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0C6AA4E79AB9BCFAE75500 /* Pods_Share.framework */; };
 		72BD6F42DC1A0762113F599A /* Pods_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED47241E9CE5F2F5DFDEF14 /* Pods_Tests_iOS.framework */; };
 		FE1024C62FA6A13A0428BA61 /* Pods_flash__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */; };
@@ -118,6 +131,13 @@
 			remoteGlobalIDString = 50AC43D9281BACEA0033E148;
 			remoteInfo = "flash (macOS)";
 		};
+		50D3B25A28BC7BB400ABF7B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50AC43C8281BACE90033E148 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50D3B24B28BC7BB300ABF7B6;
+			remoteInfo = widgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,6 +147,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				50D3B25C28BC7BB400ABF7B6 /* widgetExtension.appex in Embed App Extensions */,
 				50697000283874FE00CB464A /* Share.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -176,6 +197,13 @@
 		50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		50CD7980283F4255008EFD9A /* Tests_EntryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_EntryList.swift; sourceTree = "<group>"; };
 		50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEditor.swift; sourceTree = "<group>"; };
+		50D3B24C28BC7BB300ABF7B6 /* widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		50D3B24D28BC7BB300ABF7B6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		50D3B24F28BC7BB300ABF7B6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		50D3B25228BC7BB300ABF7B6 /* QuickNoteWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickNoteWidget.swift; sourceTree = "<group>"; };
+		50D3B25428BC7BB300ABF7B6 /* widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = widget.intentdefinition; sourceTree = "<group>"; };
+		50D3B25528BC7BB400ABF7B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50D3B25728BC7BB400ABF7B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50D9C3582826328300AC4E89 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmManager.swift; path = Shared/Manager/RealmManager.swift; sourceTree = SOURCE_ROOT; };
 		50D9C35F2826C14000AC4E89 /* EntryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryContent.swift; sourceTree = "<group>"; };
 		50D9C3622826C35C00AC4E89 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
@@ -186,12 +214,16 @@
 		50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickImageButton.swift; sourceTree = "<group>"; };
 		50D9C37F2828FBEE00AC4E89 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
 		50D9C383282A292100AC4E89 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		50EF348428C079B200AFCC5D /* widgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetExtension.entitlements; sourceTree = "<group>"; };
 		54734CB2C02CE687BEE3B0AB /* Pods-flash (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).debug.xcconfig"; sourceTree = "<group>"; };
 		6BC0FC6FC3738DFB84D13D01 /* Pods-flash (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).debug.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		6EDD4F2D1E3A368020DD55D4 /* Pods-widgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-widgetExtension/Pods-widgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		882C4A8389D9EBB9FB57A751 /* Pods-Tests iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests iOS.debug.xcconfig"; path = "Target Support Files/Pods-Tests iOS/Pods-Tests iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		91F6FD985F953BC0AD1B3302 /* Pods-flash (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (iOS).release.xcconfig"; path = "Target Support Files/Pods-flash (iOS)/Pods-flash (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		9F531E71984F0ABCD126C841 /* Pods-widgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-widgetExtension.release.xcconfig"; path = "Target Support Files/Pods-widgetExtension/Pods-widgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		C5B70B03FF1D518950C36326 /* Pods-Share.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share.debug.xcconfig"; path = "Target Support Files/Pods-Share/Pods-Share.debug.xcconfig"; sourceTree = "<group>"; };
+		D03C31606D7611C13A6CD8EB /* Pods_widgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_widgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6AEA625262CD78947A09B4 /* Pods-flash (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-flash (macOS).release.xcconfig"; path = "Target Support Files/Pods-flash (macOS)/Pods-flash (macOS).release.xcconfig"; sourceTree = "<group>"; };
 		DF0C6AA4E79AB9BCFAE75500 /* Pods_Share.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Share.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40F544452B39D2EBD4FFC07 /* Pods_flash__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_flash__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +270,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50D3B24928BC7BB300ABF7B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D3B25028BC7BB300ABF7B6 /* SwiftUI.framework in Frameworks */,
+				50D3B24E28BC7BB300ABF7B6 /* WidgetKit.framework in Frameworks */,
+				60105A6918E397FB1F9E3820 /* Pods_widgetExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -248,6 +290,9 @@
 				73CBA450A4A2136BB15598A7 /* Pods_flash__macOS_.framework */,
 				DF0C6AA4E79AB9BCFAE75500 /* Pods_Share.framework */,
 				EED47241E9CE5F2F5DFDEF14 /* Pods_Tests_iOS.framework */,
+				50D3B24D28BC7BB300ABF7B6 /* WidgetKit.framework */,
+				50D3B24F28BC7BB300ABF7B6 /* SwiftUI.framework */,
+				D03C31606D7611C13A6CD8EB /* Pods_widgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -263,6 +308,8 @@
 				24E6407F1067C08E6823F33C /* Pods-Share.release.xcconfig */,
 				882C4A8389D9EBB9FB57A751 /* Pods-Tests iOS.debug.xcconfig */,
 				2B3B462F179DAEAAEE4DA42E /* Pods-Tests iOS.release.xcconfig */,
+				6EDD4F2D1E3A368020DD55D4 /* Pods-widgetExtension.debug.xcconfig */,
+				9F531E71984F0ABCD126C841 /* Pods-widgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -324,6 +371,7 @@
 		50AC43C7281BACE90033E148 = {
 			isa = PBXGroup;
 			children = (
+				50EF348428C079B200AFCC5D /* widgetExtension.entitlements */,
 				504C5093285068B400E7AA16 /* flash (iOS)Debug.entitlements */,
 				505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */,
 				505BA7672838879500796AA6 /* flash--iOS--Info.plist */,
@@ -332,6 +380,7 @@
 				50AC43E4281BACEA0033E148 /* Tests iOS */,
 				50AC43F0281BACEA0033E148 /* Tests macOS */,
 				50696FF7283874FE00CB464A /* Share */,
+				50D3B25128BC7BB300ABF7B6 /* widget */,
 				50AC43D5281BACEA0033E148 /* Products */,
 				4B656B9D6A115E3AD2899AF0 /* Pods */,
 				0FA1797C043550F37C8A4529 /* Frameworks */,
@@ -360,6 +409,7 @@
 				50AC43E1281BACEA0033E148 /* Tests iOS.xctest */,
 				50AC43ED281BACEA0033E148 /* Tests macOS.xctest */,
 				50696FF6283874FE00CB464A /* Share.appex */,
+				50D3B24C28BC7BB300ABF7B6 /* widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -390,6 +440,17 @@
 				50AC43F3281BACEA0033E148 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		50D3B25128BC7BB300ABF7B6 /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				50D3B25228BC7BB300ABF7B6 /* QuickNoteWidget.swift */,
+				50D3B25428BC7BB300ABF7B6 /* widget.intentdefinition */,
+				50D3B25528BC7BB400ABF7B6 /* Assets.xcassets */,
+				50D3B25728BC7BB400ABF7B6 /* Info.plist */,
+			);
+			path = widget;
 			sourceTree = "<group>";
 		};
 		50D9C35B2826396C00AC4E89 /* Manager */ = {
@@ -488,6 +549,7 @@
 			);
 			dependencies = (
 				50696FFF283874FE00CB464A /* PBXTargetDependency */,
+				50D3B25B28BC7BB400ABF7B6 /* PBXTargetDependency */,
 			);
 			name = "flash (iOS)";
 			productName = "flash (iOS)";
@@ -551,6 +613,24 @@
 			productReference = 50AC43ED281BACEA0033E148 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		50D3B24B28BC7BB300ABF7B6 /* widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50D3B25F28BC7BB400ABF7B6 /* Build configuration list for PBXNativeTarget "widgetExtension" */;
+			buildPhases = (
+				2587E4AC0ACA15C5CBCEEF1B /* [CP] Check Pods Manifest.lock */,
+				50D3B24828BC7BB300ABF7B6 /* Sources */,
+				50D3B24928BC7BB300ABF7B6 /* Frameworks */,
+				50D3B24A28BC7BB300ABF7B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = widgetExtension;
+			productName = widgetExtension;
+			productReference = 50D3B24C28BC7BB300ABF7B6 /* widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -578,6 +658,9 @@
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 50AC43D9281BACEA0033E148;
 					};
+					50D3B24B28BC7BB300ABF7B6 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 50AC43CB281BACE90033E148 /* Build configuration list for PBXProject "flash" */;
@@ -598,6 +681,7 @@
 				50AC43E0281BACEA0033E148 /* Tests iOS */,
 				50AC43EC281BACEA0033E148 /* Tests macOS */,
 				50696FF5283874FE00CB464A /* Share */,
+				50D3B24B28BC7BB300ABF7B6 /* widgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -641,6 +725,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		50D3B24A28BC7BB300ABF7B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D3B25628BC7BB400ABF7B6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -660,6 +752,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Tests iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2587E4AC0ACA15C5CBCEEF1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-widgetExtension-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -817,6 +931,7 @@
 				50022142281BAE38009D9A4E /* EntryList.swift in Sources */,
 				50022145281BAE4B009D9A4E /* Entry.swift in Sources */,
 				50127E34286188E200BFED7A /* EntryDetailViewModel.swift in Sources */,
+				50D3B25928BC7BB400ABF7B6 /* widget.intentdefinition in Sources */,
 				50D9C3782828DBE800AC4E89 /* EditorViewModel.swift in Sources */,
 				50D9C3602826C14000AC4E89 /* EntryContent.swift in Sources */,
 				50696FDC2836283500CB464A /* UpdateEditor.swift in Sources */,
@@ -897,6 +1012,20 @@
 			files = (
 				50AC43F4281BACEA0033E148 /* Tests_macOSLaunchTests.swift in Sources */,
 				50AC43F2281BACEA0033E148 /* Tests_macOS.swift in Sources */,
+				50D3B26428BF251500ABF7B6 /* Extentions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50D3B24828BC7BB300ABF7B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50D3B26128BF225B00ABF7B6 /* Entry.swift in Sources */,
+				50D3B25828BC7BB400ABF7B6 /* widget.intentdefinition in Sources */,
+				50D3B26328BF251300ABF7B6 /* Extentions.swift in Sources */,
+				50D3B25328BC7BB300ABF7B6 /* QuickNoteWidget.swift in Sources */,
+				50D3B26028BF217400ABF7B6 /* RealmManager.swift in Sources */,
+				50D3B26228BF23EE00ABF7B6 /* EntryListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +1046,11 @@
 			isa = PBXTargetDependency;
 			target = 50AC43D9281BACEA0033E148 /* flash (macOS) */;
 			targetProxy = 50AC43EE281BACEA0033E148 /* PBXContainerItemProxy */;
+		};
+		50D3B25B28BC7BB400ABF7B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50D3B24B28BC7BB300ABF7B6 /* widgetExtension */;
+			targetProxy = 50D3B25A28BC7BB400ABF7B6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1203,7 +1337,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash;
 				PRODUCT_NAME = flash;
@@ -1233,7 +1367,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash;
 				PRODUCT_NAME = flash;
@@ -1324,6 +1458,71 @@
 			};
 			name = Release;
 		};
+		50D3B25D28BC7BB400ABF7B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EDD4F2D1E3A368020DD55D4 /* Pods-widgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WX2JA5FWNQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50D3B25E28BC7BB400ABF7B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F531E71984F0ABCD126C841 /* Pods-widgetExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = widgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WX2JA5FWNQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = widget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxos.flash.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1377,6 +1576,15 @@
 			buildConfigurations = (
 				50AC4407281BACEA0033E148 /* Debug */,
 				50AC4408281BACEA0033E148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50D3B25F28BC7BB400ABF7B6 /* Build configuration list for PBXNativeTarget "widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50D3B25D28BC7BB400ABF7B6 /* Debug */,
+				50D3B25E28BC7BB400ABF7B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
