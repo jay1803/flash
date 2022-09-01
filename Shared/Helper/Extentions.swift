@@ -7,14 +7,7 @@
 
 import Foundation
 
-var docDir: URL? {
-    var docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    let groupDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")
-    if groupDir != nil {
-        docDir = groupDir!
-    }
-    return docDir
-}
+var docDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")
 
 enum AttachmentSourceType {
     case origin, thumbnail
