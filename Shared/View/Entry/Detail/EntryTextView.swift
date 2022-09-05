@@ -19,26 +19,26 @@ struct EntryTextView: UIViewRepresentable {
                                 calculatedHeight: self.$calculatedHeight,
                                 selectedContent: self.$selectedContent,
                                 isPresentingQuoteView: self.$isPresentingQuoteView)
-        textView.delegate = context.coordinator
-        textView.font = .systemFont(ofSize: fontSize)
-        textView.isSelectable = true
-        textView.isUserInteractionEnabled = true
-        textView.isEditable = false
-        textView.isScrollEnabled = false
-        textView.backgroundColor = UIColor.clear
+        textView.delegate                   = context.coordinator
+        textView.font                       = .systemFont(ofSize: fontSize)
+        textView.isSelectable               = true
+        textView.isUserInteractionEnabled   = true
+        textView.isEditable                 = false
+        textView.isScrollEnabled            = false
+        textView.backgroundColor            = UIColor.clear
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 5
-        let attributes = [NSAttributedString.Key.paragraphStyle : style, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
-        textView.attributedText = NSAttributedString(string: self.content, attributes: attributes)
+//        let style = NSMutableParagraphStyle()
+//        style.lineSpacing = 5
+//        let attributes = [NSAttributedString.Key.paragraphStyle : style, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+//        textView.attributedText = NSAttributedString(string: self.content, attributes: attributes)
         return textView
     }
     
     func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<EntryTextView>) {
         if uiView.text != self.content {
             uiView.text = self.content
-            uiView.attributedText = NSAttributedString(string: self.content)
+//            uiView.attributedText = NSAttributedString(string: self.content)
         }
         if uiView.window != nil, !uiView.isFirstResponder {
             uiView.becomeFirstResponder()

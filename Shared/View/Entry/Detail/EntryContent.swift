@@ -39,6 +39,7 @@ struct EntryContent: View {
                           isPresentingQuoteView: $isPresentingQuoteView,
                           fontSize: fontSize)
                 .frame(minHeight: calculatedHeight, maxHeight: calculatedHeight)
+                .foregroundColor(.white)
             
             if !entry.attachments.isEmpty {
                 VStack {

@@ -15,7 +15,7 @@ struct TextInput: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             Text(viewModel.content.isEmpty ? " " : viewModel.content)
-                .frame(width: UIScreen.main.bounds.width - 104 - 16, alignment: .leading)
+                .frame(width: UIScreen.main.bounds.width - 104, alignment: .leading)
                 .lineLimit(10)
                 .padding(.vertical, 8)
                 .foregroundColor(.clear)
