@@ -19,7 +19,9 @@ struct EntryContent: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            EntryCreationDateTime(entryCreatedAt: entry.createdAt)
+            EntryMetaData(
+                entryCreatedAt: entry.createdAt,
+                totalReplies: entry.replies.count)
             
             if let quoteContent = entry.quote {
                 Text(quoteContent)
