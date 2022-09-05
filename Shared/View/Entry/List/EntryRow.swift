@@ -16,7 +16,9 @@ struct EntryRow: View {
             EntryDetail(viewModel: EntryDetailViewModel(id: entry.id))
         } label: {
             VStack(alignment: .leading, spacing: 8) {
-                EntryCreationDateTime(entryCreatedAt: entry.createdAt)
+                EntryMetaData(
+                    entryCreatedAt: entry.createdAt,
+                    totalReplies: entry.replies.count)
                 
                 Text(entry.content)
                     .lineLimit(5)

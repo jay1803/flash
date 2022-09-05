@@ -22,8 +22,8 @@
 		50127E35286188E200BFED7A /* EntryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50127E33286188E200BFED7A /* EntryDetailViewModel.swift */; };
 		50127E36286188E200BFED7A /* EntryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50127E33286188E200BFED7A /* EntryDetailViewModel.swift */; };
 		501D9993282C0B09009022E0 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9992282C0B09009022E0 /* IconButton.swift */; };
-		504C509528506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */; };
-		504C509628506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */; };
+		504C509528506CBB00E7AA16 /* EntryMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryMetaData.swift */; };
+		504C509628506CBB00E7AA16 /* EntryMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C509428506CBB00E7AA16 /* EntryMetaData.swift */; };
 		504C50982853071400E7AA16 /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C50972853071400E7AA16 /* EntryTextView.swift */; };
 		504C50992853071400E7AA16 /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C50972853071400E7AA16 /* EntryTextView.swift */; };
 		504C509A2853071400E7AA16 /* EntryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504C50972853071400E7AA16 /* EntryTextView.swift */; };
@@ -169,7 +169,7 @@
 		50127E33286188E200BFED7A /* EntryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewModel.swift; sourceTree = "<group>"; };
 		501D9992282C0B09009022E0 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		504C5093285068B400E7AA16 /* flash (iOS)Debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Debug.entitlements"; sourceTree = "<group>"; };
-		504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCreationDateTime.swift; sourceTree = "<group>"; };
+		504C509428506CBB00E7AA16 /* EntryMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryMetaData.swift; sourceTree = "<group>"; };
 		504C50972853071400E7AA16 /* EntryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTextView.swift; sourceTree = "<group>"; };
 		505BA7672838879500796AA6 /* flash--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "flash--iOS--Info.plist"; sourceTree = "<group>"; };
 		505BA768283887FD00796AA6 /* flash (iOS)Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "flash (iOS)Release.entitlements"; sourceTree = "<group>"; };
@@ -467,7 +467,7 @@
 				50022141281BAE38009D9A4E /* EntryList.swift */,
 				50022158281D8CD0009D9A4E /* EmptyEntry.swift */,
 				5002214D281D7145009D9A4E /* EntryRow.swift */,
-				504C509428506CBB00E7AA16 /* EntryCreationDateTime.swift */,
+				504C509428506CBB00E7AA16 /* EntryMetaData.swift */,
 				5067E15D28642F6000C4E8DF /* EntryListViewModel.swift */,
 				507EE73F2832695600FB7589 /* Thumbnail.swift */,
 			);
@@ -939,7 +939,7 @@
 				50D9C3632826C35C00AC4E89 /* Thread.swift in Sources */,
 				50022156281D8C7D009D9A4E /* Home.swift in Sources */,
 				504C50982853071400E7AA16 /* EntryTextView.swift in Sources */,
-				504C509528506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */,
+				504C509528506CBB00E7AA16 /* EntryMetaData.swift in Sources */,
 				50022152281D72B7009D9A4E /* Extentions.swift in Sources */,
 				50D9C3762828D59000AC4E89 /* SendButton.swift in Sources */,
 				50D9C3802828FBEE00AC4E89 /* TextInput.swift in Sources */,
@@ -976,7 +976,7 @@
 				50CD7991284094CD008EFD9A /* SendButton.swift in Sources */,
 				50CD797C283DFAA5008EFD9A /* Entry.swift in Sources */,
 				50127E36286188E200BFED7A /* EntryDetailViewModel.swift in Sources */,
-				504C509628506CBB00E7AA16 /* EntryCreationDateTime.swift in Sources */,
+				504C509628506CBB00E7AA16 /* EntryMetaData.swift in Sources */,
 				50CD7989284094C5008EFD9A /* Thread.swift in Sources */,
 				50CD797D283DFAAB008EFD9A /* RealmManager.swift in Sources */,
 				50CD799228409728008EFD9A /* ImagePickerView.swift in Sources */,
