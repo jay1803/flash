@@ -9,18 +9,42 @@ import SwiftUI
 import RealmSwift
 
 struct UpdateEditor: View {
-    @Binding var inputText: String
+    var quoteContent: String?
+    @Binding var noteContent: String
+    @FocusState private var focusedField: Bool
     
     var body: some View {
-        TextEditor(text: $inputText)
-            .padding()
+        VStack(alignment: .leading) {
+            if let quoteContent = quoteContent {
+                Group {
+                    Text(quoteContent)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 7)
+                                .stroke(Color.gray, style: StrokeStyle(lineWidth: 1))
+                    }
+                }.padding()
+                
+                Divider()
+            }
+            
+            TextEditor(text: $noteContent)
+                .padding(.horizontal, 12)
+                .focused($focusedField)
+        }
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.focusedField = true
+            }
+        })
     }
 }
 
 struct UpdateEditor_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UpdateEditor(inputText: .constant("This is a sample input text."))
+            UpdateEditor(noteContent: .constant("This is sample note content"))
         }
     }
 }

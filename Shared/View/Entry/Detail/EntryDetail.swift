@@ -9,6 +9,18 @@ import SwiftUI
 import RealmSwift
 
 struct EntryDetail: View {
+    /// - Parameters:
+    ///  - inputText: default value is `entry.content`
+    ///  - newEntryContent: when quote with reply, the `newEntryContent` will became
+    ///    to the new `entry.content`.
+    ///  - isPresentingEditView: if show edit note view
+    ///    true: if pressed the edit button then return true;
+    ///    false: by default, or pressed cancel/done button ;
+    ///    when became to `false` will reset `newEntryContent & inputText`.
+    ///  - isPresentingQuoteView: if show quote to reply
+    ///    true: if pressed quote button in menu controller
+    ///    false: by default, or pressed cancel/done button,
+    ///    when became to false will reset the `viewModel.quoteContent`.
     @Environment(\.colorScheme) var appearance
     @ObservedObject var viewModel: EntryDetailViewModel
     @StateObject var editViewModel = EditorViewModel()
@@ -73,7 +85,9 @@ struct EntryDetail: View {
         // MARK: - Edit Model
         .sheet(isPresented: $isPresentingEditView) {
             NavigationView {
-                UpdateEditor(inputText: $inputText)
+                UpdateEditor(
+                    quoteContent: viewModel.entry?.quote,
+                    noteContent: $inputText)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button("Cancel") {
@@ -89,6 +103,8 @@ struct EntryDetail: View {
                             }
                         }
                     }
+                    .navigationTitle("Update note")
+                    .navigationBarTitleDisplayMode(.inline)
             }
         }
         .sheet(isPresented: $isPresentingQuoteView) {
