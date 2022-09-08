@@ -2,9 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSFileProviderPresenceUsageDescription</key>
-	<string>Add file as an attchment</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Add image from your photo library</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.maxos.flash</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>flash</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
