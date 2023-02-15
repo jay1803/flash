@@ -7,7 +7,7 @@
 
 import Foundation
 
-var docDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.maxos.flash")
+var docDir = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.app.maxos.flash")
 
 enum AttachmentSourceType {
     case origin, thumbnail
@@ -22,7 +22,7 @@ func getImageFilePath(_ attachmentSourceType: AttachmentSourceType, of file: Att
     if attachmentSourceType == AttachmentSourceType.thumbnail {
         dirPath = docDir!.appendingPathComponent("thumbnails")
     }
-    let attachmentFilePath = dirPath.appendingPathComponent("\(file.path)")
+    let attachmentFilePath = dirPath.appendingPathComponent("\(file.fileName)")
     print(attachmentFilePath.path)
     return attachmentFilePath
 }

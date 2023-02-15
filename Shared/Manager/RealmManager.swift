@@ -155,4 +155,72 @@ class RealmManager: ObservableObject {
             fatalError(error.localizedDescription)
         }
     }
+    
+    func attach(file: Attachment, to note: Entry) {
+        guard let realm = realm else {
+            return
+        }
+        if let entry = realm.object(ofType: Entry.self, forPrimaryKey: note.id) {
+            do {
+                try realm.write {
+                    entry.attachments.append(file)
+                }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func detach(file: Attachment, from note: Entry) {
+        guard let realm = realm else {
+            return
+        }
+        if let entry = realm.object(ofType: Entry.self, forPrimaryKey: note.id) {
+            guard let index = entry.attachments.firstIndex(of: file) else { return }
+            do {
+                try realm.write {
+                    entry.attachments.remove(at: index)
+                }
+                let filePath: URL = docDir!.appendingPathComponent("attachments/\(file.fileName).jpg")
+                let fileThumbnailPath: URL = docDir!.appendingPathComponent("thumbnails/\(file.fileName).jpg")
+                try FileManager.default.removeItem(at: filePath)
+                try FileManager.default.removeItem(at: fileThumbnailPath)
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func highlight(annotation: Annotation, of entry: Entry) {
+        guard let realm = realm else {
+            return
+        }
+        
+        if let entry = realm.object(ofType: Entry.self, forPrimaryKey: entry.id) {
+            do {
+                try realm.write {
+                    entry.annotations.append(annotation)
+                }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func clear(annotation: Annotation, of entry: Entry) {
+        guard let realm = realm else {
+            return
+        }
+        
+        if let entry = realm.object(ofType: Entry.self, forPrimaryKey: entry.id) {
+            guard let index = entry.annotations.firstIndex(of: annotation) else { return }
+            do {
+                try realm.write {
+                    entry.annotations.remove(at: index)
+                }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
 }

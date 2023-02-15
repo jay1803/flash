@@ -12,33 +12,38 @@ struct EntryTextView: UIViewRepresentable {
     @Binding var calculatedHeight: CGFloat
     @Binding var selectedContent: String?
     @Binding var isPresentingQuoteView: Bool
+    @Binding var annotations: [NSRange?]
+    @Binding var highlightedRange: NSRange?
+    
     var fontSize: CGFloat
     
     func makeUIView(context: UIViewRepresentableContext<EntryTextView>) -> TextView {
         let textView = TextView(content: self.$content,
                                 calculatedHeight: self.$calculatedHeight,
                                 selectedContent: self.$selectedContent,
-                                isPresentingQuoteView: self.$isPresentingQuoteView)
+                                isPresentingQuoteView: self.$isPresentingQuoteView,
+                                annotations: self.$annotations,
+                                highlightedRange: self.$highlightedRange,
+                                fontSize: fontSize)
+        
+        let attributedStyle: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.clear, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+        
         textView.delegate                   = context.coordinator
-        textView.font                       = .systemFont(ofSize: fontSize)
         textView.isSelectable               = true
         textView.isUserInteractionEnabled   = true
         textView.isEditable                 = false
         textView.isScrollEnabled            = false
         textView.backgroundColor            = UIColor.clear
+        textView.attributedText             = NSMutableAttributedString(string: content, attributes: attributedStyle)
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
-//        let style = NSMutableParagraphStyle()
-//        style.lineSpacing = 5
-//        let attributes = [NSAttributedString.Key.paragraphStyle : style, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
-//        textView.attributedText = NSAttributedString(string: self.content, attributes: attributes)
         return textView
     }
     
     func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<EntryTextView>) {
         if uiView.text != self.content {
-            uiView.text = self.content
-//            uiView.attributedText = NSAttributedString(string: self.content)
+            let attributedText = NSAttributedString(string: self.content)
+            uiView.attributedText = attributedText
         }
         if uiView.window != nil, !uiView.isFirstResponder {
             uiView.becomeFirstResponder()
@@ -80,19 +85,31 @@ class TextView: UITextView, UITextViewDelegate {
     @Binding var calculatedHeight: CGFloat
     @Binding var selectedContent: String?
     @Binding var isPresentingQuoteView: Bool
+    @Binding var annotations: [NSRange?]
+    @Binding var highlightedRange: NSRange?
+    var fontSize: CGFloat
     
     init(content: Binding<String>,
          calculatedHeight: Binding<CGFloat>,
          selectedContent: Binding<String?>,
-         isPresentingQuoteView: Binding<Bool>) {
+         isPresentingQuoteView: Binding<Bool>,
+         annotations: Binding<[NSRange?]>,
+         highlightedRange: Binding<NSRange?>,
+         fontSize: CGFloat) {
+        
         self._content               = content
         self._calculatedHeight      = calculatedHeight
         self._selectedContent       = selectedContent
         self._isPresentingQuoteView = isPresentingQuoteView
+        self._annotations           = annotations
+        self._highlightedRange      = highlightedRange
+        self.fontSize              = fontSize
+        
         super.init(frame: .zero, textContainer: nil)
         
         let quoteMenu = UIMenuItem(title: "Quote", action: #selector(quote))
-        UIMenuController.shared.menuItems = [quoteMenu]
+        let highlightMenu = UIMenuItem(title: "Highlight", action: #selector(highlight))
+        UIMenuController.shared.menuItems = [quoteMenu, highlightMenu]
     }
     
     required init?(coder: NSCoder) {
@@ -104,5 +121,25 @@ class TextView: UITextView, UITextViewDelegate {
         guard let selectedText = self.text(in: selectedTextRange!) else { return }
         self.selectedContent = selectedText
         self.isPresentingQuoteView = true
+    }
+    
+    @objc
+    func highlight() {
+        guard let selectedText = self.text(in: selectedTextRange!) else { return }
+        self.selectedContent = selectedText
+        
+        if let range = self.selectedTextRange {
+            let attributedStyle: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.clear, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+            var attributedContent = NSMutableAttributedString(string: content, attributes: attributedStyle)
+            let highlightRange = NSRange(location: self.offset(from: self.beginningOfDocument, to: range.start), length: self.offset(from: range.start, to: range.end))
+            
+            self.annotations.append(highlightRange)
+            self.annotations.forEach { annotation in
+                let highlightStyles: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.yellow, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+                attributedContent.setAttributes(highlightStyles, range: annotation!)
+            }
+            self.attributedText = attributedContent
+        }
+        print(self.annotations)
     }
 }

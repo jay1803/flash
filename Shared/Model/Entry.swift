@@ -16,9 +16,14 @@ enum AttachmentType: String {
 
 final class Attachment: EmbeddedObject {
     @Persisted var title: String?
-    @Persisted var path: String
+    @Persisted var fileName: String
     @Persisted var type: String
     @Persisted var previewImagePath: String?
+}
+
+final class Annotation: EmbeddedObject {
+    @Persisted var location: Int
+    @Persisted var length: Int
 }
 
 final class Entry: Object, ObjectKeyIdentifiable {
@@ -32,6 +37,7 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var replyTo: Entry?
     @Persisted var replies: List<Entry>
     @Persisted var attachments: List<Attachment>
+    @Persisted var annotations: List<Annotation>
     
     convenience init(id: UUID = UUID(), content: String, quote:String? = nil, replyTo: Entry? = nil, createdAt: Date = Date()) {
         self.init()

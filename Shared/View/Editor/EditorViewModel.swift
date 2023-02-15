@@ -41,7 +41,7 @@ final class EditorViewModel: ObservableObject {
         realm.add(entry: entry)
     }
     
-    func replyTo(entry: Entry, reply: Entry) {
+    func replyTo(entry: Entry, with reply: Entry) {
         realm.replyTo(entry: entry, with: reply)
     }
 }

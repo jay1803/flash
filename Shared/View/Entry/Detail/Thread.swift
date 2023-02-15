@@ -21,8 +21,10 @@ struct Thread: View {
             }
             
             EntryContent(entry: replyTo,
-                         selectedContent: .constant(nil), 
-                         isPresentingQuoteView: .constant(false), 
+                         annotations: .constant([]),
+                         selectedContent: .constant(nil),
+                         isPresentingQuoteView: .constant(false),
+                         highlightedRange: .constant(nil),
                          fontSize: 17)
         }
     }

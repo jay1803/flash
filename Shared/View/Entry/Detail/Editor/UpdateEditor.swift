@@ -9,6 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct UpdateEditor: View {
+    var note: Entry
     var quoteContent: String?
     @Binding var noteContent: String
     @FocusState private var focusedField: Bool
@@ -29,6 +30,10 @@ struct UpdateEditor: View {
                 Divider()
             }
             
+            if let attchments = note.attachments {
+                
+            }
+            
             TextEditor(text: $noteContent)
                 .padding(.horizontal, 12)
                 .focused($focusedField)
@@ -44,7 +49,8 @@ struct UpdateEditor: View {
 struct UpdateEditor_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UpdateEditor(noteContent: .constant("This is sample note content"))
+            UpdateEditor(note: Entry(content: "This is a sample"),
+                         noteContent: .constant("This is note content"))
         }
     }
 }

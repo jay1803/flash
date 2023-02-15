@@ -27,6 +27,7 @@ struct EntryDetail: View {
     @State var inputText: String        = ""
     @State var isPresentingEditView     = false
     @State var isPresentingQuoteView    = false
+    @State var isHighlightText          = false
     @State var newEntryContent: String  = ""
     
     var body: some View {
@@ -48,8 +49,10 @@ struct EntryDetail: View {
                     
                     // MARK: - Content
                     EntryContent(entry: viewModel.entry!,
+                                 annotations: $viewModel.annotations,
                                  selectedContent: $viewModel.quoteContent,
                                  isPresentingQuoteView: $isPresentingQuoteView,
+                                 highlightedRange: $viewModel.highlightedRange,
                                  fontSize: 19)
                 }
                 
@@ -86,7 +89,7 @@ struct EntryDetail: View {
         .sheet(isPresented: $isPresentingEditView) {
             NavigationView {
                 UpdateEditor(
-                    quoteContent: viewModel.entry?.quote,
+                    note: viewModel.entry!,
                     noteContent: $inputText)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
@@ -123,7 +126,7 @@ struct EntryDetail: View {
                                 Button("Send") {
                                     let newEntry = Entry(content: newEntryContent, quote: quoteContent)
                                     isPresentingQuoteView = false
-                                    editViewModel.replyTo(entry: viewModel.entry!, reply: newEntry)
+                                    editViewModel.replyTo(entry: viewModel.entry!, with: newEntry)
                                     editViewModel.content = ""
                                     viewModel.quoteContent = nil
                                 }

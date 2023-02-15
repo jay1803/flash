@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'flash (iOS)' do
   pod 'RealmSwift', '~>10'
+  pod 'ImageViewer', :git => 'https://github.com/Jake-Short/swiftui-image-viewer.git'
 end
 
 target 'flash (macOS)' do
@@ -21,4 +22,5 @@ end
 target 'Tests iOS' do
   pod 'RealmSwift', '~>10'
   pod 'ViewInspector'
+  pod 'ImageViewer', :git => 'https://github.com/Jake-Short/swiftui-image-viewer.git'
 end

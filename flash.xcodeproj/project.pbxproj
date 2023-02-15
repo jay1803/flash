@@ -368,6 +368,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		508CFDD128C9B55900FE85BD /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				50696FDB2836283500CB464A /* UpdateEditor.swift */,
+				50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
 		50AC43C7281BACE90033E148 = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +486,7 @@
 		50D9C35E2826C12500AC4E89 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				508CFDD128C9B55900FE85BD /* Editor */,
 				5002216B2821217D009D9A4E /* EntryDetail.swift */,
 				50D9C35F2826C14000AC4E89 /* EntryContent.swift */,
 				504C50972853071400E7AA16 /* EntryTextView.swift */,
@@ -498,8 +508,6 @@
 		50D9C3742828D2D100AC4E89 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				50696FDB2836283500CB464A /* UpdateEditor.swift */,
-				50D3B24528B5E73A00ABF7B6 /* QuoteEditor.swift */,
 				5002214A281C0220009D9A4E /* EntryEditor.swift */,
 				50D9C37F2828FBEE00AC4E89 /* TextInput.swift */,
 				50D9C37C2828F1FD00AC4E89 /* PickImageButton.swift */,

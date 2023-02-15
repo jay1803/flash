@@ -27,13 +27,13 @@ struct SendButton: View {
                     for imageData in viewModel.attachments {
                         let attachment = Attachment()
                         attachment.type = "image"
-                        attachment.path = "\(imageData.id).jpg"
-                        saveToJPG(image: imageData.image, path: attachment.path)
+                        attachment.fileName = "\(imageData.id).jpg"
+                        saveToJPG(image: imageData.image, fileName: attachment.fileName)
                         newEntry.attachments.append(attachment)
                     }
                 }
                 if let entry = parentEntry {
-                    viewModel.replyTo(entry: entry, reply: newEntry)
+                    viewModel.replyTo(entry: entry, with: newEntry)
                 } else {
                     entryListViewModel.add(entry: newEntry)
                 }

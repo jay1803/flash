@@ -11,6 +11,8 @@ import RealmSwift
 final class EntryDetailViewModel: ObservableObject {
     @Published var entry: Entry?
     @Published var quoteContent: String? = nil
+    @Published var annotations: [NSRange?] = []
+    @Published var highlightedRange: NSRange?
     private let entryId: UUID
     private let realmManager = RealmManager.shared
     private var notificationToken: NotificationToken?
@@ -22,6 +24,9 @@ final class EntryDetailViewModel: ObservableObject {
     
     func fetch() {
         self.entry = realmManager.getEntry(by: self.entryId)
+        guard let annotations = self.entry?.annotations else { return }
+        self.annotations = annotations.map { NSRange(location: $0.location, length: $0.length) }
+        print(self.annotations)
     }
     
     func update(entry: Entry) {
