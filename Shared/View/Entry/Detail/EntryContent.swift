@@ -35,7 +35,8 @@ struct EntryContent: View {
                     
             }
             
-            EntryTextView(content: $entry.content,
+            EntryTextView(viewModel: EntryDetailViewModel(id: entry.id),
+                          content: $entry.content,
                           calculatedHeight: $calculatedHeight,
                           selectedContent: $selectedContent,
                           isPresentingQuoteView: $isPresentingQuoteView,

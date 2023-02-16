@@ -21,7 +21,7 @@ final class Attachment: EmbeddedObject {
     @Persisted var previewImagePath: String?
 }
 
-final class Annotation: EmbeddedObject {
+final class HighlightedRange: EmbeddedObject {
     @Persisted var location: Int
     @Persisted var length: Int
 }
@@ -37,7 +37,7 @@ final class Entry: Object, ObjectKeyIdentifiable {
     @Persisted var replyTo: Entry?
     @Persisted var replies: List<Entry>
     @Persisted var attachments: List<Attachment>
-    @Persisted var annotations: List<Annotation>
+    @Persisted var highlightedRanges: List<HighlightedRange>
     
     convenience init(id: UUID = UUID(), content: String, quote:String? = nil, replyTo: Entry? = nil, createdAt: Date = Date()) {
         self.init()

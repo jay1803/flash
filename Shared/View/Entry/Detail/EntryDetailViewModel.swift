@@ -17,6 +17,8 @@ final class EntryDetailViewModel: ObservableObject {
     private let realmManager = RealmManager.shared
     private var notificationToken: NotificationToken?
     
+    private let realm = RealmManager.shared
+    
     init(id: UUID) {
         self.entryId = id
         fetch()
@@ -24,7 +26,7 @@ final class EntryDetailViewModel: ObservableObject {
     
     func fetch() {
         self.entry = realmManager.getEntry(by: self.entryId)
-        guard let annotations = self.entry?.annotations else { return }
+        guard let annotations = self.entry?.highlightedRanges else { return }
         self.annotations = annotations.map { NSRange(location: $0.location, length: $0.length) }
         print(self.annotations)
     }
@@ -52,5 +54,18 @@ final class EntryDetailViewModel: ObservableObject {
     
     func invalidate() {
         notificationToken?.invalidate()
+    }
+    
+    func highlight(range: NSRange) {
+        let highlightRange = HighlightedRange()
+        highlightRange.location = range.location
+        highlightRange.length = range.length
+        
+        if let index = self.entry!.highlightedRanges.firstIndex(where: {$0.location == range.location}) {
+            realm.updateHightlight(range: highlightRange, of: self.entry!, at: index)
+        } else {
+            realm.highlight(range: highlightRange, of: self.entry!)
+        }
+        
     }
 }

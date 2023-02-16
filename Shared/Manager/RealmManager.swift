@@ -191,7 +191,7 @@ class RealmManager: ObservableObject {
         }
     }
     
-    func highlight(annotation: Annotation, of entry: Entry) {
+    func highlight(range: HighlightedRange, of entry: Entry) {
         guard let realm = realm else {
             return
         }
@@ -199,7 +199,7 @@ class RealmManager: ObservableObject {
         if let entry = realm.object(ofType: Entry.self, forPrimaryKey: entry.id) {
             do {
                 try realm.write {
-                    entry.annotations.append(annotation)
+                    entry.highlightedRanges.append(range)
                 }
             } catch {
                 fatalError(error.localizedDescription)
@@ -207,16 +207,32 @@ class RealmManager: ObservableObject {
         }
     }
     
-    func clear(annotation: Annotation, of entry: Entry) {
+    func updateHightlight(range: HighlightedRange, of entry: Entry, at index: Int) {
+        guard let realm = realm else {
+             return
+        }
+        
+        if let entry = realm.object(ofType: Entry.self, forPrimaryKey: entry.id) {
+            do {
+                try realm.write {
+                    print("replacing...")
+                    entry.highlightedRanges.replace(index: index, object: range)
+                }
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func unhighlight(entry: Entry, at index: Int) {
         guard let realm = realm else {
             return
         }
         
         if let entry = realm.object(ofType: Entry.self, forPrimaryKey: entry.id) {
-            guard let index = entry.annotations.firstIndex(of: annotation) else { return }
             do {
                 try realm.write {
-                    entry.annotations.remove(at: index)
+                    entry.highlightedRanges.remove(at: index)
                 }
             } catch {
                 fatalError(error.localizedDescription)

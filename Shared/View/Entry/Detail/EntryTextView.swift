@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct EntryTextView: UIViewRepresentable {
-    
+    @ObservedObject var viewModel: EntryDetailViewModel
     @Binding var content: String
     @Binding var calculatedHeight: CGFloat
     @Binding var selectedContent: String?
@@ -18,7 +18,8 @@ struct EntryTextView: UIViewRepresentable {
     var fontSize: CGFloat
     
     func makeUIView(context: UIViewRepresentableContext<EntryTextView>) -> TextView {
-        let textView = TextView(content: self.$content,
+        let textView = TextView(viewModel: viewModel,
+                                content: self.$content,
                                 calculatedHeight: self.$calculatedHeight,
                                 selectedContent: self.$selectedContent,
                                 isPresentingQuoteView: self.$isPresentingQuoteView,
@@ -41,10 +42,18 @@ struct EntryTextView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: UIViewRepresentableContext<EntryTextView>) {
+        let attributedStyle: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.clear, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+        let attributedContent = NSMutableAttributedString(string: content, attributes: attributedStyle)
+        
         if uiView.text != self.content {
             let attributedText = NSAttributedString(string: self.content)
             uiView.attributedText = attributedText
         }
+        self.viewModel.entry?.highlightedRanges.forEach { annotation in
+            let highlightStyles: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.yellow, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+            attributedContent.setAttributes(highlightStyles, range: NSRange(location: annotation.location, length: annotation.length))
+        }
+        uiView.attributedText = attributedContent
         if uiView.window != nil, !uiView.isFirstResponder {
             uiView.becomeFirstResponder()
         }
@@ -81,6 +90,7 @@ struct EntryTextView: UIViewRepresentable {
 }
 
 class TextView: UITextView, UITextViewDelegate {
+    var viewModel: EntryDetailViewModel
     @Binding var content: String
     @Binding var calculatedHeight: CGFloat
     @Binding var selectedContent: String?
@@ -89,23 +99,32 @@ class TextView: UITextView, UITextViewDelegate {
     @Binding var highlightedRange: NSRange?
     var fontSize: CGFloat
     
-    init(content: Binding<String>,
+    init(viewModel: EntryDetailViewModel,
+         content: Binding<String>,
          calculatedHeight: Binding<CGFloat>,
          selectedContent: Binding<String?>,
          isPresentingQuoteView: Binding<Bool>,
          annotations: Binding<[NSRange?]>,
          highlightedRange: Binding<NSRange?>,
          fontSize: CGFloat) {
-        
+        self.viewModel              = viewModel
         self._content               = content
         self._calculatedHeight      = calculatedHeight
         self._selectedContent       = selectedContent
         self._isPresentingQuoteView = isPresentingQuoteView
         self._annotations           = annotations
         self._highlightedRange      = highlightedRange
-        self.fontSize              = fontSize
+        self.fontSize               = fontSize
         
         super.init(frame: .zero, textContainer: nil)
+        
+        let attributedStyle: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.clear, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+        let attributedContent = NSMutableAttributedString(string: self.content, attributes: attributedStyle)
+        self.viewModel.entry?.highlightedRanges.forEach { annotation in
+            let highlightStyles: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.yellow, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
+            attributedContent.setAttributes(highlightStyles, range: NSRange(location: annotation.location, length: annotation.length))
+        }
+        self.attributedText = attributedContent
         
         let quoteMenu = UIMenuItem(title: "Quote", action: #selector(quote))
         let highlightMenu = UIMenuItem(title: "Highlight", action: #selector(highlight))
@@ -130,10 +149,11 @@ class TextView: UITextView, UITextViewDelegate {
         
         if let range = self.selectedTextRange {
             let attributedStyle: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.clear, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
-            var attributedContent = NSMutableAttributedString(string: content, attributes: attributedStyle)
+            let attributedContent = NSMutableAttributedString(string: content, attributes: attributedStyle)
             let highlightRange = NSRange(location: self.offset(from: self.beginningOfDocument, to: range.start), length: self.offset(from: range.start, to: range.end))
             
             self.annotations.append(highlightRange)
+            self.viewModel.highlight(range: highlightRange)
             self.annotations.forEach { annotation in
                 let highlightStyles: [NSAttributedString.Key: Any] = [NSAttributedString.Key.backgroundColor: UIColor.yellow, NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)]
                 attributedContent.setAttributes(highlightStyles, range: annotation!)
